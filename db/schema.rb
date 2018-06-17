@@ -10,10 +10,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_16_125548) do
+ActiveRecord::Schema.define(version: 2018_06_16_205933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "donation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["donation_id"], name: "index_bookmarks_on_donation_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "episode_id"
+    t.bigint "influencer_id"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["episode_id"], name: "index_donations_on_episode_id"
+    t.index ["influencer_id"], name: "index_donations_on_influencer_id"
+    t.index ["user_id"], name: "index_donations_on_user_id"
+  end
+
+  create_table "episodes", force: :cascade do |t|
+    t.string "name"
+    t.bigint "podcast_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["podcast_id"], name: "index_episodes_on_podcast_id"
+  end
+
+  create_table "podcasts", force: :cascade do |t|
+    t.string "name"
+    t.bigint "creator_id"
+    t.integer "balance", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "artwork"
+    t.index ["creator_id"], name: "index_podcasts_on_creator_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "saves", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "donation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["donation_id"], name: "index_saves_on_donation_id"
+    t.index ["user_id"], name: "index_saves_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +86,18 @@ ActiveRecord::Schema.define(version: 2018_06_16_125548) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_pic"
+    t.string "user_name"
+    t.integer "balance", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookmarks", "donations"
+  add_foreign_key "bookmarks", "users"
+  add_foreign_key "donations", "episodes"
+  add_foreign_key "donations", "users"
+  add_foreign_key "episodes", "podcasts"
+  add_foreign_key "saves", "donations"
+  add_foreign_key "saves", "users"
 end

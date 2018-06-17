@@ -1,0 +1,77 @@
+.card {
+  padding: 10px 20px;
+  border-bottom: solid 1px gray;
+  border-right: solid 1px gray;
+  border-left: solid 1px gray;
+  background-color: white;
+  position: relative;
+}
+
+.top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-row .profile-pic {
+  border-radius: 50%;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+
+.top-row h2 {
+  font-size: 20px;
+  padding-left: 100px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.user_name {
+  position: absolute;
+  font-size: 15px;
+  top: 18px;
+  left: 118px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.feed {
+  padding-right: 400px;
+  padding-left: 400px;
+  background-color: #d3d3d3;
+}
+
+.artwork {
+  flex: 1 0 auto;
+}
+
+.bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bottom-row h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 60px;
+  margin-left: 10px;
+  color: green;
+}
+
+.bottom-row h2 {
+  font-size: 15px;
+}
+
+.bottom-row a:visited {
+  color: red;
+}
+
+.grow {
+  flex: 1 0 auto;
+}
+
+.b-item {
+  margin-right: 30px;
+}

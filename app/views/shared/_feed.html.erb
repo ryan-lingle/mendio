@@ -1,0 +1,22 @@
+<div class="feed">
+  <% feed.each do |donation| %>
+    <div class="card">
+      <div class="top-row">
+        <%= cl_image_tag donation.user.profile_pic, height: 70, width: 70, class: "profile-pic" %>
+        <h3 class= 'user_name'><strong><%= donation.user.user_name %></strong></h3>
+        <h2><%= donation.episode.name %></h2>
+        <div class="artwork text-right">
+          <%= cl_image_tag donation.episode.podcast.artwork, height: 100, width: 100 %>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <h3 class='b-item'>$<%= donation.amount %></h3>
+        <%= link_to bookmarks_path(donation_id: donation), method: :post do %>
+          <i class="far fa-bookmark b-item"></i>
+        <% end %>
+        <i class="far fa-play-circle grow b-item"></i>
+        <h2 class="text-right"><%= donation.episode.podcast.name %></h2>
+      </div>
+    </div>
+  <% end %>
+</div>

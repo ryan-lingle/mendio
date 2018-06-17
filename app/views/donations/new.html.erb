@@ -1,0 +1,14 @@
+<%= text_field_tag :query,
+  params[:query],
+  class: "podcast-search",
+  placeholder: "Search for a podcast"
+%>
+
+<ul class='podcast-results'>
+
+</ul>
+
+<%= simple_form_for(@donation) do |f| %>
+  <%= f.label 'Podcast' %>
+<% end %>
+
