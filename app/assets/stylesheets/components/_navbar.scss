@@ -8,9 +8,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid gray;
 }
 
+body {
+  padding-top: 70px;
+}
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
