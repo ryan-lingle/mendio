@@ -3,11 +3,29 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: white;
   position: relative;
+  text-overflow: ellipsis;
+  overflow: hidden;
   &:hover {
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: rgba(255, 255, 255, 0.77);
     transition: all 0.4s;
   }
+}
+
+.yellow {
+  color: $yellow;
+}
+
+.small-episode-name {
+  font-size: 16px !important;
+}
+.podcast-name {
+  font-weight: normal;
+  font-size: 12px;
+  padding-top: 10px;
+  width: 100px;
+  text-align: center;
+  margin-bottom: 0px;
 }
 
 .top-row {
@@ -28,6 +46,7 @@
   padding-left: 100px;
   padding-right: 10px;
   padding-top: 10px;
+  font-weight: normal;
 }
 
 .user_name {
@@ -39,14 +58,63 @@
   margin-bottom: 0px;
 }
 
+@media (min-width: 1200px) {
+  .feed {
+    max-width: 1140px;
+    float: center;
+  }
+}
+
+@media (min-width: 992px) {
+  .feed {
+    max-width: 1140px;
+    float: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .feed {
+    float: center;
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 576px) {
+  .feed {
+    float: center;
+    max-width: 720px;
+  }
+}
+
 .feed {
-  padding-right: 400px;
-  padding-left: 400px;
   background-color: #F4F4F4;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  .col-xs-12 {
+    padding: 0;
+  }
 }
 
 .artwork {
   flex: 1 0 auto;
+}
+
+.favo-icons {
+  position: absolute;
+  padding-left: 100px;
+  .fa-play {
+    font-size: 16px;
+  }
+  a {
+  text-decoration: none;
+  color: #D9D8E8;
+  margin-right: 15px;
+    &:hover {
+      color: $light-gray;
+      transition: ease 0.4s;
+    }
+  }
 }
 
 .bottom-row {
@@ -60,15 +128,13 @@
   margin-bottom: 0;
   margin-right: 60px;
   margin-left: 10px;
-  color: green;
+  font-family: 'Press Start 2P';
+  font-size: 16px;
+  color: $green;
 }
 
 .bottom-row h2 {
   font-size: 15px;
-}
-
-.bottom-row a:visited {
-  color: red;
 }
 
 .grow {
