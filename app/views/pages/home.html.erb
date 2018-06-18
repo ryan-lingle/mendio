@@ -1,1 +1,4 @@
-<%= render 'shared/feed', feed: @feed %>
+<% if user_signed_in? %>
+  <%= render 'shared/feed', feed: @feed %>
+<% else %>
+<% end %>
