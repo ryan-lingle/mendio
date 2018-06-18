@@ -1,10 +1,13 @@
 .card {
   padding: 10px 20px;
-  border-bottom: solid 1px gray;
-  border-right: solid 1px gray;
-  border-left: solid 1px gray;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: white;
   position: relative;
+  &:hover {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(255, 255, 255, 0.87);
+    transition: all 0.4s;
+  }
 }
 
 .top-row {
@@ -39,7 +42,7 @@
 .feed {
   padding-right: 400px;
   padding-left: 400px;
-  background-color: #d3d3d3;
+  background-color: #F4F4F4;
 }
 
 .artwork {
