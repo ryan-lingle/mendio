@@ -4,4 +4,10 @@ class Podcast < ActiveRecord::Base
   validates_presence_of :name
   validates :name, uniqueness: true
   mount_uploader :artwork, ArtworkUploader
+  include PgSearch
+  pg_search_scope :search,
+    against: [ :name ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
