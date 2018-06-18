@@ -5,7 +5,7 @@ episodeResults.insertAdjacentHTML('beforeend', "<li class='podcast'><%= result.n
 '<% end %>'
 
 function clicker(results) {
-  epiosodeResults.addEventListener('click', (event) => {
+  document.querySelector('.episode-results').addEventListener('click', (event) => {
     episodeInput.value = event.target.innerText;
     document.querySelector(".episode-results").innerHTML = "";
     document.querySelector('#hidden-episode').value = event.target.innerText;
@@ -15,3 +15,4 @@ function clicker(results) {
 }
 
 clicker(episodeResults)
+
