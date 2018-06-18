@@ -50,5 +50,5 @@ end
 
 puts 'creating donations...'
 300.times do
-  Donation.create(user: User.all.sample, episode: Episode.all.sample, influencer: User.all.sample, amount: rand(1..10))
+  Donation.create(user: User.all.sample, description: 'A great podcast!', episode: Episode.all.sample, influencer: User.all.sample, amount: rand(1..10))
 end
