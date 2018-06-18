@@ -1,0 +1,34 @@
+.results {
+  width: 100%;
+  margin-top: 0px;
+  list-style-type: none;
+  padding-left: 0px;
+  display: inline-block;
+}
+
+.podcast {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid #D3d3d3;
+  border-right: 1px solid #D3d3d3;
+  border-left: 1px solid #d3d3d3;
+  padding: 5px;
+  background-color: white;
+}
+.podcast:hover {
+  background-color: #d3d3d3;
+}
+
+.search {
+  width: 300px;
+}
+
+.search-input {
+  width: 300px;
+}
+
+.hidden {
+  display: hidden;
+}

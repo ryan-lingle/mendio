@@ -1,0 +1,33 @@
+<div class="search podcast-section">
+  <%= form_tag find_podcast_path, remote: true, method: :post do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "podcast-search search-input",
+      placeholder: "Search for a podcast..."
+    %>
+  <% end %>
+  <ul class='podcast-results results'>
+
+  </ul>
+</div>
+
+<div class="search episode-section hidden">
+  <%= form_tag find_episodes_path, remote: true, method: :post do %>
+    <%= hidden_field_tag 'podcast_id' %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "episode-search search-input",
+      placeholder: "Now search for an episode..."
+    %>
+  <% end %>
+  <ul class='episode-results results'>
+
+  </ul>
+</div>
+
+<div class="hidden-form">
+  <%= form_tag new_donation_path, method: :get do %>
+      <%= hidden_field_tag 'hidden-episode' %>
+      <%= submit_tag 'Next' %>
+  <% end %>
+</div>
