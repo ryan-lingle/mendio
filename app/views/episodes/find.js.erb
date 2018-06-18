@@ -5,10 +5,12 @@ episodeResults.insertAdjacentHTML('beforeend', "<li class='podcast'><%= result.n
 '<% end %>'
 
 function clicker(results) {
-  results.addEventListener('click', (event) => {
+  epiosodeResults.addEventListener('click', (event) => {
     episodeInput.value = event.target.innerText;
     document.querySelector(".episode-results").innerHTML = "";
     document.querySelector('#hidden-episode').value = event.target.innerText;
+    const element = document.querySelector('.episode-section form')
+    Rails.fire(element, 'submit');
   })
 }
 
