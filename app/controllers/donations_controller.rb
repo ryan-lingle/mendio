@@ -6,7 +6,11 @@ class DonationsController < ApplicationController
 
   def new
     @donation = Donation.new
-    @episode = Episode.find_by(name: params['hidden-episode'])
+    @episode = Episode.find_by(name: params['episode'])
+    respond_to do |format|
+      format.html { redirect_to select_episode_path }
+      format.js  # <-- will render `app/views/reviews/create.js.erb`
+    end
   end
 
   def create
@@ -14,7 +18,6 @@ class DonationsController < ApplicationController
     @episode = Episode.find(params[:donation][:episode])
     @donation.episode = @episode
     @donation.user = current_user
-    raise
     if @donation.save
       redirect_to root_path
     else

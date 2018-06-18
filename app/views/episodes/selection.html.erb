@@ -25,5 +25,8 @@
   </ul>
 </div>
 
-
-
+<div class="hidden-form">
+  <%= form_tag new_donation_path, remote: true, method: :post do %>
+    <%= hidden_field_tag :episode %>
+  <% end %>
+</div>
