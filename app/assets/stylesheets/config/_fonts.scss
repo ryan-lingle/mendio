@@ -1,16 +1,4 @@
-// Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700|Quicksand:400,500,700');
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
-// Define fonts for body and headers
-$body-font: "Josefin Sans", "Helvetica", "sans-serif", "300";
-$headers-font: "Quicksand", "Helvetica", "sans-serif";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900|Varela+Round');
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+$body-font: "Roboto", "Helvetica", "sans-serif", "300";
+$headers-font: "Valera Round", "Helvetica", "sans-serif";
