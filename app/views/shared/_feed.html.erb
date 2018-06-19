@@ -21,9 +21,9 @@
           <div class="favo-icons">
             <%= link_to bookmarks_path(donation_id: donation), method: :post do %>
               <% if @user.saved_donations.include?(donation) %>
-                <i class="yellow fas fa-star"></i>
+                <i class="yellow fas fa-star star"></i>
               <% else %>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star star"></i>
               <% end %>
             <% end %>
             <%= link_to '#', method: :post do %>
