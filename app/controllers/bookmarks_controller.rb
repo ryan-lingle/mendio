@@ -9,4 +9,9 @@ class BookmarksController < ApplicationController
     bookmark.donation = Donation.find(params[:donation_id])
     bookmark.save
   end
+
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+  end
 end

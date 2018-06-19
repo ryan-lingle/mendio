@@ -8,9 +8,6 @@ function executePodcastSearch() {
   }
 
 
-  console.log(document.querySelector('#podcast-section form'))
-
-
   function focuser(input) {
     input.addEventListener('focus', () => {
       document.addEventListener('keyup', podcastKey)
