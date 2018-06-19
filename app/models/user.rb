@@ -20,6 +20,8 @@ class User < ApplicationRecord
   mount_uploader :profile_pic, ProfilePicUploader
   after_create :send_welcome_email
 
+  attr_accessor :seed
+
   def feed
     feed = []
     self.following.each do |user|
@@ -52,6 +54,7 @@ class User < ApplicationRecord
   private
 
   def send_welcome_email
+    return if seed
     UserMailer.welcome(self).deliver_now
   end
 end

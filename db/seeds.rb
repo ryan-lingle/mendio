@@ -31,6 +31,7 @@ puts 'creating users...'
     balance: 10,
     email: Faker::Internet.email,
     password: 'mendiopassword',
+    seed: true,
   )
   user.remote_profile_pic_url = Faker::Avatar.image
   user.save!
