@@ -1,45 +1,44 @@
-
-<!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <div class="pop-up">
-          <div class="search podcast-section" id= 'podcast-section'>
-            <%= form_tag find_podcast_path, remote: true, method: :post, id: 'podcast-form' do %>
+  <div class="our-modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">donate to a podcast episode</h4>
+        </div>
+        <div class="modal-body">
+          <div class="pop-up">
+            <div class="search podcast-section" id= 'podcast-section'>
+              <%= form_tag find_podcast_path, remote: true, method: :post, id: 'podcast-form' do %>
               <%= text_field_tag :query,
-                params[:query],
-                class: "podcast-search search-input",
+              params[:query],
+              class: "podcast-search search-input",
                 placeholder: "Search for a podcast..."
-              %>
-            <% end %>
-            <ul class='podcast-results results'>
+                %>
+                <% end %>
+                <ul class='podcast-results results'>
 
-            </ul>
-          </div>
+                </ul>
+            </div>
 
-          <div class="search episode-section hidden">
-            <%= form_tag find_episodes_path, remote: true, method: :post do %>
+            <div class="search episode-section hidden">
+              <%= form_tag find_episodes_path, remote: true, method: :post do %>
               <%= hidden_field_tag 'podcast_id' %>
               <%= text_field_tag :query,
-                params[:query],
-                class: "episode-search search-input",
+              params[:query],
+              class: "episode-search search-input",
                 placeholder: "Now search for an episode..."
-              %>
-            <% end %>
-            <ul class='episode-results results'>
+                %>
+                <% end %>
+              <ul class='episode-results results'>
 
-            </ul>
-          </div>
-
-          <div class="hidden-form">
-            <%= form_tag new_donation_path, remote: true, method: :post do %>
-              <%= hidden_field_tag :episode %>
-            <% end %>
+              </ul>
+            </div>
+            <div class="hidden-form">
+                <%= form_tag new_donation_path, remote: true, method: :post do %>
+                <%= hidden_field_tag :episode %>
+                <% end %>
+            </div>
           </div>
         </div>
       </div>
