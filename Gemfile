@@ -16,7 +16,6 @@ gem "pg_search"
 gem "rubocop"
 gem "rubocop-rails"
 
-
 gem "autoprefixer-rails"
 gem "bootstrap-sass", "~> 3.3"
 gem "font-awesome-sass", "~> 5.0.9"
@@ -27,9 +26,11 @@ gem "webpacker"
 gem "faker"
 gem "cloudinary"
 gem "carrierwave", "~> 1.2"
+gem 'postmark-rails'
 
 group :development do
-  gem "web-console", ">= 3.3.0"
+  gem 'web-console', '>= 3.3.0'
+  gem 'letter_opener'
 end
 
 group :development, :test do

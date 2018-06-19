@@ -1,6 +1,6 @@
 function modal() {
   $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').focus()
+    $('#myInput').trigger('focus')
   })
 }
 
