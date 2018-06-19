@@ -4,18 +4,18 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">donate to a podcast episode</h4>
+          <h4 class="modal-title" id="myModalLabel">DONATE TO A PODCAST EPISODE</h4>
         </div>
         <div class="modal-body">
           <div class="pop-up">
             <div class="search podcast-section" id= 'podcast-section'>
               <%= form_tag find_podcast_path, remote: true, method: :post, id: 'podcast-form' do %>
-              <%= text_field_tag :query,
-              params[:query],
-              class: "podcast-search search-input",
-                placeholder: "Search for a podcast..."
-                %>
-                <% end %>
+                <%= text_field_tag :query,
+                params[:query],
+                autocomplete: :off,
+                class: "podcast-search search-input",
+                placeholder: "Search for a podcast" %>
+              <% end %>
                 <ul class='podcast-results results'>
 
                 </ul>
@@ -26,10 +26,11 @@
               <%= hidden_field_tag 'podcast_id' %>
               <%= text_field_tag :query,
               params[:query],
+              autocomplete: :off,
               class: "episode-search search-input",
-                placeholder: "Now search for an episode..."
+                placeholder: "Now search for an episode"
                 %>
-                <% end %>
+              <% end %>
               <ul class='episode-results results'>
 
               </ul>

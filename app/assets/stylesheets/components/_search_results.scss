@@ -11,14 +11,19 @@
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  border-bottom: 1px solid #D3d3d3;
-  border-right: 1px solid #D3d3d3;
-  border-left: 1px solid #d3d3d3;
   padding: 5px;
   background-color: white;
+  img {
+    height: 40px;
+  }
+  li {
+    font-weight: lighter;
+  }
 }
+
 .podcast:hover {
-  background-color: #d3d3d3;
+  background-color: #F3F3F3;
+  transition: ease 0.4s;
 }
 
 .search {
@@ -31,8 +36,4 @@
 
 .hidden {
   display: hidden;
-}
-
-.episode-results {
-  margin-top: 20px;
 }

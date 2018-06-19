@@ -1,4 +1,5 @@
 <div class="feed">
+  <%= render 'episodes/popup' %>
   <% @library.each do |donation| %>
     <div class="col-xs-12">
       <div class="card" data-donation-id="<%= donation.id %>">
@@ -10,9 +11,6 @@
           <h2 class= 'small-episode-name hidden-sm hidden-md hidden-lg'>
             <%= donation.episode.name %>
           </h2>
-          <div class="artwork text-right">
-
-          </div>
         </div>
         <div class="bottom-row">
         <p class="podcast-name text-right hidden-xs hidden-sm">
@@ -25,20 +23,19 @@
              %>
           </p>
           <div class="favo-icons">
-              <% if @user.saved_donations.include?(donation) %>
-                <%= link_to bookmark_path(Bookmark.find_by(donation_id: donation.id)), method: :delete, remote: true do %>
-                  <i class="yellow fas fa-star star"></i>
-                <% end %>
-              <% else %>
-                <%= link_to bookmarks_path(donation_id: donation), method: :post do %>
-                  <i class="fas fa-star star"></i>
-                <% end %>
+            <% if @user.saved_donations.include?(donation) %>
+              <%= link_to bookmark_path(Bookmark.find_by(donation_id: donation.id)), method: :delete, remote: true do %>
+                <i class="yellow fas fa-star star"></i>
               <% end %>
-              <%= link_to '#', method: :post do %>
-                <i class="fas fa-play"></i>
+            <% else %>
+              <%= link_to bookmarks_path(donation_id: donation), method: :post do %>
+                <i class="fas fa-star star"></i>
               <% end %>
+            <% end %>
+            <%= link_to '#', method: :post do %>
+              <i class="fas fa-play"></i>
+            <% end %>
           </div>
-
         </div>
       </div>
     </div>

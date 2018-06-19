@@ -1,5 +1,9 @@
-document.querySelector('.hidden-form').insertAdjacentHTML('afterend', `<%= simple_form_for(@donation) do |f| %>
+if (document.querySelector('.delete')) {
+  document.querySelector('.delete').innerHTML = '';
+}
+
+document.querySelector('.hidden-form').insertAdjacentHTML('afterend', `<div class="delete"><%= simple_form_for(@donation, html: { class: 'amount-input' }) do |f| %>
   <%= f.input :episode, as: :hidden, input_html: { value: @episode.id }  %>
-  <%= f.input :amount %>
+  <%= f.input :amount, label: false, placeholder: "Select an amount" %>
   <%= f.submit %>
-<% end %>`)
+<% end %></div>`)
