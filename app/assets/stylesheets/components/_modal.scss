@@ -2,12 +2,41 @@
   position: relative;
   top: 20%;
   h4 {
-    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 16px;
     font-weight: lighter;
   }
 }
 
-.modal-header {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.19);
+::placeholder {
+    color: $gray;
+    opacity: 0.3;
 }
 
+.modal-header {
+  border-bottom: none;
+  background-color: #F4F4F4;
+  border-left: 6px solid $green;
+}
+
+.modal-body {
+  background-color: #F4F4F4;
+  border-left: 6px solid $green;
+}
+
+#donation_amount {
+  border-radius: 3px;
+  border: 0;
+  padding-left: 10px;
+  width: 100%;
+}
+
+#query {
+  border-radius: 3px;
+  border: 0;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.search {
+  width: 100% !important;
+}

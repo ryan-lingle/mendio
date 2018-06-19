@@ -1,3 +1,5 @@
+document.querySelector(".episode-results").innerHTML = "";
+
 '<% @results.each do |result| %>'
 document.querySelector('.episode-results').insertAdjacentHTML('beforeend', "<li class='podcast'><%= result.name %></li>")
 '<% end %>'
