@@ -14,12 +14,13 @@ class DonationsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @donation = Donation.new(donation_params)
     @episode = Episode.find(params[:donation][:episode])
     @donation.episode = @episode
     @donation.user = current_user
-    if @donation.save
-      DonationMailer.creation_confirmation(@donation).deliver_now
+    if @donation.save!
+      DonationMailer.creation_confirmation(@donation, @user).deliver_now
       redirect_to root_path
     else
       render 'new'
