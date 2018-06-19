@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EpisodesController < ApplicationController
   def find
     if params[:query].present?

@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :donations, dependent: :destroy
-  has_many :influenced_donations, :class_name => 'Donation', :foreign_key => 'influencer_id'
+  has_many :influenced_donations, class_name: "Donation", foreign_key: "influencer_id"
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy

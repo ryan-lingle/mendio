@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Podcast < ActiveRecord::Base
   has_many :episodes, dependent: :destroy
   has_many :donations, through: :episodes
