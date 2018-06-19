@@ -10,7 +10,4 @@ class EpisodesController < ApplicationController
       @results = Episode.all
     end
   end
-
-  def selection
-  end
 end
