@@ -17,6 +17,7 @@ function executePodcastSearch() {
     })
   }
 
+
   function clicker(results) {
     podcastResults.addEventListener('click', (event) => {
       podcastInput.value = event.target.innerText;

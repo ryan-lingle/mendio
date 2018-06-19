@@ -1,17 +1,16 @@
-const episodeResults = document.querySelector('.episode-results')
-
 '<% @results.each do |result| %>'
-episodeResults.insertAdjacentHTML('beforeend', "<li class='podcast'><%= result.name %></li>")
+document.querySelector('.episode-results').insertAdjacentHTML('beforeend', "<li class='podcast'><%= result.name %></li>")
 '<% end %>'
 
-function clicker(results) {
-  epiosodeResults.addEventListener('click', (event) => {
+function clicker() {
+  document.querySelector('.episode-results').addEventListener('click', (event) => {
     episodeInput.value = event.target.innerText;
     document.querySelector(".episode-results").innerHTML = "";
-    document.querySelector('#hidden-episode').value = event.target.innerText;
-    const element = document.querySelector('.episode-section form')
+    document.querySelector('#episode').value = event.target.innerText;
+    const element = document.querySelector('.hidden-form form')
     Rails.fire(element, 'submit');
   })
 }
 
-clicker(episodeResults)
+clicker()
+

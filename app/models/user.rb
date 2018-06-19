@@ -24,6 +24,7 @@ class User < ApplicationRecord
         feed << donation
       end
     end
+    self.donations.each { |d| feed << d }
     feed = feed.sort_by { |donation| -donation.amount }
   end
 
