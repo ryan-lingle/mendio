@@ -8,7 +8,7 @@ Podcast.destroy_all
 Donation.destroy_all
 Episode.destroy_all
 
-tim_search = JSON.parse(open('https://itunes.apple.com/search?term=tim&media=podcast&entity=podcast').read)
+tim_search = JSON.parse(open('https://itunes.apple.com/search?term=t&media=podcast&entity=podcast').read)
 puts 'creating podcasts and episodes...'
 tim_search['results'].each do |podcast|
   s = podcast['collectionId']
@@ -27,7 +27,7 @@ tim_search['results'].each do |podcast|
 puts 'creating users...'
 25.times do
   user = User.new(
-    user_name: Faker::Internet.user_name,
+    username: Faker::Internet.user_name,
     balance: 10,
     email: Faker::Internet.email,
     password: 'mendiopassword',
@@ -49,6 +49,6 @@ end
 
 
 puts 'creating donations...'
-300.times do
+150.times do
   Donation.create(user: User.all.sample, description: 'A great podcast!', episode: Episode.all.sample, influencer: User.all.sample, amount: rand(1..10))
 end
