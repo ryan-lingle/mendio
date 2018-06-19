@@ -1,0 +1,29 @@
+<h1><%= @user.username %></h1>
+
+<a href="#" class='tab my-donations-tab'>Donations</a>
+<a href="#" class='tab following-tab'>Following</a>
+<a href="#" class='tab followers-tab'>Followers</a>
+
+<ul class="my-donations" >
+  <% @donations.each do |donation| %>
+    <li>
+      <%= donation.episode.name %>
+    </li>
+  <% end %>
+</ul>
+
+<ul class = "following hidden">
+  <% @following.each do |user| %>
+    <li>
+      <%= user.username %>
+    </li>
+  <% end %>
+</ul>
+
+<ul class="followers hidden">
+  <% @followers.each do |user| %>
+    <li>
+      <%= user.username %>
+    </li>
+  <% end %>
+</ul>
