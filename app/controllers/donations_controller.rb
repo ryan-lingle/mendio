@@ -19,6 +19,7 @@ class DonationsController < ApplicationController
     @donation.episode = @episode
     @donation.user = current_user
     if @donation.save
+      DonationMailer.creation_confirmation(@donation).deliver_now
       redirect_to root_path
     else
       render 'new'

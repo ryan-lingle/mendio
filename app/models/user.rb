@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :saved_donations, through: :bookmarks, source: :donation
   mount_uploader :profile_pic, ProfilePicUploader
+  after_create :send_welcome_email
 
   def feed
     feed = []
@@ -44,5 +45,11 @@ class User < ApplicationRecord
 
   def followed_by?
     followed_by.include?(other_user)
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
   end
 end
