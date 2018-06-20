@@ -8,5 +8,6 @@ class PagesController < ApplicationController
       @user = current_user
       @feed = @user.feed
     end
+    render layout: "onboarding"
   end
 end
