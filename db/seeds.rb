@@ -34,7 +34,7 @@ tim_search['results'].each do |podcast|
   search = JSON.parse(open(url).read)
   rss_url = search['results'][0]['feedUrl']
   rss = RSS::Parser.parse(rss_url, false)
-  rss.items.each do |item|
+  rss.items.first(15).each do |item|
     Episode.create!(name: item.title, podcast: pod)
   end
  end
