@@ -12,9 +12,9 @@
   <div class="navbar-wagon-left hidden-xs hidden-sm">
     <% if user_signed_in? %>
       <!-- Links when logged in -->
-      <%= link_to "NEW DONATION", select_episode_path, data: { toggle: "modal", target: "#myModal" }, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "LIBRARY", bookmarks_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to 'NOTIFICATIONS', notifications_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "NEW DONATION", select_episode_path, data: { toggle: "modal", target: "#myModal" }, class: "navbar-wagon-item navbar-wagon-link menu-item" %>
+      <%= link_to "LIBRARY", bookmarks_path, class: "navbar-wagon-item navbar-wagon-link menu-item" %>
+      <%= link_to 'NOTIFICATIONS', notifications_path, class: "navbar-wagon-item navbar-wagon-link menu-item" %>
     <% end %>
   </div>
 

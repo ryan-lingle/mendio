@@ -12,4 +12,9 @@ class PodcastsController < ApplicationController
       raise
     end
   end
+
+  def show
+    @podcast = Podcast.find(params[:id])
+    @episodes = @podcast.episodes
+  end
 end

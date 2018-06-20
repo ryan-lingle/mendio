@@ -2,13 +2,9 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_user, except: :index
   def index
-    if params[:query].present?
-      PgSearch::Multisearch.rebuild(User)
-      PgSearch::Multisearch.rebuild(Podcast)
-      @results = PgSearch.multisearch(params[:query])
-    else
-      @results = Podcast.all
-    end
+    PgSearch::Multisearch.rebuild(User)
+    PgSearch::Multisearch.rebuild(Podcast)
+    @results = PgSearch.multisearch(params[:query])
   end
 
   def show
