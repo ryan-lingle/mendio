@@ -47,7 +47,7 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  def followed_by?
+  def followed_by?(other_user)
     followed_by.include?(other_user)
   end
 

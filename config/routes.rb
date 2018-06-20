@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'episode/selection', to: 'episodes#selection', as: :select_episode
   post 'episodes/find', to: 'episodes#find', as: :find_episodes
   post 'donations/new', to: 'donations#new', as: :new_donation
+  post 'follow/:id', to: 'users#toggle_follow', as: :toggle_follow
 end
