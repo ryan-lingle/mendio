@@ -1,4 +1,6 @@
-<div class="feed">
+<div class="wrapper">
+  <%= render 'shared/profile' %>
+  <div class="feed">
     <%= render 'episodes/popup' %>
     <% feed.each do |donation| %>
     <div class="col-xs-12">
@@ -44,5 +46,6 @@
         </div>
       </div>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

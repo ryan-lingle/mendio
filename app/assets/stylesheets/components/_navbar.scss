@@ -10,6 +10,10 @@
   justify-content: space-between;
 }
 
+a:active {
+  background-color: black;
+}
+
 .bar-search {
   background-color: $light-gray;
   width: 200px !important;

@@ -1,4 +1,5 @@
 <div class="container">
+  <%= render 'episodes/popup' %>
   <h1><%= @user.username %></h1>
   <% if current_user.following?(@user) && current_user.followed_by?(@user) %>
     <p>(You Follow Each Other)</p>
