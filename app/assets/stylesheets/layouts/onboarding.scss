@@ -1,0 +1,54 @@
+.wrapper {
+  background-color: #F8333C;
+  height: 100%;
+  width: 100%;
+  padding-top: 0px;
+  background-image: url("sound-wave.svg");
+  background-repeat: no-repeat;
+  background-position: 100% 145%;
+}
+
+.landing-page {
+  background-color: #F8333C;
+}
+
+.why-mendio {
+  margin-top: 50px;
+  padding: 10px 20px;
+}
+
+.why-mendio h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 85px;
+  text-align: center;
+  color: white;
+}
+
+.why-mendio--item {
+  text-align: center;
+  margin-bottom: 60px;
+  box-sizing: inherit;
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img {
+    margin-right: 50px;
+  }
+  p {
+    text-align: left;
+  }
+}
+
+.image {
+  height: 75px;
+  width: 75px;
+}
+
+.sound-wave {
+  opacity: 0.1;
+}

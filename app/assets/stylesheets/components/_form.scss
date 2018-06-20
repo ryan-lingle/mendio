@@ -1,11 +1,49 @@
+.form-login {
+  background: #F8333C;
+  border-radius: 4px;
+  margin-top: 50px;
+  padding: 10px 20px;
+  color: #fff;
+  h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .mendio-button-confirm {
+    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    color: #fff;
+    border-radius: 4px;
+    background-color: #48D1CC;
+    font-weight: bold;
+  }
+}
+
+.form-control {
+  border-radius: 4px;
+}
+
 .form-inputs {
-  border-radius: 15px;
+  border-radius: 4px;
 }
 
 .form-links {
-  border-radius: 15px;
+  list-style-type: none;
+  padding: 0px;
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
 }
 
 .form-actions {
-  border-radius: 15px;
+  border-radius: 4px;
 }
+
+.background {
+  background-color: #F8333C;
+}
+
+
