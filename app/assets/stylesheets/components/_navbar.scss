@@ -18,6 +18,13 @@ body {
   height: 50px;
 }
 
+.navbar-wagon-brand-desktop {
+  text-align: center;
+  position: absolute;
+  top: 15px;
+  left: 50%;
+}
+
 /* User Avatar */
 .navbar-wagon .avatar {
   height: 35px;
@@ -26,7 +33,7 @@ body {
 }
 
 /* Right section */
-.navbar-wagon-right {
+.navbar-wagon-left {
   display: flex;
   align-items: center;
   justify-content: space-between;
