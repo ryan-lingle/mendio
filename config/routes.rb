@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:index, :create, :destroy]
   resources :donations, except: [:edit, :new]
   resources :podcasts, only: [:create]
+  resources :notifications, only: [:index]
   post 'podcast/find', to: 'podcasts#find', as: :find_podcast
   get 'episode/selection', to: 'episodes#selection', as: :select_episode
   post 'episodes/find', to: 'episodes#find', as: :find_episodes

@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :followed_by, through: :passive_relationships, source: :follower
   has_many :bookmarks, dependent: :destroy
   has_many :saved_donations, through: :bookmarks, source: :donation
+  has_many :notifications
   mount_uploader :profile_pic, ProfilePicUploader
   after_create :send_welcome_email
 
