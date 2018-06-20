@@ -1,4 +1,4 @@
-<h1> <%= @podcast.name %> </h1>
+<h1 class='podcast-title'> <%= @podcast.name %> </h1>
 <h2>Episodes</h2>
 <%= form_tag find_episodes_path, remote: true, method: :post do %>
   <%= hidden_field_tag 'podcast_id', @podcast.id %>
@@ -13,6 +13,7 @@
   <% @episodes.each do |ep| %>
     <li>
       <%= link_to ep.name, episode_path(ep) %>
+      | <<%= link_to "DONATE", episodes_path(episode: ep.id), data: { toggle: "modal", target: "#myModal" } %>
     </li>
   <% end %>
 </ul>

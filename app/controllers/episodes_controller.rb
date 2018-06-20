@@ -10,6 +10,8 @@ class EpisodesController < ApplicationController
       @results = Episode.all
     end
   end
+  def index
+  end
 
   def show
     @episode = Episode.find(params[:id])
