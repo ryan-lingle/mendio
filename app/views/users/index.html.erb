@@ -1,0 +1,15 @@
+<ul>
+  <% @results.each do |result| %>
+    <% if result.searchable_type == 'User' %>
+      <%= link_to user_path(result.searchable_id) do %>
+        <li>
+          <%= result.content %>
+        </li>
+      <% end %>
+    <% else %>
+      <li>
+        <%= result.content %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

@@ -19,7 +19,9 @@ class User < ApplicationRecord
   has_many :saved_donations, through: :bookmarks, source: :donation
   mount_uploader :profile_pic, ProfilePicUploader
   after_create :send_welcome_email
-
+  include PgSearch
+  PgSearch.multisearch_options = { :using => { :tsearch => {:prefix => true, :dictionary => "english"} } }
+  multisearchable against: [ :username ]
   attr_accessor :seed
 
   def feed
