@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_083701) do
+ActiveRecord::Schema.define(version: 2018_06_20_120602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,26 @@ ActiveRecord::Schema.define(version: 2018_06_19_083701) do
     t.index ["podcast_id"], name: "index_episodes_on_podcast_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "bookmark_id"
+    t.integer "follower_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bookmark_id"], name: "index_notifications_on_bookmark_id"
+    t.index ["follower_id"], name: "index_notifications_on_follower_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
   create_table "podcasts", force: :cascade do |t|
     t.string "name"
     t.bigint "creator_id"
@@ -63,6 +83,15 @@ ActiveRecord::Schema.define(version: 2018_06_19_083701) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "saves", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "donation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["donation_id"], name: "index_saves_on_donation_id"
+    t.index ["user_id"], name: "index_saves_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -90,4 +119,8 @@ ActiveRecord::Schema.define(version: 2018_06_19_083701) do
   add_foreign_key "donations", "episodes"
   add_foreign_key "donations", "users"
   add_foreign_key "episodes", "podcasts"
+  add_foreign_key "notifications", "bookmarks"
+  add_foreign_key "notifications", "users"
+  add_foreign_key "saves", "donations"
+  add_foreign_key "saves", "users"
 end
