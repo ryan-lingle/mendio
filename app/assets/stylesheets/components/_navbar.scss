@@ -10,6 +10,11 @@
   justify-content: space-between;
 }
 
+.bar-search {
+  background-color: $light-gray;
+  width: 200px !important;
+}
+
 body {
   padding-top: 70px;
 }
@@ -30,6 +35,12 @@ body {
   height: 35px;
   width: 35px;
   border-radius: 50%;
+}
+
+.navbar-wagon-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Right section */
