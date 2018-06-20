@@ -22,6 +22,7 @@ class UsersController < ApplicationController
       current_user.unfollow(@user)
     else
       current_user.follow(@user)
+      Notification.create!(user: @user, follower: current_user)
     end
   end
 
