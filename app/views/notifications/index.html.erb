@@ -1,7 +1,11 @@
 <ul>
   <% @notifications.each do |n| %>
     <li>
-      n
+      <%if n.bookmark.nil? %>
+        <strong> <%= n.follower.username %> </strong> followed you
+      <% else %>
+        <strong> <%= n.bookmark.user.username %> </strong> bookmarked your donation to <strong> <%= n.bookmark.donation.episode.name %> </strong>
+      <% end %>
     </li>
   <% end %>
 </ul>

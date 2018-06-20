@@ -11,6 +11,7 @@ class BookmarksController < ApplicationController
     bookmark.user = current_user
     bookmark.donation = Donation.find(params[:donation_id])
     bookmark.save
+    Notification.create!(user: current_user, bookmark: bookmark)
   end
 
   def destroy

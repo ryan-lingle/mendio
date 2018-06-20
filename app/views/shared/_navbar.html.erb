@@ -14,6 +14,7 @@
       <!-- Links when logged in -->
       <%= link_to "NEW DONATION", select_episode_path, data: { toggle: "modal", target: "#myModal" }, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "LIBRARY", bookmarks_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to 'NOTIFICATIONS', notifications_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
 
@@ -69,6 +70,9 @@
           </li>
           <li>
             <%= link_to "New Rec", select_episode_path %>
+          </li>
+          <li>
+            <%= link_to 'Notifications', notifications_path %>
           </li>
           <li>
             <%= link_to 'Profile', user_path(current_user) %>
