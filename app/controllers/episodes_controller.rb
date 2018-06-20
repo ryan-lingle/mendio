@@ -1,5 +1,3 @@
-
-
 class EpisodesController < ApplicationController
   def find
     if params[:query].present?
@@ -11,5 +9,10 @@ class EpisodesController < ApplicationController
     else
       @results = Episode.all
     end
+  end
+
+  def show
+    @episode = Episode.find(params[:id])
+    @donations = @episode.donations
   end
 end

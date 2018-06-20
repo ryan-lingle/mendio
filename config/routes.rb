@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :bookmarks, only: [:index, :create, :destroy]
   resources :donations, except: [:edit, :new, :destroy]
-  resources :podcasts, only: [:create]
+  resources :podcasts, only: [:create, :show]
+  resources :episodes, only: [ :show ]
   resources :users, only: [:show, :index]
   resources :notifications, only: [:index]
   post 'podcast/find', to: 'podcasts#find', as: :find_podcast

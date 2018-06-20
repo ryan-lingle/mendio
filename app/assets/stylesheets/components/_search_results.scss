@@ -21,6 +21,21 @@
   }
 }
 
+.episode-results li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  img {
+    height: 40px;
+  }
+  li {
+    font-weight: lighter;
+  }
+}
+
 .podcast:hover {
   background-color: #F3F3F3;
   transition: ease 0.4s;

@@ -1,0 +1,18 @@
+<h1> <%= @podcast.name %> </h1>
+<h2>Episodes</h2>
+<%= form_tag find_episodes_path, remote: true, method: :post do %>
+  <%= hidden_field_tag 'podcast_id', @podcast.id %>
+  <%= text_field_tag :query,
+  params[:query],
+  autocomplete: :off,
+  class: "episode-search search-input",
+    placeholder: "Search for an episode"
+    %>
+<% end %>
+<ul class= 'ep-results'>
+  <% @episodes.each do |ep| %>
+    <li>
+      <%= link_to ep.name, episode_path(ep) %>
+    </li>
+  <% end %>
+</ul>
