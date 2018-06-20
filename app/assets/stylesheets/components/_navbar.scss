@@ -4,7 +4,7 @@
   background: white;
   transition: all 0.3s ease;
   height: 70px;
-  padding: 0px 30px;
+  padding: 0 0 0 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,11 +40,11 @@ body {
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+  color: $gray;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: $blue;
   text-decoration: none;
 }
 
