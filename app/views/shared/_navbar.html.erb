@@ -12,28 +12,25 @@
   <div class="navbar-wagon-left hidden-xs hidden-sm">
     <% if user_signed_in? %>
       <!-- Links when logged in -->
-      <%= form_tag users_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        autocomplete: :off,
-        placeholder: "Search Mendio" %>
-      <% end %>
-
-      <%= link_to "LIBRARY", bookmarks_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "NEW DONATION", select_episode_path, data: { toggle: "modal", target: "#myModal" }, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= form_tag users_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        autocomplete: :off,
-        placeholder: "Search Mendio" %>
-      <% end %>
+      <%= link_to "LIBRARY", bookmarks_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
 
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <% if user_signed_in? %>
+
+  <div class="navbar-wagon-right">
+    <div class="search-bar">
+      <%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "bar-search",
+        autocomplete: :off,
+        placeholder: "Search Mendio" %>
+      <% end %>
+    </div>
       <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
+    <% if user_signed_in? %>
+      <div class="navbar-wagon-item hidden-xs hidden-sm">
         <div class="dropdown">
           <%= cl_image_tag current_user.profile_pic, height: 35, class: "avatar", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">

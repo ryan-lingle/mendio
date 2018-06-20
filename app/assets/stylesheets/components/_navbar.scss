@@ -10,6 +10,11 @@
   justify-content: space-between;
 }
 
+.bar-search {
+  background-color: $light-gray;
+  width: 200px !important;
+}
+
 body {
   padding-top: 70px;
 }
@@ -30,6 +35,12 @@ body {
   height: 35px;
   width: 35px;
   border-radius: 50%;
+}
+
+.navbar-wagon-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Right section */
@@ -60,6 +71,7 @@ body {
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
+  border-right: 2px solid $green;
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;

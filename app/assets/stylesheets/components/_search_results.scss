@@ -34,6 +34,11 @@
   width: 300px;
 }
 
+::placeholder {
+  color: $gray;
+  opacity: 0.3;
+}
+
 .hidden {
   display: hidden;
 }
