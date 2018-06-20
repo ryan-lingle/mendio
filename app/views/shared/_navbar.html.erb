@@ -1,20 +1,36 @@
 <div class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+  <%= link_to root_path, class: "navbar-wagon-brand hidden-lg hidden-md" do %>
+    <%= image_tag "https://png.icons8.com/metro/1600/m-lowercase.png", height: 50 %>
+  <% end %>
+
+  <%= link_to root_path, class: "navbar-wagon-brand-desktop hidden-xs hidden-sm" do %>
     <%= image_tag "https://png.icons8.com/metro/1600/m-lowercase.png", height: 50 %>
   <% end %>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-
+  <div class="navbar-wagon-left hidden-xs hidden-sm">
     <% if user_signed_in? %>
-
       <!-- Links when logged in -->
-      <%= link_to "LIBRARY", bookmarks_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "NEW DONATION", select_episode_path, data: { toggle: "modal", target: "#myModal" }, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "LIBRARY", bookmarks_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
+  </div>
 
+
+  <div class="navbar-wagon-right">
+    <div class="search-bar">
+      <%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "bar-search",
+        autocomplete: :off,
+        placeholder: "Search Mendio" %>
+      <% end %>
+    </div>
       <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
+    <% if user_signed_in? %>
+      <div class="navbar-wagon-item hidden-xs hidden-sm">
         <div class="dropdown">
           <%= cl_image_tag current_user.profile_pic, height: 35, class: "avatar", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
@@ -36,8 +52,8 @@
           </ul>
         </div>
       </div>
+    <!-- Login link (when logged out) -->
     <% else %>
-      <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>

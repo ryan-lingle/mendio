@@ -10,12 +10,24 @@
   justify-content: space-between;
 }
 
+.bar-search {
+  background-color: $light-gray;
+  width: 200px !important;
+}
+
 body {
   padding-top: 70px;
 }
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
+}
+
+.navbar-wagon-brand-desktop {
+  text-align: center;
+  position: absolute;
+  top: 15px;
+  left: 50%;
 }
 
 /* User Avatar */
@@ -25,8 +37,14 @@ body {
   border-radius: 50%;
 }
 
-/* Right section */
 .navbar-wagon-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Right section */
+.navbar-wagon-left {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -53,6 +71,7 @@ body {
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
+  border-right: 2px solid $green;
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
