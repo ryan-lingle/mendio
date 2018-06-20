@@ -10,6 +10,13 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        autocomplete: :off,
+        placeholder: "Search Mendio" %>
+      <% end %>
+
       <%= link_to "LIBRARY", bookmarks_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "NEW DONATION", select_episode_path, data: { toggle: "modal", target: "#myModal" }, class: "navbar-wagon-item navbar-wagon-link" %>
 
