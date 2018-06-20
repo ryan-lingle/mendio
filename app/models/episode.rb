@@ -10,4 +10,5 @@ class Episode < ActiveRecord::Base
     using: {
       tsearch: { prefix: true }
     }
+  validates :podcast, presence: true
 end

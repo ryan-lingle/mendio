@@ -12,6 +12,7 @@ gem "puma"
 gem "rails", "5.2.0"
 gem "redis"
 gem "pg_search"
+gem 'pundit'
 
 gem "rubocop"
 gem "rubocop-rails"
