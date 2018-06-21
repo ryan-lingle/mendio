@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :episodes, only: [ :show, :index ]
   resources :users, only: [:show, :index]
   resources :notifications, only: [:index]
+  get 'view/create/:id', to: 'views#create', as: :create_view
   post 'podcast/find', to: 'podcasts#find', as: :find_podcast
   post 'episodes/find', to: 'episodes#find', as: :find_episodes
   post 'donations/new', to: 'donations#new', as: :new_donation

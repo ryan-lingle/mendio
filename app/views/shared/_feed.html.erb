@@ -8,7 +8,7 @@
   <div class="feed">
     <% feed.each do |donation| %>
     <div class="col-xs-12">
-      <div class="card">
+      <div class="card donation-card" data="<%= donation.id %>">
         <div class="top-row">
           <%= cl_image_tag donation.user.profile_pic, height: 70, width: 70, class: "profile-pic" %>
           <p class= 'username'><strong><%= donation.user.username %></strong></p>

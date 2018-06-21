@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :saved_donations, through: :bookmarks, source: :donation
   has_many :notifications, dependent: :destroy
+  has_many :views, dependent: :destroy
+  has_many :viewed_donations, through: :views, source: :donation
   mount_uploader :profile_pic, ProfilePicUploader
   after_create :send_welcome_email
   include PgSearch
@@ -52,6 +54,15 @@ class User < ApplicationRecord
 
   def followed_by?(other_user)
     followed_by.include?(other_user)
+  end
+
+  def has_seen?(episode)
+    self.viewed_donations.each do |d|
+      if episode == d.episode
+        return d.user
+      end
+    end
+    return false
   end
 
   private
