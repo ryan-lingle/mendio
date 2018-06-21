@@ -1,9 +1,8 @@
 document.querySelector(".ep-results").innerHTML = "";
 
 if (document.querySelector('.podcast-title')) {
-  console.log('hi');
   '<% @results.each do |result| %>'
-  document.querySelector('.ep-results').insertAdjacentHTML('beforeend', `<li><%= link_to(result.name, episode_path(result)) %> | <%= link_to 'Donate', select_episode_path(episode: result.id), method: :post, remote: true %></li>`);
+  document.querySelector('.ep-results').insertAdjacentHTML('beforeend', `<li><%= link_to(result.name, episode_path(result)) %> </li>`);
   '<% end %>'
 } else {
   '<% @results.each do |result| %>'
