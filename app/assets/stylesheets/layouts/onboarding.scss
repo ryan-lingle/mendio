@@ -31,7 +31,7 @@
   line-height: 24px;
   color: #fff;
   display: flex;
-  // flex-direction: column;
+  //flex-direction: column;
   justify-content: center;
   align-items: center;
   img {
@@ -45,6 +45,11 @@
 .image {
   height: 75px;
   width: 75px;
+}
+
+.footer-sound-wave{
+  width: 100%;
+  background-color: #F8333C;
 }
 
 .sound-wave {
