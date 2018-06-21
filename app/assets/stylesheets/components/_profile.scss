@@ -1,14 +1,42 @@
-.profile {
-  display: flex;
-  position: fixed;
-  top: 60px;
-  left: 10px;
-  background: white;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 10px;
-  font-size: 100%;
+
+
+@media (min-width: 1405px) {
+  .feed-container {
+    display: flex;
+    justify-content: center;
+    // flex-direction: column;
+  }
+  .profile {
+    display: flex;
+    position: fixed;
+    margin-top: 30px;
+    left: 10px;
+    background: white;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    font-size: 100%;
+  }
+}
+
+@media (max-width: 1405px) {
+  .feed-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  .profile {
+    display: flex;
+    top: 100px;
+    left: 10px;
+    background: white;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    font-size: 100%;
+  }
 }
 
 // ------------------------------------------------
@@ -26,8 +54,7 @@ $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
   height: 400px;
   background: white;
   transition: background .6s ease;
-  border-radius: 10px;
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
   box-shadow: $shadow;
 }
 .profile-avatar {
@@ -37,47 +64,47 @@ $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1.5em;
-  border-radius: 100%;
+  border-radius: 50%;
   box-shadow: $avatar-shadow;
 }
 
-  .profile-header {
-    text-align: center;
-  }
+.profile-header {
+  text-align: center;
+}
 
-  .social-icons {
+.social-icons {
+  display: flex;
+  margin-top: 1.2em;
+  justify-content: space-between;
+
+  .icon {
     display: flex;
-    margin-top: 1.2em;
-    justify-content: space-between;
-
-    .icon {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      h4 {
-        margin-bottom: 0;
-      }
-      p {
-        font-size: 12px;
-      }
-      a {
-        color: #fff;
-        width: 60px;
-        height: 60px;
-        font-size: 28px;
-        line-height: 60px;
-        text-align: center;
-        border-radius: 30px;
-        box-shadow: $avatar-shadow;
-      }
-      &:nth-of-type(1) {
-        a {background: $purple-gradient;}
-      }
-      &:nth-of-type(2) {
-        a {background: $blue1-gradient;}
-      }
-      &:nth-of-type(3) {
-        a {background: $blue2-gradient;}
-      }
+    align-items: center;
+    flex-direction: column;
+    h4 {
+      margin-bottom: 0;
+    }
+    p {
+      font-size: 12px;
+    }
+    a {
+      color: #fff;
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
+      line-height: 60px;
+      text-align: center;
+      border-radius: 30px;
+      box-shadow: $avatar-shadow;
+    }
+    &:nth-of-type(1) {
+      a {background: $purple-gradient;}
+    }
+    &:nth-of-type(2) {
+      a {background: $blue1-gradient;}
+    }
+    &:nth-of-type(3) {
+      a {background: $blue2-gradient;}
     }
   }
+}

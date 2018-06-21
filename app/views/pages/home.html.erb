@@ -1,45 +1,48 @@
 <% if user_signed_in? %>
-  <%= render 'shared/feed', feed: @feed %>
+<%= render 'shared/feed', feed: @feed %>
 <% else %>
-  <div class="landing-page">
-    <div class="container">
-      <div class="row background">
-        <div class="col-md-8">
-          <div class="why-mendio">
-            <h2>Why Mendio?</h2>
+<div class="landing-page">
+  <div class="container">
+    <div class="row background">
+      <div class="col-md-8">
+        <div class="why-mendio">
+          <h2>Why Mendio?</h2>
+          <div class="why-mendio--item">
+            <%= image_tag("user.svg", height: 75, width: 75, :class => "image") %>
+            <p>Create an easy way to follow your friends, family, colleagues or other influencial people that you would love to hear on their podcast.</p></div>
             <div class="why-mendio--item">
-              <%= image_tag("user.svg", :class => "image") %>
-              <p>Create an easy way to follow your friends, family, colleagues or other influencial people that you would love to hear on their podcast.</p></div>
+              <%= image_tag("recommended.svg", height: 75, width: 75, :class => "image") %>
+              <p>Recommend podcast through a new and groundbraking recommendation system.</p></div>
               <div class="why-mendio--item">
-                <%= image_tag("recommended.svg", :class => "image") %>
-                <p>Recommend podcast through a new and groundbraking recommendation system.</p></div>
-                <div class="why-mendio--item">
-                  <%= image_tag("donation.svg", :class => "image")  %>
-                  <p>Recommanding a podcast is based on a donation. The podcast creator will be supported as well as the people who are donating because of the initinial donation. Everybody is earning something! </p></div>
-                </div>
+                <%= image_tag("donation.svg", height: 75, width: 75, :class => "image")  %>
+                <p>Recommanding a podcast is based on a donation. The podcast creator will be supported as well as the people who are donating because of the initinial donation. Everybody is earning something! </p></div>
               </div>
-              <div class="col-md-4">
-                <div class="form-login">
-                  <h2>Sign up</h2>
-                  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                  <%= f.error_notification %>
-                  <div class="form-inputs">
-                    <%= f.input :username, required: true, class: "username-input"%>
-                    <%= f.input :email, required: true, autofocus: true %>
-                    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-                    <%= f.input :password_confirmation, required: true %>
-                  </div>
-                  <div class="form-actions">
-                    <%= f.button :submit, "Sign up", class: "mendio-button-confirm" %>
-                  </div>
-                  <% end %>
-                  <div class="form-links">
-                    <%= render "devise/shared/links" %>
-                  </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-login">
+                <h2>Sign up</h2>
+                <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= f.error_notification %>
+                <div class="form-inputs">
+                  <%= f.input :username, required: true, autofocus: true, class: "username-input"%>
+                  <%= f.input :email, required: true %>
+                  <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                  <%= f.input :password_confirmation, required: true %>
+                </div>
+                <div class="form-actions">
+                  <%= f.button :submit, "Sign up", class: "mendio-button-confirm" %>
+                </div>
+                <% end %>
+                <div class="form-links">
+                  <%= render "devise/shared/links" %>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="footer-sound-wave">
+        <%= image_tag("sound-wave.svg") %>
+      </div>
       <% end %>
 

@@ -4,14 +4,16 @@
   background: white;
   transition: all 0.3s ease;
   height: 70px;
-  padding: 0 0 0 30px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-a:active {
-  background-color: black;
+@media (max-width: 768px) {
+  .navbar-wagon {
+    padding-left: 20px;
+  }
 }
 
 .bar-search {
