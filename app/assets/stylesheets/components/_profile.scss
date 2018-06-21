@@ -1,14 +1,30 @@
-.profile {
-  display: flex;
-  position: fixed;
-  top: 60px;
-  left: 10px;
-  background: white;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 10px;
-  font-size: 100%;
+@media (min-width: 768px) {
+  .profile {
+    display: flex;
+    position: fixed;
+    top: 100px;
+    left: 10px;
+    background: white;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    font-size: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile {
+    display: flex;
+    top: 100px;
+    left: 10px;
+    background: white;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    font-size: 100%;
+  }
 }
 
 // ------------------------------------------------
@@ -26,8 +42,7 @@ $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
   height: 400px;
   background: white;
   transition: background .6s ease;
-  border-radius: 10px;
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
   box-shadow: $shadow;
 }
 .profile-avatar {
@@ -37,7 +52,7 @@ $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1.5em;
-  border-radius: 100%;
+  border-radius: 50%;
   box-shadow: $avatar-shadow;
 }
 

@@ -1,55 +1,59 @@
 <div class="wrapper">
-  <%= render 'shared/profile' %>
   <%= render 'episodes/popup' %>
   <%= form_tag find_episodes_path, remote: true, method: :post do %>
     <%= hidden_field_tag 'eposode_id'%>
     <%= hidden_field_tag 'user_id', current_user %>
   <% end %>
-  <div class="feed">
-    <% feed.each do |donation| %>
-    <div class="col-xs-12">
-      <div class="card">
-        <div class="top-row">
-          <%= cl_image_tag donation.user.profile_pic, height: 70, width: 70, class: "profile-pic" %>
-          <p class= 'username'><strong><%= donation.user.username %></strong></p>
-          <h2 class= 'episode-name hidden-xs'>
-            <%= donation.episode.name %>
-          </h2>
-          <h2 class= 'small-episode-name hidden-sm hidden-md hidden-lg'>
-            <%= donation.episode.name %>
-          </h2>
-          <div class="artwork text-right">
-            <%= cl_image_tag donation.episode.podcast.artwork, height: 100, width: 100 %>
-          </div>
-        </div>
-        <div class="bottom-row">
-          <h3 class='b-item'>$<%= donation.amount %></h3>
-          <div class="favo-icons">
-            <% if @user.saved_donations.include?(donation) %>
-                <%= link_to bookmark_path(Bookmark.find_by(donation_id: donation.id)), method: :delete, remote: true do %>
-                  <i class="yellow fas fa-star star"></i>
+  <div class="row">
+    <div class="col-xs-8 col-sm-4 col-md-3">
+      <%= render 'shared/profile' %>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="feed">
+        <% feed.each do |donation| %>
+          <div class="card">
+            <div class="top-row">
+              <%= cl_image_tag donation.user.profile_pic, height: 70, width: 70, class: "profile-pic" %>
+              <p class= 'username'><strong><%= donation.user.username %></strong></p>
+              <h2 class= 'episode-name hidden-xs'>
+                <%= donation.episode.name %>
+              </h2>
+              <h2 class= 'small-episode-name hidden-sm hidden-md hidden-lg'>
+                <%= donation.episode.name %>
+              </h2>
+              <div class="artwork text-right">
+                <%= cl_image_tag donation.episode.podcast.artwork, height: 100, width: 100 %>
+              </div>
+            </div>
+            <div class="bottom-row">
+              <h3 class='b-item'>$<%= donation.amount %></h3>
+              <div class="favo-icons">
+                <% if @user.saved_donations.include?(donation) %>
+                    <%= link_to bookmark_path(Bookmark.find_by(donation_id: donation.id)), method: :delete, remote: true do %>
+                      <i class="yellow fas fa-star star"></i>
+                    <% end %>
+                  <% else %>
+                  <%= link_to bookmarks_path(donation_id: donation), method: :post do %>
+                    <i class="fas fa-star star"></i>
+                  <% end %>
                 <% end %>
-              <% else %>
-              <%= link_to bookmarks_path(donation_id: donation), method: :post do %>
-                <i class="fas fa-star star"></i>
-              <% end %>
-            <% end %>
-            <%= link_to '#', method: :post do %>
-              <i class="fas fa-play"></i>
-            <% end %>
+                <%= link_to '#', method: :post do %>
+                  <i class="fas fa-play"></i>
+                <% end %>
+              </div>
+              <p class="podcast-name text-right hidden-xs hidden-sm">
+                <%=
+                  name = donation.episode.podcast.name.split(' ')
+                  while name.join(' ').length > 30
+                    name.pop
+                  end
+                  "#{name.join(' ')}"
+                 %>
+              </p>
+            </div>
           </div>
-          <p class="podcast-name text-right hidden-xs hidden-sm">
-            <%=
-              name = donation.episode.podcast.name.split(' ')
-              while name.join(' ').length > 30
-                name.pop
-              end
-              "#{name.join(' ')}"
-             %>
-          </p>
-        </div>
+        <% end %>
       </div>
     </div>
-    <% end %>
   </div>
 </div>
