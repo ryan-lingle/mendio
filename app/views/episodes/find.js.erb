@@ -1,8 +1,15 @@
 document.querySelector(".ep-results").innerHTML = "";
 
-'<% @results.each do |result| %>'
-document.querySelector('.ep-results').insertAdjacentHTML('beforeend', "<li><%= result.name %></li>")
-'<% end %>'
+if (document.querySelector('.podcast-title')) {
+  console.log('hi');
+  '<% @results.each do |result| %>'
+  document.querySelector('.ep-results').insertAdjacentHTML('beforeend', `<li><%= link_to(result.name, episode_path(result)) %> | <%= link_to 'Donate', select_episode_path(episode: result.id), method: :post, remote: true %></li>`);
+  '<% end %>'
+} else {
+  '<% @results.each do |result| %>'
+  document.querySelector('.ep-results').insertAdjacentHTML('beforeend', "<li><%= result.name %></li>")
+  '<% end %>'
+}
 
 function clicker() {
   document.querySelector('.ep-results').addEventListener('click', (event) => {
