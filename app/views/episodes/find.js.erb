@@ -1,8 +1,14 @@
 document.querySelector(".ep-results").innerHTML = "";
 
-'<% @results.each do |result| %>'
-document.querySelector('.ep-results').insertAdjacentHTML('beforeend', "<li><%= result.name %></li>")
-'<% end %>'
+if (document.querySelector('.podcast-title')) {
+  '<% @results.each do |result| %>'
+  document.querySelector('.ep-results').insertAdjacentHTML('beforeend', `<li><%= link_to(result.name, episode_path(result)) %> </li>`);
+  '<% end %>'
+} else {
+  '<% @results.each do |result| %>'
+  document.querySelector('.ep-results').insertAdjacentHTML('beforeend', "<li><%= result.name %></li>")
+  '<% end %>'
+}
 
 function clicker() {
   document.querySelector('.ep-results').addEventListener('click', (event) => {
