@@ -4,10 +4,16 @@
   background: white;
   transition: all 0.3s ease;
   height: 70px;
-  padding: 0 0 0 30px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .navbar-wagon {
+    padding-left: 15px;
+  }
 }
 
 a:active {
