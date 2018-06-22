@@ -23,7 +23,7 @@ puts 'creating users...'
   user.save!
 end
 
-tim_search = JSON.parse(open('https://itunes.apple.com/search?term=j&media=podcast&entity=podcast').read)
+tim_search = JSON.parse(open('https://itunes.apple.com/search?term=b&media=podcast&entity=podcast').read)
 puts 'creating podcasts and episodes...'
 tim_search['results'].each do |podcast|
   s = podcast['collectionId']
