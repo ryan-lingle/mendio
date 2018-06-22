@@ -2,11 +2,11 @@ function executePodcastSearch() {
   const podcastInput = document.querySelector('.podcast-search');
   const podcastResults = document.querySelector('.podcast-results')
   if (podcastInput) {
+    podcastInput.value = '';
     focuser(podcastInput);
     clicker(podcastResults);
     killEnter();
   }
-
 
   function focuser(input) {
     input.addEventListener('focus', () => {
