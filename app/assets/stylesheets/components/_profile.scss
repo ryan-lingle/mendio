@@ -8,7 +8,15 @@
   }
   .profile-wrapper {
     max-width: 1140px;
-    width: 100%
+    width: 100%;
+    .social-icons {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  }
+  .wrapper-profile {
+    width: 320px;
+    height: 400px;
   }
   .profile {
     display: flex;
@@ -31,46 +39,60 @@
     justify-content: space-around;
     flex-direction: column;
   }
+  .wrapper-profile {
+    width: 100%;
+    border-left: none;
+    border-right: none;
+  }
   .profile-wrapper {
     max-width: 720px;
     width: 100%
   }
   .profile {
+    margin-left: 0;
     display: flex;
     width: 100%;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    margin-left: 10px;
     font-size: 100%;
   }
 }
 
 // ------------------------------------------------
 
-$purple-gradient: linear-gradient(45deg, rgba(87,29,146,1) 0%,rgba(172,25,102,1) 100%);
-$purple-gradient: linear-gradient(to bottom right, $red, #FF48A0);
-$blue1-gradient: linear-gradient(to bottom right, $blue, #3F9EFC);
-$blue2-gradient: linear-gradient(to bottom right, $green, #639FF9);
+$purple-gradient: linear-gradient(to bottom right, $blue, $green);
+$blue1-gradient: linear-gradient(to bottom right, $red, $yellow);
+$blue2-gradient: linear-gradient(to bottom right, $green, $yellow);
+$another-gradient: linear-gradient(to bottom right, $yellow, $orange);
 $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
 
 // ------------------------------------------------
 .profile-wrapper {
   width: 100%;
   height: 400px;
-  background: white;
-  transition: background .6s ease;
   padding: 20px;
+  background: white;
   box-shadow: $shadow;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('sound-wave.svg');
+  background-size: cover;
+  background-position: center center;
+    &:hover {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(255, 255, 255, 0.77);
+    transition: all 0.4s;
+  }
 }
 
 .wrapper-profile {
-  width: 320px;
-  height: 400px;
   background: white;
-  transition: background .6s ease;
   padding: 20px;
   box-shadow: $shadow;
+    &:hover {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(255, 255, 255, 0.77);
+    transition: all 0.4s;
+  }
 }
 .profile-avatar {
   width: 100px;
@@ -96,7 +118,8 @@ $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
     display: flex;
     align-items: center;
     flex-direction: column;
-    h4 {
+    h4, p {
+      color: $gray;
       margin-bottom: 0;
     }
     p {
@@ -119,7 +142,16 @@ $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
       a {background: $blue1-gradient;}
     }
     &:nth-of-type(3) {
-      a {background: $blue2-gradient;}
+      a {background: $another-gradient;}
+    }
+    &:nth-of-type(4) {
+      a {background: $blue2-gradient;
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";}
     }
   }
 }
