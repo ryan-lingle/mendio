@@ -1,5 +1,23 @@
 <% if user_signed_in? %>
-<%= render 'shared/feed', feed: @feed %>
+<div class="wrapper">
+  <%= render 'episodes/popup' %>
+  <%= form_tag find_episodes_path, remote: true, method: :post do %>
+    <%= hidden_field_tag 'eposode_id'%>
+    <%= hidden_field_tag 'user_id', current_user %>
+  <% end %>
+  <div class="feed-container">
+    <div class="profile-container">
+      <div class="profile">
+        <div class="wrapper-profile">
+          <%= render 'shared/profile' %>
+        </div>
+      </div>
+    </div>
+    <div class="card-container">
+      <%= render 'shared/feed', feed: @feed %>
+    </div>
+  </div>
+</div>
 <% else %>
 <div class="landing-page">
   <div class="container">

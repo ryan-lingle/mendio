@@ -1,7 +1,10 @@
 <div class="container">
-  <%#= render 'shared/profile' %>
-  <%= render 'shared/feed', feed: @user.donations %>
-  <%=  %>
+  <div class="feed">
+    <div class="profile-wrapper">
+      <%= render 'shared/profile' %>
+    </div>
+  </div>
+    <%= render 'shared/feed', feed: @user.donations %>
   <h1><%= @user.username %></h1>
   <% if current_user.following?(@user) && current_user.followed_by?(@user) %>
     <p>(You Follow Each Other)</p>
@@ -15,7 +18,7 @@
   <a href="#" class='tab following-tab'>Following</a>
   <a href="#" class='tab followers-tab'>Followers</a>
 
-  <ul class="my-donations" >
+  <ul class="my-donations">
     <% @donations.each do |donation| %>
       <li>
         <%= donation.episode.name %>
@@ -48,4 +51,113 @@
       <%= link_to 'Follow', toggle_follow_path(@user), class: 'relationship', method: :post, remote: true %>
     <% end %>
   <% end %>
+</div>
+
+
+
+<div class="row">
+  <div class="col-12">
+    <div class="alumnus-wrapper">
+      <div class="bio">
+        <div class="bio-header" style="background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(&quot;http://localhost:3000/assets/sound-wave-0ad5976d22042ee62743a0b1dc4d7d247468e736458cb3074db4db61da8fad40.svg&quot;);background-size: cover; background-position: center center;">
+          <div class="alumnus-avatar">
+            <img alt="Gabi Branco" class="rounded-circle bottom-marged" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/s2qpazzl5jm5xrngln1j.jpg">
+            <span class="label label-success alumnus-badge">TA</span>
+          </div>
+          <div class="alumnus-identity">
+            <h1>Gabi Branco</h1>
+            <h4>
+              <span class="greyed">did</span>
+              Batch #154 - Amsterdam 🇳🇱
+            </h4>
+            <a class="edit-link" href="/alumni/gabibranco/edit">
+              Edit your basic info <i class="fas fa-pencil-alt"></i>
+            </a>
+          </div>
+        </div>
+        <div class="bio-body">
+          <div class="bio-ctas">
+            <a class="btn btn-green-flat no-border" href="/teachers/gabibranco">See my teacher profile</a>
+          </div>
+          <div class="bio-desc">
+            <div class="bio-desc-header ">
+              <h3>Edit description</h3>
+              <button class="pencil-edit ">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+            </div>
+            <textarea class="bio-text bio-disabled" rows="1" style="overflow: hidden; word-wrap: break-word; height: 29px;">I used to write in Portuguese, now I want to write in Ruby. Brazilian journalist, knitter and hopefully a digital nomad in the near future.
+            </textarea>
+            <button class="btn hidden btn-default-flat">Save changes</button>
+          </div>
+        </div>
+      </div>
+      <div class="alumnus-body">
+        <div class="">
+          <div>
+
+          </div>
+        </div>
+        <div class="alumnus-body-socials-skills">
+          <div class="socials-freelance">
+            <div class="socials-header">
+              <h3>Find Gabi on</h3>
+              <a class="socials-edit" href="/alumni/gabibranco/edit">
+                <i class="fas fa-pencil-alt"></i>
+              </a>
+            </div>
+            <ul class="bio-socials list-unstyled">
+              <li>
+                <a class="socials" target="_blank" href="https://www.linkedin.com/in/gabrielebranco/">
+                  <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a class="socials" target="_blank" href="https://github.com/gabibranco">
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="d-flex">
+                <i class="fas fa-phone socials" id="phone"></i>
+              </li>
+              <li class="d-flex">
+                <i class="fas fa-at socials" id="email"></i>
+              </li>
+            </ul>
+            <div class="alumni-freelance bio-freelance">
+              <h3>Freelance?</h3>
+              <div class="alumni-freelance-btn" role="checkbox" aria-checked="false" tabindex="1" style="">
+                <span class="switch">
+                  <span class="switch-container " id="switchFreelance">
+                    <span class="on">Yes</span>
+                    <span class="mid"></span>
+                    <span class="off">No</span>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="skills">
+            <div class="skills-header">
+              <h3>Special skills</h3>
+              <button class="pencil-edit ">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+            </div>
+            <p style="color: rgb(51, 51, 51);">Add some skills to your boost your profile and let people find you.</p>
+            <div class="skills-body ">
+              <div class="tagsClass">
+                <div class="skills-form">
+
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-default-flat mt-1 hidden">
+              Save your skills
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
