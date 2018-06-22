@@ -21,7 +21,7 @@
       <div class="bottom-row">
         <h3 class='b-item'>$<%= donation.amount %></h3>
         <div class="favo-icons">
-          <% if @user.saved_episodes.include?(donation.episode) %>
+          <% if user.saved_episodes.include?(donation.episode) %>
               <%= link_to bookmark_path(Bookmark.find_by(episode_id: donation.episode.id)), method: :delete, remote: true do %>
                 <i class="yellow fas fa-star star"></i>
               <% end %>

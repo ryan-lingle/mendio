@@ -1,6 +1,4 @@
 <h3><%= @episode.podcast.name %></h3>
 <h1> <%= @episode.name %> </h1>
 <h2>Donations To This Episode:</h2>
-<% @donations.each do |d| %>
-  <%= "#{d.user.username} donated $#{d.amount}" %>
-<% end %>
+<%= render 'shared/feed', user: current_user, feed: @donations %>
