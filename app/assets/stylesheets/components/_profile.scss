@@ -30,7 +30,6 @@
   }
 }
 
-
 @media (max-width: 1405px) {
   .feed-container {
     display: flex;
@@ -63,6 +62,10 @@ $purple-gradient: linear-gradient(to bottom right, $blue, $green);
 $blue1-gradient: linear-gradient(to bottom right, $red, $yellow);
 $blue2-gradient: linear-gradient(to bottom right, $green, $yellow);
 $another-gradient: linear-gradient(to bottom right, $yellow, $orange);
+$h1-gradient: linear-gradient(to bottom right, $blue, $light-gray);
+$h2-gradient: linear-gradient(to bottom right, $red, $light-gray);
+$h3-gradient: linear-gradient(to bottom left, $yellow, $light-gray);
+$h4-gradient: linear-gradient(to bottom right, $green, $light-gray);
 $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
 
 // ------------------------------------------------
@@ -123,7 +126,7 @@ $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
     p {
       font-size: 12px;
     }
-    a {
+    .tab {
       color: #fff;
       width: 60px;
       height: 60px;
@@ -134,22 +137,50 @@ $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
       box-shadow: $avatar-shadow;
     }
     &:nth-of-type(1) {
-      .tab {background: $purple-gradient;}
+      .tab {
+        background: $purple-gradient;
+        &:hover {
+          cursor: pointer;
+          background: $h1-gradient;
+          transition: all 0.4s;
+        }
+      }
     }
     &:nth-of-type(2) {
-      .tab {background: $blue1-gradient;}
+      .tab {
+        background: $blue1-gradient;
+        &:hover {
+          cursor: pointer;
+          background: $h2-gradient;
+          transition: all 0.4s;
+        }
+      }
     }
     &:nth-of-type(3) {
-      .tab {background: $another-gradient;
-            -moz-transform: scaleX(-1);
-            -o-transform: scaleX(-1);
-            -webkit-transform: scaleX(-1);
-            transform: scaleX(-1);
-            filter: FlipH;
-            -ms-filter: "FlipH";}
+      .tab {
+        background: $another-gradient;
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+        &:hover {
+          cursor: pointer;
+          background: $h3-gradient;
+          transition: all 0.4s;
+        }
+      }
     }
     &:nth-of-type(4) {
-      .tab {background: $blue2-gradient;}
+      .tab {
+        background: $blue2-gradient;
+        &:hover {
+          cursor: pointer;
+          background: $h4-gradient;
+          transition: all 0.4s;
+        }
+      }
     }
   }
 }
