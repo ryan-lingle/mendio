@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="my-donations">
-      <%= render 'shared/feed', feed: @user.donations %>
+      <%= render 'shared/feed', user: @user, feed: @user.donations %>
   </div>
 
   <ul class = "following hidden">
