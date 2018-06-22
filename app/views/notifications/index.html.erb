@@ -6,7 +6,7 @@
         <% @notifications.each do |n| %>
         <div class="card notifications">
           <% if n.bookmark.nil? %>
-          <div class="card-image item"><%= cl_image_tag n.follower.profile_pic %></div>
+          <div class="card-image item"><%= link_to cl_image_tag(n.follower.profile_pic), user_path(n.follower) %></div>
           <div class="card-info size"><strong><%= link_to n.follower.username, user_path(n.follower) %></strong> followed you</div>
           <div class="timestamp"><%= distance_of_time_in_words(Time.now, n.created_at) %> ago</div>
           <% else %>

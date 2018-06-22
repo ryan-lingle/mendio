@@ -23,6 +23,14 @@
   width: 100%;
   margin-left: 50px;
   padding: 10px;
+  a {
+    text-decoration: none;
+    color: #645853;
+  }
+}
+
+.size a:hover {
+  color: #0F1108;
 }
 
 .height {
@@ -32,4 +40,5 @@
 .timestamp {
   font-size: 12px;
   width: 140px;
+  color: #645853;
 }
