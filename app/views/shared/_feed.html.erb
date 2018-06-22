@@ -1,14 +1,4 @@
-<div class="wrapper">
-  <%= render 'episodes/popup' %>
-  <%= form_tag find_episodes_path, remote: true, method: :post do %>
-    <%= hidden_field_tag 'eposode_id'%>
-    <%= hidden_field_tag 'user_id', current_user %>
-  <% end %>
-  <div class="feed-container">
-    <div class="profile-container">
-      <%= render 'shared/profile' %>
-    </div>
-    <div class="card-container">
+
       <div class="feed">
         <% feed.each do |donation| %>
           <div class="card donation-card" data="<%= donation.id %>">
@@ -54,6 +44,3 @@
           </div>
         <% end %>
       </div>
-    </div>
-  </div>
-</div>

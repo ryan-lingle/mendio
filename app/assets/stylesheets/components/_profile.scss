@@ -6,6 +6,10 @@
     justify-content: center;
     // flex-direction: column;
   }
+  .profile-wrapper {
+    max-width: 1140px;
+    width: 100%
+  }
   .profile {
     display: flex;
     position: fixed;
@@ -20,17 +24,20 @@
   }
 }
 
+
 @media (max-width: 1405px) {
   .feed-container {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
   }
+  .profile-wrapper {
+    max-width: 720px;
+    width: 100%
+  }
   .profile {
     display: flex;
-    top: 100px;
-    left: 10px;
-    background: white;
+    width: 100%;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -48,6 +55,14 @@ $blue2-gradient: linear-gradient(to bottom right, $green, #639FF9);
 $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
 
 // ------------------------------------------------
+.profile-wrapper {
+  width: 100%;
+  height: 400px;
+  background: white;
+  transition: background .6s ease;
+  padding: 20px;
+  box-shadow: $shadow;
+}
 
 .wrapper-profile {
   width: 320px;
