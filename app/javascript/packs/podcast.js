@@ -1,4 +1,8 @@
 function executePodcastSearch() {
+  document.querySelector('.episode-section').classList.add('hidden')
+  if (document.querySelector('.amount-input')) {
+    document.querySelector('.amount-input').remove();
+  }
   const podcastInput = document.querySelector('.podcast-search');
   const podcastResults = document.querySelector('.podcast-results')
   if (podcastInput) {
@@ -20,7 +24,7 @@ function executePodcastSearch() {
       podcastInput.value = event.target.innerText;
       document.querySelector(".podcast-results").innerHTML = "";
       document.removeEventListener('keyup', podcastKey)
-      const elem= document.querySelector('#podcast-form')
+      let elem= document.querySelector('#podcast-form')
       Rails.fire(elem, 'submit');
 
     })
