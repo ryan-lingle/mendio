@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ViewsController < ApplicationController
   def create
     @donation = Donation.find(params[:id])

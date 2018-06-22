@@ -12,8 +12,8 @@ gem "puma"
 gem "rails", "5.2.0"
 gem "redis"
 gem "pg_search"
-gem 'pundit'
-gem 'jquery-rails'
+gem "pundit"
+gem "jquery-rails"
 
 gem "rubocop"
 gem "rubocop-rails"
@@ -28,11 +28,11 @@ gem "webpacker"
 gem "faker"
 gem "cloudinary"
 gem "carrierwave", "~> 1.2"
-gem 'postmark-rails'
+gem "postmark-rails"
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
-  gem 'letter_opener'
+  gem "web-console", ">= 3.3.0"
+  gem "letter_opener"
 end
 
 group :development, :test do

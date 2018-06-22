@@ -23,7 +23,7 @@ class User < ApplicationRecord
   mount_uploader :profile_pic, ProfilePicUploader
   after_create :send_welcome_email
   include PgSearch
-  PgSearch.multisearch_options = { :using => { :tsearch => {:prefix => true, :dictionary => "english"} } }
+  PgSearch.multisearch_options = { using: { tsearch: { prefix: true, dictionary: "english" } } }
   multisearchable against: [ :username ]
   attr_accessor :seed
 
@@ -62,13 +62,13 @@ class User < ApplicationRecord
         return d.user
       end
     end
-    return false
+    false
   end
 
   private
 
-  def send_welcome_email
-    return if seed
-    UserMailer.welcome(self).deliver_now
-  end
+    def send_welcome_email
+      return if seed
+      UserMailer.welcome(self).deliver_now
+    end
 end

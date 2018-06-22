@@ -16,7 +16,7 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
       sign_in(@user)
       redirect_to root_path
     else
-      render 'pages/home'
+      render "pages/home"
     end
   end
 
@@ -47,13 +47,13 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
   # protected
   private
 
-  def sign_up_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
-  end
+    def sign_up_params
+      params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    end
 
-  def account_update_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :current_password)
-  end
+    def account_update_params
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, :current_password)
+    end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])

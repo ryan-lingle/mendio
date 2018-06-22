@@ -8,7 +8,7 @@ class Podcast < ActiveRecord::Base
   validates :name, uniqueness: true
   mount_uploader :artwork, ArtworkUploader
   include PgSearch
-  PgSearch.multisearch_options = { :using => { :tsearch => {:prefix => true, :dictionary => "english"} } }
+  PgSearch.multisearch_options = { using: { tsearch: { prefix: true, dictionary: "english" } } }
   pg_search_scope :search,
     against: [ :name ],
     using: {
