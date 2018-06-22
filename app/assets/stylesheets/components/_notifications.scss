@@ -1,0 +1,35 @@
+.notifications-wrapper {
+  height: 100%;
+  h2 {
+    text-align: center;
+    padding: 50px;
+  }
+}
+
+.item {
+  height: 50px;
+  width: 50px;
+  img {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+.notifications {
+  display: flex;
+}
+
+.size {
+  width: 100%;
+  margin-left: 50px;
+  padding: 10px;
+}
+
+.height {
+  height: 100%;
+}
+
+.timestamp {
+  font-size: 12px;
+  width: 140px;
+}
