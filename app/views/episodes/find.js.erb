@@ -1,5 +1,5 @@
 document.querySelector(".ep-results").innerHTML = "";
-
+console.log('hi');
 if (document.querySelector('.podcast-title')) {
   '<% @results.each do |result| %>'
   document.querySelector('.ep-results').insertAdjacentHTML('beforeend', `<li><%= link_to(result.name, episode_path(result)) %> </li>`);
