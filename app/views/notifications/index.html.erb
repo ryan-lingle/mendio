@@ -1,11 +1,28 @@
-<ul>
-  <% @notifications.each do |n| %>
-    <li>
-      <%if n.bookmark.nil? %>
-        <strong> <%= n.follower.username %> </strong> followed you
-      <% else %>
-        <strong> <%= n.bookmark.user.username %> </strong> bookmarked your donation to <strong> <%= n.bookmark.donation.episode.name %> </strong>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<div class="notifications-wrapper">
+  <div class="container">
+    <div class="row">
+      <h2>Notifications</h2>
+      <div class="col-xs-12 height">
+        <% @notifications.each do |n| %>
+        <div class="card notifications">
+          <% if n.bookmark.nil? %>
+          <div class="card-image item"><%= cl_image_tag n.follower.profile_pic %></div>
+          <div class="card-info size"><strong><%= link_to n.follower.username, user_path(n.follower) %></strong> followed you</div>
+          <div class="timestamp"><%= distance_of_time_in_words(Time.now, n.created_at) %> ago</div>
+          <% else %>
+          <div class="card-image item"><%= cl_image_tag n.bookmark.user.profile_pic %></div>
+          <div class="card-info size"><strong> <%= n.bookmark.user.username %> </strong> bookmarked your donation to <strong> <%= n.bookmark.donation.episode.name %> </strong></div>
+          <div class="timestamp"><%= distance_of_time_in_words(Time.now, n.created_at) %> ago</div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
