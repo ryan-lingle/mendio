@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @donations = @user.donations
     @following = @user.following
     @followers = @user.followed_by
+    @bookmarks = @user.bookmarks
   end
 
   def toggle_follow

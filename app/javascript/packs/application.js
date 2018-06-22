@@ -9,6 +9,5 @@ import { createView } from '../packs/create_view'
 executePodcastSearch();
 star();
 tabPicker();
-cancelForm();
 createView();
 modal();

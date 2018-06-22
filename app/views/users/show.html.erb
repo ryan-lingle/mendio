@@ -23,4 +23,12 @@
       </li>
     <% end %>
   </ul>
+
+  <ul class="bookmarks hidden">
+    <% @bookmarks.each do |bookmark| %>
+      <li>
+        <%= bookmark.donation.episode.name %>
+      </li>
+    <% end %>
+  </ul>
 </div>
