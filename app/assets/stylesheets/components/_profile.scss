@@ -9,9 +9,10 @@
   .profile-wrapper {
     max-width: 1140px;
     width: 100%;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(&quot;http://localhost:3000/assets/sound-wave-0ad5976d22042ee62743a0b1dc4d7d247468e736458cb3074db4db61da8fad40.svg&quot;);
-    background-size: cover;
-    background-position: center center;
+  }
+  .wrapper-profile {
+    width: 320px;
+    height: 400px;
   }
   .profile {
     display: flex;
@@ -34,17 +35,22 @@
     justify-content: space-around;
     flex-direction: column;
   }
+  .wrapper-profile {
+    width: 100%;
+    border-left: none;
+    border-right: none;
+  }
   .profile-wrapper {
     max-width: 720px;
     width: 100%
   }
   .profile {
+    margin-left: 0;
     display: flex;
     width: 100%;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    margin-left: 10px;
     font-size: 100%;
   }
 }
@@ -61,19 +67,27 @@ $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
 .profile-wrapper {
   width: 100%;
   height: 400px;
-  background: white;
-  transition: background .6s ease;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(&quot;http://localhost:3000/assets/sound-wave-0ad5976d22042ee62743a0b1dc4d7d247468e736458cb3074db4db61da8fad40.svg&quot;);
+  background-size: cover;
+  background-position: center center;
   padding: 20px;
   box-shadow: $shadow;
+    &:hover {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(255, 255, 255, 0.77);
+    transition: all 0.4s;
+  }
 }
 
 .wrapper-profile {
-  width: 320px;
-  height: 400px;
   background: white;
-  transition: background .6s ease;
   padding: 20px;
   box-shadow: $shadow;
+    &:hover {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(255, 255, 255, 0.77);
+    transition: all 0.4s;
+  }
 }
 .profile-avatar {
   width: 100px;
