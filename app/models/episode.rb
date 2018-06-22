@@ -11,4 +11,6 @@ class Episode < ActiveRecord::Base
       tsearch: { prefix: true }
     }
   validates :podcast, presence: true
+  has_many :bookmarks, dependent: :destroy
+  has_many :user_saves, through: :bookmarks, source: :user
 end

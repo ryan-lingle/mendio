@@ -3,12 +3,12 @@
 class BookmarksController < ApplicationController
   def index
     @user = current_user
-    @library = @user.saved_donations
+    @library = @user.saved_episodes
   end
   def create
     bookmark = Bookmark.new
     bookmark.user = current_user
-    bookmark.donation = Donation.find(params[:donation_id])
+    bookmark.episode = Episode.find(params[:episode_id])
     bookmark.save
     Notification.create!(user: current_user, bookmark: bookmark)
   end

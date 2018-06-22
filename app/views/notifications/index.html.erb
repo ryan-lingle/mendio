@@ -11,7 +11,7 @@
           <div class="timestamp"><%= distance_of_time_in_words(Time.now, n.created_at) %> ago</div>
           <% else %>
           <div class="card-image item"><%= cl_image_tag n.bookmark.user.profile_pic %></div>
-          <div class="card-info size"><strong> <%= n.bookmark.user.username %> </strong> bookmarked your donation to <strong> <%= n.bookmark.donation.episode.name %> </strong></div>
+          <div class="card-info size"><strong> <%= n.bookmark.user.username %> </strong> bookmarked your donation to <strong> <%= n.bookmark.episode.name %> </strong></div>
           <div class="timestamp"><%= distance_of_time_in_words(Time.now, n.created_at) %> ago</div>
           <% end %>
         </div>
