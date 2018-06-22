@@ -60,7 +60,7 @@ puts 'creating bookmarks...'
 User.all.each do |user|
   3.times do
     d = Donation.all.sample
-    b = Bookmark.create!(user: user, donation: d)
+    b = Bookmark.create!(user: user, episode: d.episode)
     Notification.create!(user: d.user, bookmark: b)
   end
 end

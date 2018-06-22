@@ -17,12 +17,12 @@
       <div class="bottom-row">
         <h3 class='b-item'>$<%= donation.amount %></h3>
         <div class="favo-icons">
-          <% if @user.saved_donations.include?(donation) %>
-              <%= link_to bookmark_path(Bookmark.find_by(donation_id: donation.id)), method: :delete, remote: true do %>
+          <% if @user.saved_episodes.include?(donation.episode) %>
+              <%= link_to bookmark_path(Bookmark.find_by(episode_id: donation.episode.id)), method: :delete, remote: true do %>
                 <i class="yellow fas fa-star star"></i>
               <% end %>
             <% else %>
-            <%= link_to bookmarks_path(donation_id: donation), method: :post do %>
+            <%= link_to bookmarks_path(episode_id: donation.episode), method: :post do %>
               <i class="fas fa-star star"></i>
             <% end %>
           <% end %>
