@@ -8,7 +8,10 @@
   }
   .profile-wrapper {
     max-width: 1140px;
-    width: 100%
+    width: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(&quot;http://localhost:3000/assets/sound-wave-0ad5976d22042ee62743a0b1dc4d7d247468e736458cb3074db4db61da8fad40.svg&quot;);
+    background-size: cover;
+    background-position: center center;
   }
   .profile {
     display: flex;
