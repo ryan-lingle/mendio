@@ -9,6 +9,10 @@
   .profile-wrapper {
     max-width: 1140px;
     width: 100%;
+    .social-icons {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
   }
   .wrapper-profile {
     width: 320px;
@@ -67,11 +71,12 @@ $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
 .profile-wrapper {
   width: 100%;
   height: 400px;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(&quot;http://localhost:3000/assets/sound-wave-0ad5976d22042ee62743a0b1dc4d7d247468e736458cb3074db4db61da8fad40.svg&quot;);
+  padding: 20px;
+  background: white;
+  box-shadow: $shadow;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('sound-wave.svg');
   background-size: cover;
   background-position: center center;
-  padding: 20px;
-  box-shadow: $shadow;
     &:hover {
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: rgba(255, 255, 255, 0.77);
