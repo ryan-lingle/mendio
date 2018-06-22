@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followed_by, through: :passive_relationships, source: :follower
   has_many :bookmarks, dependent: :destroy
-  has_many :saved_donations, through: :bookmarks, source: :donation
+  has_many :saved_episodes, through: :bookmarks, source: :episode
   has_many :notifications, dependent: :destroy
   has_many :views, dependent: :destroy
   has_many :viewed_donations, through: :views, source: :donation

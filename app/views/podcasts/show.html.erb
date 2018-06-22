@@ -10,10 +10,5 @@
     %>
 <% end %>
 <ul class= 'ep-results'>
-  <% @episodes.each do |ep| %>
-    <li>
-      <%= link_to ep.name, episode_path(ep) %>
-      | <%= link_to "NEW DONATION", episodes_path, data: { toggle: "modal", target: "#myModal", podcast: @podcast.name, episode: ep.name }, class: "modal-trigger" %>
-    </li>
-  <% end %>
+  <%= render 'shared/episode_feed', user: current_user, feed: @episodes %>
 </ul>
