@@ -13,6 +13,7 @@ gem "rails", "5.2.0"
 gem "redis"
 gem "pg_search"
 gem 'pundit'
+gem 'jquery-rails'
 
 gem "rubocop"
 gem "rubocop-rails"

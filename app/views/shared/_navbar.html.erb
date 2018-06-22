@@ -12,7 +12,7 @@
   <div class="navbar-wagon-left hidden-xs hidden-sm">
     <% if user_signed_in? %>
       <!-- Links when logged in -->
-      <%= link_to "NEW DONATION", episodes_path, data: { toggle: "modal", target: "#myModal" }, class: "navbar-wagon-item navbar-wagon-link menu-item" %>
+      <%= link_to "NEW DONATION", episodes_path, data: { toggle: "modal", target: "#myModal", podcast: '', episode: '' }, class: "navbar-wagon-item navbar-wagon-link menu-item modal-trigger" %>
       <%= link_to "BOOKMARKS", bookmarks_path, class: "navbar-wagon-item navbar-wagon-link menu-item" %>
       <%= link_to 'NOTIFICATIONS', notifications_path, class: "navbar-wagon-item navbar-wagon-link menu-item" %>
     <% end %>
@@ -69,7 +69,7 @@
             <%= link_to "Library", bookmarks_path %>
           </li>
           <li>
-            <%= link_to "New Rec", episodes_path %>
+            <%= link_to "New Donation", episodes_path, data: { toggle: "modal", target: "#myModal", podcast: '', episode: '' }, class: "navbar-wagon-item navbar-wagon-link menu-item modal-trigger" %>
           </li>
           <li>
             <%= link_to 'Notifications', notifications_path %>

@@ -13,7 +13,7 @@
   <% @episodes.each do |ep| %>
     <li>
       <%= link_to ep.name, episode_path(ep) %>
-      | <<%= link_to "DONATE", episodes_path(episode: ep.id), remote: true %>
+      | <%= link_to "NEW DONATION", episodes_path, data: { toggle: "modal", target: "#myModal", podcast: @podcast.name, episode: ep.name }, class: "modal-trigger" %>
     </li>
   <% end %>
 </ul>

@@ -11,3 +11,4 @@ star();
 tabPicker();
 cancelForm();
 createView();
+modal();
