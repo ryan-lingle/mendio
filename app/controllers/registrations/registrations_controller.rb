@@ -21,9 +21,9 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
   # PUT /resource
   # def update
@@ -48,11 +48,11 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
   private
 
     def sign_up_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation)
+      params.require(:user).permit(:username, :email, :profile_pic, :password, :password_confirmation)
     end
 
     def account_update_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation, :current_password)
+      params.require(:user).permit(:username, :email, :profile_pic, :password, :password_confirmation, :current_password)
     end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
