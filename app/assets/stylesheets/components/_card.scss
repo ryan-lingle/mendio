@@ -122,6 +122,24 @@
   }
 }
 
+.favo-icons-right {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  .fa-play {
+    font-size: 16px;
+  }
+  a {
+  text-decoration: none;
+  color: #D9D8E8;
+  margin-right: 15px;
+    &:hover {
+      color: $light-gray;
+      transition: ease 0.4s;
+    }
+  }
+}
+
 .bottom-row {
   display: flex;
   align-items: center;

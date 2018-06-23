@@ -7,12 +7,12 @@
             <%= cl_image_tag episode.podcast.artwork, height: 100, width: 100 %>
           <% end %>
           <h2 class= 'episode-name hidden-xs'>
-            <%= link_to episode_path(episode), class: 'navbar-wagon-link' do %>
+            <%= link_to episode_path(episode) do %>
               <%= episode.name %>
             <% end %>
           </h2>
           <h2 class= 'small-episode-name hidden-sm hidden-md hidden-lg'>
-            <%= link_to episode_path(episode), class: 'navbar-wagon-link' do %>
+            <%= link_to episode_path(episode) do %>
               <%= episode.name %>
             <% end %>
           </h2>
@@ -27,7 +27,7 @@
               "#{name.join(' ')}"
              %>
           </p>
-          <div class="favo-icons">
+          <div class="favo-icons-right">
             <% if user.saved_episodes.include?(episode) %>
               <%= link_to bookmark_path(Bookmark.find_by(episode_id: episode.id)), method: :delete, remote: true do %>
                 <i class="yellow fas fa-star star"></i>
