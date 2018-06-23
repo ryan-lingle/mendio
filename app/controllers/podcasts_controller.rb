@@ -8,8 +8,6 @@ class PodcastsController < ApplicationController
         format.html { render "episodes/selection" }
         format.js  # <-- will render `app/views/reviews/create.js.erb`
       end
-    else
-      raise
     end
   end
 

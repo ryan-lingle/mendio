@@ -1,4 +1,5 @@
-# frozen_string_literal: true
+require 'nokogiri'
+require 'open-uri'
 
 class Podcast < ActiveRecord::Base
   has_many :episodes, dependent: :destroy
@@ -15,4 +16,19 @@ class Podcast < ActiveRecord::Base
       tsearch: { prefix: true }
     }
   multisearchable against: [ :name ]
+
+  def build_podcast(url)
+    doc = Nokogiri::XML(open(url))
+    if current_user.email == doc.at('//itunes:email').text
+      podcast = Podcast.new(
+        creator: current_user,
+        name: doc.at('//title').text,
+      )
+      podcast.remote_artwork_url = doc.at('//itunes:image')['href']
+      if podcast.save!
+        return true
+      end
+    end
+    return false
+  end
 end
