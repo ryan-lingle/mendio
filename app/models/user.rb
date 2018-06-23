@@ -21,7 +21,7 @@ class User < ApplicationRecord
   has_many :views, dependent: :destroy
   has_many :viewed_donations, through: :views, source: :donation
   mount_uploader :profile_pic, ProfilePicUploader
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
   include PgSearch
   PgSearch.multisearch_options = { using: { tsearch: { prefix: true, dictionary: "english" } } }
   multisearchable against: [ :username ]
