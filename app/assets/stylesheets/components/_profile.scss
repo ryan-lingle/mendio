@@ -87,6 +87,7 @@ $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
 
 .wrapper-profile {
   background: white;
+  max-width: 725px;
   padding: 20px;
   box-shadow: $shadow;
     &:hover {
@@ -137,6 +138,7 @@ $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
       box-shadow: $avatar-shadow;
     }
     &:nth-of-type(1) {
+      padding-left: 20px;
       .tab {
         background: $purple-gradient;
         &:hover {
@@ -181,6 +183,9 @@ $avatar-shadow: 0 13px 26px rgba(#000, .2), 0 3px 6px rgba(#000, .2);
           transition: all 0.4s;
         }
       }
+    }
+    &:last-child {
+      padding-right: 20px;
     }
   }
 }
