@@ -5,6 +5,9 @@ class NotificationsController < ApplicationController
 
   def index
     @notifications = current_user.notifications.reverse
-    @notifications.each { |n| n.make_seen }
+    @notifications.each do |n|
+      n.make_seen
+      n.save!
+    end
   end
 end
