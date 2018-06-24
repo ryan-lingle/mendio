@@ -3,9 +3,10 @@
   <h3><%= user.username %></h3>
   <% if user == current_user %>
     <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "btn btn-success btn-sm" %>
+    <%= link_to 'Podcast Dashboard', dashboard_path, class: "btn btn-success btn-sm" %>
   <% else %>
     <% if current_user.following?(user) %>
-      <%= link_to 'Unfollow', toggle_follow_path(user), class: "relationship unfollow btn btn-success btn-sm", method: :post, remote: true %>
+      <%= link_to 'Unfollow', toggle_follow_path(user), class: "relationship unfollow btn btn-success btn-sm", method: :post, remote: true unless user.podcasts.empty? %>
     <% else %>
       <%= link_to 'Follow', toggle_follow_path(user), class: "relationship btn btn-success btn-sm", method: :post, remote: true %>
     <% end %>

@@ -15,4 +15,12 @@ class PodcastsController < ApplicationController
     @podcast = Podcast.find(params[:id])
     @episodes = @podcast.episodes
   end
+
+  def create
+    if Podcast.rss_builder(current_user, params[:rss])
+      redirect_to user_path(current_user)
+    else
+      render 'new'
+    end
+  end
 end

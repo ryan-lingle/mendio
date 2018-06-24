@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :views, dependent: :destroy
   has_many :viewed_donations, through: :views, source: :donation
+  has_many :podcasts, class_name: 'Podcast', foreign_key: "creator_id"
   mount_uploader :profile_pic, ProfilePicUploader
   # after_create :send_welcome_email
   include PgSearch
@@ -36,6 +37,8 @@ class User < ApplicationRecord
     end
     self.donations.each { |d| feed << d }
     feed = feed.sort_by { |donation| -donation.amount }
+    seen_unseen = feed.partition { |d| !self.viewed_donations.include?(d) }
+    feed = seen_unseen.flatten
   end
 
   def follow(other_user)
@@ -63,6 +66,11 @@ class User < ApplicationRecord
       end
     end
     false
+  end
+
+  def notification_count
+    unseen = self.notifications.select { |n| n.unseen? }
+    unseen.count > 0 ? "(#{unseen.count})" : ""
   end
 
   private

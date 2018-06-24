@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :bookmarks, only: [:index, :create, :destroy]
   resources :donations, except: [:edit, :new, :destroy]
-  resources :podcasts, only: [:create, :show]
+  resources :podcasts, only: [:create, :show, :new]
   resources :episodes, only: [ :show, :index ]
   resources :users, only: [:show, :index]
   resources :notifications, only: [:index]
+  get 'dashboard', to: 'users#dashboard', as: :dashboard
   get 'view/create/:id', to: 'views#create', as: :create_view
   post 'podcast/find', to: 'podcasts#find', as: :find_podcast
   post 'episodes/find', to: 'episodes#find', as: :find_episodes
