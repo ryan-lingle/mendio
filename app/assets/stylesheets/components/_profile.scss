@@ -97,13 +97,14 @@ $h4-gradient: linear-gradient(to bottom right, $green, $light-gray);
   }
 }
 .profile-avatar {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5em;
-  border-radius: 50%;
+  img {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+  }
 }
 
 .profile-header {

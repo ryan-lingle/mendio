@@ -5,6 +5,7 @@
   position: relative;
   text-overflow: ellipsis;
   overflow: hidden;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
   &:hover {
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: rgba(255, 255, 255, 0.77);
