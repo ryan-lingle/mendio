@@ -1,5 +1,5 @@
 <div class="profile-header">
-  <%= cl_image_tag user.profile_pic, height: 70, width: 70, class: "profile-avatar" %>
+  <%= link_to cl_image_tag(user.profile_pic), user_path(user), class: "profile-avatar" %>
   <h3><%= user.username %></h3>
   <% if user == current_user %>
     <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "btn btn-success btn-sm" %>

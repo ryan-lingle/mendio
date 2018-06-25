@@ -1,4 +1,4 @@
-<div class="feed-search">
+<div class="feed-search" style="margin-top: 30px;">
     <% @results.each do |result| %>
       <% if result.searchable_type == 'User' %>
           <%= link_to user_path(result.searchable_id) do %>
