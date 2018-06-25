@@ -1,0 +1,7 @@
+<%= form_tag podcasts_path, method: :post, id: 'podcast-builder' do %>
+  <%= text_field_tag :rss,
+  params[:rss],
+  autocomplete: :off,
+  class: "",
+  placeholder: "Input a Valid RSS Feed Url" %>
+<% end %>

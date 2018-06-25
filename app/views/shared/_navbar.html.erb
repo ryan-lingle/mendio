@@ -14,7 +14,7 @@
       <!-- Links when logged in -->
       <%= link_to "NEW DONATION", episodes_path, data: { toggle: "modal", target: "#myModal", podcast: '', episode: '' }, class: "navbar-wagon-item navbar-wagon-link menu-item modal-trigger" %>
       <%= link_to "BOOKMARKS", bookmarks_path, class: "navbar-wagon-item navbar-wagon-link menu-item" %>
-      <%= link_to 'NOTIFICATIONS', notifications_path, class: "navbar-wagon-item navbar-wagon-link menu-item" %>
+      <%= link_to "NOTIFICATIONS #{current_user.notification_count}", notifications_path, class: "navbar-wagon-item navbar-wagon-link menu-item" %>
     <% end %>
   </div>
 
@@ -39,6 +39,18 @@
             <li>
               <%= link_to user_path(current_user) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <% unless current_user.podcasts.empty? %>
+                <%= link_to dashboard_path do %>
+                  <i class="fas fa-podcast"></i>  <%= t(".profile", default: "Podcast Dashboard") %>
+                <% end %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_podcast_path do %>
+                <i class="fas fa-plus"></i>  <%= t(".profile", default: "List a Podcast") %>
               <% end %>
             </li>
             <li>
@@ -77,6 +89,12 @@
           </li>
           <li>
             <%= link_to 'Profile', user_path(current_user) %>
+          </li>
+          <li>
+            <%= link_to 'Podcast Dashboard', dashboard_path unless current_user.podcasts.empty? %>
+          </li>
+          <li>
+            <%= link_to 'List a Podcast', new_podcast_path %>
           </li>
           <li>
             <%= link_to "#" do %>

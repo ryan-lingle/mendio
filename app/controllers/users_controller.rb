@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_user, except: :index
+  before_action :set_user, except: [ :index, :dashboard ]
   def index
     PgSearch::Multisearch.rebuild(User)
     PgSearch::Multisearch.rebuild(Podcast)
@@ -23,6 +23,11 @@ class UsersController < ApplicationController
       current_user.follow(@user)
       Notification.create!(user: @user, follower: current_user)
     end
+  end
+
+  def dashboard
+    @user = current_user
+    @podcasts = @user.podcasts
   end
 
   private
