@@ -10,15 +10,99 @@
   }
 }
 
+.search-bar-empty-feed {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.search-field {
+background-color: #fff;
+text-align: center;
+}
+
+.empty-feed {
+  min-height: 75vh;
+  margin-top: 30px;
+  width: 86vh;
+  margin-right: auto;
+  margin-left: auto;
+  border: 2px #d3d3d3 dashed;
+  .col-xs-12 {
+    padding: 0;
+  }
+}
+
+.empty-feed-search {
+  min-height: 70vh;
+  margin-top: 20px;
+  width: 80vh;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #F4F4EF;
+  border-radius: 4px;
+  border: 2px #d3d3d3 dashed;
+  padding: 4px;
+  .col-xs-12 {
+    padding: 0;
+  }
+}
+
+.empty-feed-content {
+  h4 {
+    padding-top: 15px;
+    padding-left: 20px;
+  }
+
+  p {
+    padding-top: 15px;
+    padding-left: 20px;
+    font-size: 16px;
+  }
+}
+
+.empty-feed-item {
+  height: 50px;
+  width: 100%;
+  border: 2px #d3d3d3 dashed;
+  margin-top: 2px;
+}
+
+.arrow {
+  text-align: center;
+  img {
+    height: 30px;
+    width: 30px;
+  }
+}
 @media (min-width: 1200px) {
   .feed {
     max-width: 1140px;
     float: center;
   }
+
+  .empty-feed {
+    max-width: 1140px;
+    float: center;
+  }
+
+  .empty-feed-search {
+   max-width: 1140px;
+   float: center;
+ }
 }
 
 @media (min-width: 992px) {
   .feed {
+    max-width: 1140px;
+    float: center;
+  }
+
+  .empty-feed {
+    max-width: 1140px;
+    float: center;
+  }
+
+  .empty-feed-search {
     max-width: 1140px;
     float: center;
   }
@@ -29,11 +113,31 @@
     float: center;
     max-width: 960px;
   }
+
+  .empty-feed {
+    float: center;
+    max-width: 960px;
+  }
+
+  .empty-feed-search {
+    float: center;
+    max-width: 960px;
+  }
 }
 
 @media (min-width: 576px) {
   .feed {
     float: center;
-    max-width: 720px;
+    max-width: 960px;
+  }
+
+  .empty-feed {
+    float: center;
+    max-width: 960px;
+  }
+
+  .empty-feed-search {
+    float: center;
+    max-width: 960px;
   }
 }
