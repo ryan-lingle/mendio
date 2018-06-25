@@ -3,7 +3,9 @@
   <h3><%= user.username %></h3>
   <% if user == current_user %>
     <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "btn btn-success btn-sm" %>
-    <%= link_to 'Podcast Dashboard', dashboard_path, class: "btn btn-success btn-sm" %>
+    <% if !user.podcasts.empty? %>
+      <%= link_to 'Podcast Dashboard', dashboard_path, class: "btn btn-success btn-sm" %>
+    <% end %>
   <% else %>
     <% if current_user.following?(user) %>
       <%= link_to 'Unfollow', toggle_follow_path(user), class: "relationship unfollow btn btn-success btn-sm", method: :post, remote: true unless user.podcasts.empty? %>
@@ -15,25 +17,25 @@
 
 <div class="social-icons">
   <div class="icon">
-      <i class="fas fa-user-friends tab" data='followers'></i>
+    <i class="fas fa-user-friends tab" data='followers'></i>
     <h4><%= user.followed_by.count %></h4>
     <p>followers</p>
   </div>
 
   <div class="icon">
-      <i class="fas fa-coins tab" data='donations'></i>
+    <i class="fas fa-coins tab" data='donations'></i>
     <h4><%= user.donations.count %></h4>
     <p>donations</p>
   </div>
 
   <div class="icon">
-      <i class="fas fa-user-friends tab" data='following'></i>
+    <i class="fas fa-user-friends tab" data='following'></i>
     <h4><%= user.following.count %></h4>
     <p>following</p>
   </div>
   <% unless @user == current_user %>
     <div class="icon">
-        <i class="fas fa-bookmark tab " data='bookmarks'></i>
+      <i class="fas fa-bookmark tab " data='bookmarks'></i>
       <h4><%= user.bookmarks.count %></h4>
       <p>bookmarks</p>
     </div>
