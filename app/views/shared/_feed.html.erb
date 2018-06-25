@@ -26,7 +26,7 @@
                 <i class="yellow fas fa-star star"></i>
               <% end %>
             <% else %>
-            <%= link_to bookmarks_path(episode_id: donation.episode), method: :post do %>
+            <%= link_to bookmarks_path(episode_id: donation.episode, donation_id: donation), method: :post do %>
               <i class="fas fa-star star"></i>
             <% end %>
           <% end %>

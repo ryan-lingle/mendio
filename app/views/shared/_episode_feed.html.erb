@@ -28,8 +28,8 @@
              %>
           </p>
           <div class="favo-icons-right">
-            <% if user.saved_episodes.include?(episode) %>
-              <%= link_to bookmark_path(Bookmark.find_by(episode_id: episode.id)), method: :delete, remote: true do %>
+            <% if current_user.saved_episodes.include?(episode) %>
+              <%= link_to bookmark_path(Bookmark.find_by(episode_id: episode.id), episode_id: episode), remote: true, method: :delete do %>
                 <i class="yellow fas fa-star star"></i>
               <% end %>
             <% else %>

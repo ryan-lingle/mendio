@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @donations = @user.donations
     @following = @user.following
     @followers = @user.followed_by
-    @bookmarks = @user.bookmarks
+    @episodes = @user.saved_episodes
   end
 
   def toggle_follow

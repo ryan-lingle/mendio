@@ -19,11 +19,11 @@ puts 'creating users...'
     password: 'mendiopassword',
     seed: true,
   )
-  user.remote_profile_pic_url = Faker::Avatar.image
+  user.remote_profile_pic_url = 'http://i.pravatar.cc/300'
   user.save!
 end
 
-tim_search = JSON.parse(open('https://itunes.apple.com/search?term=the&media=podcast&entity=podcast').read)
+tim_search = JSON.parse(open('https://itunes.apple.com/search?term=t&media=podcast&entity=podcast').read)
 puts 'creating podcasts and episodes...'
 tim_search['results'].each do |podcast|
   begin
@@ -59,6 +59,10 @@ tim_search['results'].each do |podcast|
         end
       end
     end
+  rescue ActiveRecord::RecordInvalid => invalid
+    puts invalid.record.errors
+  rescue Cloudinary::CarrierWave::UploadError
+    puts 'image not found'
   rescue OpenURI::HTTPError => ex
     puts "Missing feed skipped"
   end

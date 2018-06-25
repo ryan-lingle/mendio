@@ -33,8 +33,6 @@
   </div>
 
   <div class="bookmarks hidden">
-    <% @bookmarks.each do |bookmark| %>
-      <%= bookmark.episode.name %>
-    <% end %>
+    <%= render 'shared/episode_feed', feed: @episodes, user: @user %>
   </div>
 </div>
