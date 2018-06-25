@@ -1,0 +1,14 @@
+<div class="notifications-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 height">
+        <div class="card notifications">
+          <div class="card-image item">
+            <%= link_to cl_image_tag(podcast.artwork), podcast_path(podcast) %></div>
+          <div class="card-info size"><%= link_to podcast.name, podcast_path(podcast) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
