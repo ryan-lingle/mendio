@@ -1,3 +1,4 @@
-console.log('hi');
 
-document.querySelector("[data='<%= @bookmark.episode.id %>']").remove();
+if (document.querySelector('.user-library')) {
+  document.querySelector("[data='<%= @bookmark.episode.id %>']").remove();
+}
