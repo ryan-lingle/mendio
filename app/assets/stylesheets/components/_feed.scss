@@ -1,0 +1,39 @@
+.feed {
+  margin-top: 30px;
+  min-height: 100%;
+  background-color: $light-gray;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  .col-xs-12 {
+    padding: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .feed {
+    max-width: 1140px;
+    float: center;
+  }
+}
+
+@media (min-width: 992px) {
+  .feed {
+    max-width: 1140px;
+    float: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .feed {
+    float: center;
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 576px) {
+  .feed {
+    float: center;
+    max-width: 720px;
+  }
+}
