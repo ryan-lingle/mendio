@@ -5,31 +5,27 @@
     </div>
   </div>
   <div class="my-donations">
-      <%= render 'shared/feed', user: @user, feed: @user.donations %>
+    <%= render 'shared/feed', user: @user, feed: @user.donations %>
   </div>
 
   <div class = "following hidden">
-    <% @following.each do |user| %>
-      <div class="feed">
-        <div class="feed-search">
-          <div class="wrapper-profile">
-            <%= render 'shared/profile', user: user %>
-          </div>
-        </div>
+    <div class="feed">
+      <div class="feed-search">
+        <% @following.each do |user| %>
+          <%= render 'shared/user_list', user: user %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 
   <div class="followers hidden">
-    <% @followers.each do |user| %>
-      <div class="feed">
-        <div class="feed-search">
-          <div class="wrapper-profile">
-            <%= render 'shared/profile', user: user %>
-          </div>
-        </div>
+    <div class="feed">
+      <div class="feed-search">
+        <% @followers.each do |user| %>
+          <%= render 'shared/user_list', user: user %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 
   <div class="bookmarks hidden">

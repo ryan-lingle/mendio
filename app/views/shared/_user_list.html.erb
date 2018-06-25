@@ -1,26 +1,19 @@
-<div class="notifications-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 height">
-        <div class="card notifications">
-          <div class="card-image item-avatar">
-            <%= link_to cl_image_tag(user.profile_pic), user_path(user) %></div>
-          <div class="card-info size"><%= link_to user.username, user_path(user) %>
-          </div>
-          <div>
-            <% if user == current_user %>
-              <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "btn btn-success btn-sm" %>
-              <%= link_to 'Podcast Dashboard', dashboard_path, class: "btn btn-success btn-sm" %>
-            <% else %>
-              <% if current_user.following?(user) %>
-                <%= link_to 'Unfollow', toggle_follow_path(user), class: "relationship unfollow btn btn-success btn-sm", method: :post, remote: true unless user.podcasts.empty? %>
-              <% else %>
-                <%= link_to 'Follow', toggle_follow_path(user), class: "relationship btn btn-success btn-sm", method: :post, remote: true %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="card notifications">
+  <div class="card-image item-avatar">
+    <%= link_to cl_image_tag(user.profile_pic), user_path(user) %>
+  </div>
+  <div class="card-info size"><%= link_to user.username, user_path(user) %>
+  </div>
+  <div>
+    <% if user == current_user %>
+      <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "btn btn-success btn-sm" %>
+    <% else %>
+      <% if current_user.following?(user) %>
+        <%= link_to 'Unfollow', toggle_follow_path(user), class: "relationship unfollow btn btn-success btn-sm", method: :post, remote: true unless user.podcasts.empty? %>
+      <% else %>
+        <%= link_to 'Follow', toggle_follow_path(user), class: "relationship btn btn-success btn-sm", method: :post, remote: true %>
+      <% end %>
+    <% end %>
   </div>
 </div>
+
