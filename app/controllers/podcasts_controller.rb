@@ -8,13 +8,19 @@ class PodcastsController < ApplicationController
         format.html { render "episodes/selection" }
         format.js  # <-- will render `app/views/reviews/create.js.erb`
       end
-    else
-      raise
     end
   end
 
   def show
     @podcast = Podcast.find(params[:id])
     @episodes = @podcast.episodes
+  end
+
+  def create
+    if Podcast.rss_builder(current_user, params[:rss])
+      redirect_to user_path(current_user)
+    else
+      render 'new'
+    end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_22_135620) do
+ActiveRecord::Schema.define(version: 2018_06_24_161025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2018_06_22_135620) do
     t.bigint "podcast_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "number"
+    t.text "description"
     t.index ["podcast_id"], name: "index_episodes_on_podcast_id"
   end
 
@@ -51,6 +53,7 @@ ActiveRecord::Schema.define(version: 2018_06_22_135620) do
     t.integer "follower_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "seen", default: false
     t.index ["bookmark_id"], name: "index_notifications_on_bookmark_id"
     t.index ["follower_id"], name: "index_notifications_on_follower_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
@@ -72,6 +75,7 @@ ActiveRecord::Schema.define(version: 2018_06_22_135620) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "artwork"
+    t.text "description"
     t.index ["creator_id"], name: "index_podcasts_on_creator_id"
   end
 

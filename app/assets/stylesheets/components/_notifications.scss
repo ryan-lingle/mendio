@@ -17,6 +17,9 @@
 
 .notifications {
   display: flex;
+  &:first-child {
+    margin-top: 30px;
+  }
 }
 
 .size {

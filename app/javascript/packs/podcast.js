@@ -1,5 +1,6 @@
 function executePodcastSearch() {
   document.querySelector('.episode-section').classList.add('hidden')
+  document.querySelector('.sad').classList.add('hidden')
   if (document.querySelector('.amount-input')) {
     document.querySelector('.amount-input').remove();
   }
@@ -26,7 +27,6 @@ function executePodcastSearch() {
       document.removeEventListener('keyup', podcastKey)
       let elem= document.querySelector('#podcast-form')
       Rails.fire(elem, 'submit');
-
     })
   }
 

@@ -20,7 +20,11 @@
 
                 </ul>
             </div>
-
+            <div class="sad hidden">
+              Unfortunately the Podcast you have selected has not yet created a
+              mendio account thus we cannot accept your donation. Please reach out
+              to the creator of this podcast and tell them about Mendio!
+            </div>
             <div class="search episode-section hidden">
               <%= form_tag find_episodes_path, remote: true, method: :post do %>
               <%= hidden_field_tag 'podcast_id' %>

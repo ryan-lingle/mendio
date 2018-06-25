@@ -1,4 +1,7 @@
-document.querySelector('.episode-section').classList.remove('hidden')
 
-document.querySelector('#podcast_id').value = '<%= @result.id %>'
-
+'<% if @result.nil? %>'
+  document.querySelector('.sad').classList.remove('hidden')
+'<% else %>'
+  document.querySelector('.episode-section').classList.remove('hidden')
+  document.querySelector('#podcast_id').value = '<%= @result.id %>'
+'<% end %>'

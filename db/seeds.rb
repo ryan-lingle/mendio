@@ -1,6 +1,6 @@
 require 'faker'
 require 'open-uri'
-require 'rss'
+require 'nokogiri'
 
 User.destroy_all
 Relationship.destroy_all
@@ -23,19 +23,44 @@ puts 'creating users...'
   user.save!
 end
 
-tim_search = JSON.parse(open('https://itunes.apple.com/search?term=b&media=podcast&entity=podcast').read)
+tim_search = JSON.parse(open('https://itunes.apple.com/search?term=the&media=podcast&entity=podcast').read)
 puts 'creating podcasts and episodes...'
 tim_search['results'].each do |podcast|
-  s = podcast['collectionId']
-  pod = Podcast.new(name: podcast['collectionName'], balance: 50, creator: User.all.sample)
-  pod.remote_artwork_url = podcast['artworkUrl100']
-  pod.save!
-  url = "https://itunes.apple.com/lookup?id=#{s}"
-  search = JSON.parse(open(url).read)
-  rss_url = search['results'][0]['feedUrl']
-  rss = RSS::Parser.parse(rss_url, false)
-  rss.items.first(15).each do |item|
-    Episode.create!(name: item.title, podcast: pod)
+  begin
+    s = podcast['collectionId']
+    puts "Creating #{podcast['collectionName']}..."
+    pod = Podcast.new(
+      name: podcast['collectionName'],
+      balance: 50,
+      creator: User.all.sample,
+    )
+    if s
+      url = "https://itunes.apple.com/lookup?id=#{s}"
+    end
+    search = JSON.parse(open(url).read)
+    rss_url = search['results'][0]['feedUrl']
+    if rss_url
+      doc = Nokogiri::XML(open(rss_url))
+      if doc.at('//itunes:summary')
+        pod.description = doc.at('//itunes:summary').text
+      end
+      if doc.at('//itunes:image')
+        pod.remote_artwork_url = doc.at('//itunes:image')['href']
+      end
+      pod.save!
+      doc.xpath('//item').first(15).each do |ep|
+        if ep.xpath('.//title') && ep.at('.//itunes:episode') && ep.at('.//description')
+          Episode.create!(
+            name: ep.xpath('.//title').text,
+            number: ep.at('.//itunes:episode').text,
+            description: ep.at('.//description').text,
+            podcast: pod,
+          )
+        end
+      end
+    end
+  rescue OpenURI::HTTPError => ex
+    puts "Missing feed skipped"
   end
  end
 
@@ -60,6 +85,9 @@ puts 'creating bookmarks...'
 User.all.each do |user|
   3.times do
     d = Donation.all.sample
+    while user.saved_episodes.include?(d.episode)
+      d = Donation.all.sample
+    end
     b = Bookmark.create!(user: user, episode: d.episode)
     Notification.create!(user: d.user, bookmark: b)
   end
