@@ -17,9 +17,16 @@ class PodcastsController < ApplicationController
   end
 
   def create
-    if Podcast.rss_builder(current_user, params[:rss])
-      redirect_to user_path(current_user)
-    else
+    begin
+      @error = nil
+      if Podcast.rss_builder(current_user, params[:rss])
+        redirect_to dashboard_path
+      else
+        @error = "It seems that your account's email does not correspond to the email provided in the RSS Feed."
+        render 'new'
+      end
+    rescue => e
+      @error = 'Not a Valid RSS Feed. Ensure that you are submitting a RSS Feed that has been validated by itunes.'
       render 'new'
     end
   end
