@@ -10,6 +10,7 @@ Podcast.destroy_all
 Donation.destroy_all
 Episode.destroy_all
 
+
 puts 'creating users...'
 25.times do
   user = User.new(
@@ -34,39 +35,39 @@ tim_search['results'].each do |podcast|
       balance: 50,
       creator: User.all.sample,
     )
-    if s
-      url = "https://itunes.apple.com/lookup?id=#{s}"
-    end
+    url = "https://itunes.apple.com/lookup?id=#{s}"
     search = JSON.parse(open(url).read)
     rss_url = search['results'][0]['feedUrl']
-    if rss_url
-      doc = Nokogiri::XML(open(rss_url))
-      if doc.at('//itunes:summary')
-        pod.description = doc.at('//itunes:summary').text
-      end
-      if doc.at('//itunes:image')
-        pod.remote_artwork_url = doc.at('//itunes:image')['href']
-      end
-      pod.save!
-      doc.xpath('//item').first(15).each do |ep|
-        if ep.xpath('.//title') && ep.at('.//itunes:episode') && ep.at('.//description')
-          Episode.create!(
-            name: ep.xpath('.//title').text,
-            number: ep.at('.//itunes:episode').text,
-            description: ep.at('.//description').text,
-            podcast: pod,
-          )
+    doc = Nokogiri::XML(open(rss_url))
+    if doc.at('//itunes:summary')
+      pod.description = doc.at('//itunes:summary').text
+    end
+    pod.remote_artwork_url = doc.at('//itunes:image')['href']
+    if doc.at('//itunes:new-feed-url')
+      pod.new_feed = doc.at('//itunes:new-feed-url').text
+    end
+    pod.save!
+    doc.xpath('//item').first(15).each do |ep|
+      begin
+        episode = Episode.new(
+          name: ep.xpath('.//title').text,
+          podcast: pod,
+        )
+        if ep.at('.//itunes:summary')
+          episode.description = ep.at('.//itunes:summary').text
         end
+        if ep.at('.//itunes:episode')
+          episode.number = ep.at('.//itunes:episode').text
+        end
+        episode.save!
+      rescue => ex
+        puts ex.message
       end
     end
-  rescue ActiveRecord::RecordInvalid => invalid
-    puts invalid.record.errors
-  rescue Cloudinary::CarrierWave::UploadError
-    puts 'image not found'
-  rescue OpenURI::HTTPError => ex
-    puts "Missing feed skipped"
+  rescue => ex
+    puts ex.message
   end
- end
+end
 
 puts 'creating donations...'
 150.times do

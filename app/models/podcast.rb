@@ -25,9 +25,10 @@ class Podcast < ActiveRecord::Base
       podcast = Podcast.new(
         creator: user,
         name: doc.at('//title').text,
-        description: doc.at('//description').text
+        description: doc.at('//itunes:summary').text
       )
       podcast.remote_artwork_url = doc.at('//itunes:image')['href']
+      podcast.new_feed = doc.at('//itunes:new-feed-url').text if doc.at('//itunes:new-feed-url')
       podcast.save!
       doc.xpath('//item').each do |ep|
         episode = Episode.new(
@@ -38,7 +39,7 @@ class Podcast < ActiveRecord::Base
         episode.description = ep.at('.//itunes:summary').text if ep.at('.//itunes:summary')
         episode.save!
       end
-      return true
+      return podcast
     end
     return false
   end

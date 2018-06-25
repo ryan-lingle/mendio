@@ -5,3 +5,9 @@
   class: "",
   placeholder: "Input a Valid RSS Feed Url" %>
 <% end %>
+
+<% if @error %>
+  <div class="error">
+    <%= @error %>
+  </div>
+<% end %>
