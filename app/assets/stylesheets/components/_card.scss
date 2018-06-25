@@ -1,6 +1,6 @@
 .card {
   padding: 10px 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: $shadow, $shadow;
   background-color: white;
   position: relative;
   text-overflow: ellipsis;
@@ -52,6 +52,14 @@
   padding-right: 10px;
   padding-top: 10px;
   font-weight: normal;
+  a {
+    color: $gray;
+    &:hover {
+      color: $light-gray;
+      transition: 0.4s ease;
+      text-decoration: none;
+    }
+  }
 }
 
 .username {

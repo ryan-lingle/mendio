@@ -8,27 +8,33 @@
       <%= render 'shared/feed', user: @user, feed: @user.donations %>
   </div>
 
-  <ul class = "following hidden">
+  <div class = "following hidden">
     <% @following.each do |user| %>
-      <li>
-        <%= user.username %>
-      </li>
+      <div class="feed">
+        <div class="feed-search">
+          <div class="wrapper-profile">
+            <%= render 'shared/profile', user: user %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 
-  <ul class="followers hidden">
+  <div class="followers hidden">
     <% @followers.each do |user| %>
-      <li>
-        <%= user.username %>
-      </li>
+      <div class="feed">
+        <div class="feed-search">
+          <div class="wrapper-profile">
+            <%= render 'shared/profile', user: user %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 
-  <ul class="bookmarks hidden">
+  <div class="bookmarks hidden">
     <% @bookmarks.each do |bookmark| %>
-      <li>
-        <%= bookmark.episode.name %>
-      </li>
+      <%= bookmark.episode.name %>
     <% end %>
-  </ul>
+  </div>
 </div>

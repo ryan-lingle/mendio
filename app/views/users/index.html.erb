@@ -1,17 +1,18 @@
-<ul>
-  <% @results.each do |result| %>
-    <% if result.searchable_type == 'User' %>
-      <%= link_to user_path(result.searchable_id) do %>
-        <li>
-          <%= result.content %>
-        </li>
-      <% end %>
-    <% else %>
-      <%= link_to podcast_path(result.searchable_id) do %>
-        <li>
-          <%= result.content %>
-        </li>
+<div class="feed-search">
+  <div class="feed">
+    <% @results.each do |result| %>
+      <% if result.searchable_type == 'User' %>
+
+          <div class="wrapper-profile">
+        <%= link_to user_path(result.searchable_id) do %>
+            <%= render 'shared/profile', user: User.find(result.searchable_id) %>
+        <% end %>
+          </div>
+      <% else %>
+        <%= link_to podcast_path(result.searchable_id) do %>
+          <%= render 'shared/episode_feed', user: current_user, feed: Podcast.find(result.searchable_id).episodes %>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </div>
+</div>

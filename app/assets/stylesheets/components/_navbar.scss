@@ -11,14 +11,25 @@
 }
 
 @media (max-width: 768px) {
+  .bar-search {
+  margin-left: 30px;
+  }
   .navbar-wagon {
     padding-left: 20px;
+  }
+}
+
+@media (max-width: 445px) {
+  .bar-search {
+  margin-top: 25px;
   }
 }
 
 .bar-search {
   background-color: $light-gray;
   width: 200px !important;
+  font-size: 16px;
+  padding: 3px;
 }
 
 body {
@@ -26,6 +37,7 @@ body {
 }
 /* Logo */
 .navbar-wagon-brand img {
+  padding-left: 10px;
   height: 50px;
 }
 
@@ -68,7 +80,7 @@ body {
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: $blue;
+  color: $light-gray;
   text-decoration: none;
 }
 
