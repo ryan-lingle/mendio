@@ -21,6 +21,19 @@
   }
 }
 
+.search-btn {
+  margin-right: 20px;
+  margin-top: 5px;
+}
+
+.icon-search {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.2);
+  position: absolute;
+  top: 21px;
+  right: 10px;
+}
+
 .episode-results li {
   display: flex;
   justify-content: space-between;
