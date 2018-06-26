@@ -13,8 +13,11 @@ Episode.destroy_all
 
 puts 'creating users...'
 25.times do
+  name = Faker::FunnyName.name.split(' ')
   user = User.new(
-    username: Faker::Internet.user_name,
+    first_name: name[0],
+    last_name: name[1],
+    username: name.join('_').downcase,
     balance: 10,
     email: Faker::Internet.email,
     password: 'mendiopassword',
