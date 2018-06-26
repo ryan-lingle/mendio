@@ -43,4 +43,15 @@ class Podcast < ActiveRecord::Base
     end
     return false
   end
+
+  def revenue
+    sum = 0
+    self.donations.each { |d| sum += d.amount }
+    sum
+  end
+
+  def top_episodes
+    self.episodes.sort { |e| -e.revenue }.first(5)
+  end
+
 end

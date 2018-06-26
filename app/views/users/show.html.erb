@@ -12,7 +12,7 @@
     <div class="feed">
       <div class="feed-search">
         <% @following.each do |user| %>
-          <%= render 'shared/user_list', user: user %>
+          <%= render 'shared/user-list', user: user %>
         <% end %>
       </div>
     </div>
@@ -22,13 +22,13 @@
     <div class="feed">
       <div class="feed-search">
         <% @followers.each do |user| %>
-          <%= render 'shared/user_list', user: user %>
+          <%= render 'shared/user-list', user: user %>
         <% end %>
       </div>
     </div>
   </div>
 
   <div class="bookmarks hidden">
-    <%= render 'shared/episode_feed', feed: @episodes, user: @user %>
+    <%= render 'shared/episode-feed', feed: @episodes, user: @user %>
   </div>
 </div>

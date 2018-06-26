@@ -1,0 +1,38 @@
+<% @user.podcasts.each do |podcast| %>
+  <div>
+    <div class="bottom-line">
+      <p><%= podcast.description %></p>
+    </div>
+    <div class="bottom-line">
+      <h4>
+        Total revenue for <strong><%= podcast.name %></strong>
+      </h4>
+      <p class="cash">
+        $<%= podcast.revenue %>
+      </p>
+    </div>
+    <div class="bottom-line">
+      <h4>
+        Average donation per episode
+      </h4>
+      <p class="cash">$<%= podcast.revenue/podcast.episodes.count %></p>
+    </div>
+    <% if podcast.revenue != 0 %>
+      <div>
+        <h4>
+          People love this episodes:
+        </h4>
+        <% podcast.top_episodes.each do |e| %>
+          <% if e.revenue != 0 %>
+            <h5>
+              <%= e.name %>
+            </h5>
+            <p class="cash">
+              $<%= e.revenue %>
+            </p>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

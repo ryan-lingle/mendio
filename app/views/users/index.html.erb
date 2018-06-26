@@ -3,11 +3,11 @@
     <% @results.each do |result| %>
       <% if result.searchable_type == 'User' %>
         <%= link_to user_path(result.searchable_id) do %>
-          <%= render 'shared/user_list', user: User.find(result.searchable_id) %>
+          <%= render 'shared/user-list', user: User.find(result.searchable_id) %>
         <% end %>
       <% else %>
         <%= link_to podcast_path(result.searchable_id) do %>
-          <%= render 'shared/podcast_list', podcast: Podcast.find(result.searchable_id) %>
+          <%= render 'shared/podcast-list', podcast: Podcast.find(result.searchable_id) %>
         <% end %>
       <% end %>
     <% end %>

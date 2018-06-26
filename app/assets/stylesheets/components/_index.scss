@@ -2,7 +2,7 @@
 @import "alert";
 @import "navbar";
 @import 'card';
-@import 'search_results';
+@import 'search-results';
 @import 'footer';
 @import 'form-landingpage';
 @import 'modal';
@@ -12,6 +12,8 @@
 @import 'feed-search';
 @import 'feed';
 @import 'empty-feed';
+@import 'podcast-dashboard';
+@import 'buttons';
 
 html, body {
   height: 100%;
