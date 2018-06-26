@@ -1,0 +1,37 @@
+<div class="empty-feed">
+  <div class="empty-feed-search">
+    <div class="empty-feed-content">
+      <h4>What? No recommendations yet?</h4>
+      <p>Dont worry, this empty feed won't be around for long. Start following people and you'll see recommended podcasts show up here!</p>
+      <div class="search-bar-empty-feed">
+        <%= form_tag users_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "search-field",
+          autocomplete: :off,
+          placeholder: "Search for friends, podcasts.." %>
+          <input type="submit" style="visibility: hidden;" />
+        <% end %>
+      </div>
+    </div>
+    <div class="empty-feed-item">
+
+    </div>
+    <div class="empty-feed-item">
+
+    </div>
+    <div class="empty-feed-item">
+
+    </div>
+    <div class="empty-feed-item">
+
+    </div>
+    <div class="empty-feed-item">
+
+    </div>
+    <div class="empty-feed-item">
+
+    </div>
+    <p class="arrow"><%= image_tag("down-arrow.svg") %></p>
+  </div>
+</div>

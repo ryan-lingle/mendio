@@ -1,87 +1,55 @@
-  <% if feed.empty? %>
-  <div class="empty-feed">
-    <div class="empty-feed-search">
-      <div class="empty-feed-content">
-        <h4>What? No recommendations yet?</h4>
-        <p>Dont worry, this empty feed won't be around for long. Start following people and you'll see recommended podcasts show up here!</p>
-        <div class="search-bar-empty-feed">
-          <%= form_tag users_path, method: :get do %>
-          <%= text_field_tag :query,
-          params[:query],
-          class: "search-field",
-            autocomplete: :off,
-            placeholder: "Search for friends, podcasts.." %>
-            <input type="submit" style="visibility: hidden;" />
-            <% end %>
-          </div>
+<div class="feed">
+  <% feed.each do |donation| %>
+    <div class="card donation-card" data="<%= donation.id %>">
+      <div class="top-row">
+        <%= link_to user_path(donation.user) do %>
+          <%= cl_image_tag donation.user.profile_pic, height: 70, width: 70, class: "profile-pic" %>
+        <% end %>
+        <p class= 'username'>
+          <strong>
+            <%= donation.user.username %>
+          </strong>
+        </p>
+        <h2 class= 'episode-name hidden-xs'>
+          <%= donation.episode.name %>
+        </h2>
+        <h2 class= 'small-episode-name hidden-sm hidden-md hidden-lg'>
+          <%= donation.episode.name %>
+        </h2>
+        <div class="artwork text-right">
+          <%= link_to podcast_path(donation.episode.podcast) do %>
+            <%= cl_image_tag donation.episode.podcast.artwork, height: 100, width: 100 %>
+          <% end %>
         </div>
-        <div class="empty-feed-item">
-
-        </div>
-        <div class="empty-feed-item">
-
-        </div>
-        <div class="empty-feed-item">
-
-        </div>
-        <div class="empty-feed-item">
-
-        </div>
-        <div class="empty-feed-item">
-
-        </div>
-        <div class="empty-feed-item">
-        </div>
-        <p class="arrow"><%= image_tag("down-arrow.svg") %></p>
       </div>
-      <% else %>
-      <div class="feed">
-        <% feed.each do |donation| %>
-        <div class="card donation-card" data="<%= donation.id %>">
-          <div class="top-row">
-            <%= link_to user_path(donation.user) do %>
-            <%= cl_image_tag donation.user.profile_pic, height: 70, width: 70, class: "profile-pic" %>
-            <% end %>
-            <p class= 'username'><strong><%= donation.user.username %></strong></p>
-            <h2 class= 'episode-name hidden-xs'>
-              <%= donation.episode.name %>
-            </h2>
-            <h2 class= 'small-episode-name hidden-sm hidden-md hidden-lg'>
-              <%= donation.episode.name %>
-            </h2>
-            <div class="artwork text-right">
-              <%= link_to podcast_path(donation.episode.podcast) do %>
-              <%= cl_image_tag donation.episode.podcast.artwork, height: 100, width: 100 %>
-              <% end %>
-            </div>
-          </div>
-          <div class="bottom-row">
-            <h3 class='b-item'>$<%= donation.amount %></h3>
-            <div class="favo-icons">
-              <% if user.saved_episodes.include?(donation.episode) %>
-              <%= link_to bookmark_path(Bookmark.find_by(episode_id: donation.episode.id)), method: :delete, remote: true do %>
+      <div class="bottom-row">
+        <h3 class='b-item'>
+          $<%= donation.amount %>
+        </h3>
+        <div class="favo-icons">
+          <% if user.saved_episodes.include?(donation.episode) %>
+            <%= link_to bookmark_path(Bookmark.find_by(episode_id: donation.episode.id)), method: :delete, remote: true do %>
               <i class="yellow fas fa-star star"></i>
-              <% end %>
-              <% else %>
-              <%= link_to bookmarks_path(episode_id: donation.episode, donation_id: donation), method: :post do %>
+            <% end %>
+          <% else %>
+            <%= link_to bookmarks_path(episode_id: donation.episode, donation_id: donation), method: :post do %>
               <i class="fas fa-star star"></i>
-              <% end %>
-              <% end %>
-              <%= link_to '#', method: :post do %>
-              <i class="fas fa-play"></i>
-              <% end %>
-            </div>
-            <p class="podcast-name text-right hidden-xs hidden-sm">
-              <%=
-              name = donation.episode.podcast.name.split(' ')
-              while name.join(' ').length > 30
-                name.pop
-              end
-              "#{name.join(' ')}"
-              %>
-            </p>
-          </div>
+            <% end %>
+          <% end %>
+          <%= link_to '#', method: :post do %>
+            <i class="fas fa-play"></i>
+          <% end %>
         </div>
-        <% end %>
-        <% end %>
+        <p class="podcast-name text-right hidden-xs hidden-sm">
+          <%=
+          name = donation.episode.podcast.name.split(' ')
+          while name.join(' ').length > 30
+            name.pop
+          end
+          "#{name.join(' ')}"
+          %>
+        </p>
       </div>
+    </div>
+  <% end %>
+</div>
