@@ -13,6 +13,15 @@
   }
 }
 
+.card-first{
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.card-last{
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
 .yellow {
   color: $yellow;
 }
@@ -38,8 +47,12 @@
 .top-row .profile-pic {
   border-radius: 50%;
   position: absolute;
-  left: 20px;
-  top: 10px;
+  left: 23px;
+  top: 23px;
+  &:hover {
+    transform: scale(1.05);
+    transition: ease 0.4s ease;
+  }
 }
 
 .top-row h2 {
@@ -69,6 +82,10 @@
 
 .artwork {
   flex: 1 0 auto;
+  img {
+    border-radius: 3px;
+    margin-top: 10px;
+  }
 }
 
 .favo-icons {
@@ -78,9 +95,9 @@
     font-size: 16px;
   }
   a {
-  text-decoration: none;
-  color: #D9D8E8;
-  margin-right: 15px;
+    text-decoration: none;
+    color: #D9D8E8;
+    margin-right: 15px;
     &:hover {
       color: #ECECED;
       transition: ease 0.4s;
@@ -96,9 +113,9 @@
     font-size: 16px;
   }
   a {
-  text-decoration: none;
-  color: #D9D8E8;
-  margin-right: 15px;
+    text-decoration: none;
+    color: #D9D8E8;
+    margin-right: 15px;
     &:hover {
       color: #ECECED;
       transition: ease 0.4s;
@@ -116,9 +133,9 @@
   margin-top: 0;
   margin-bottom: 0;
   margin-right: 60px;
-  margin-left: 10px;
-  font-family: 'Press Start 2P';
-  font-size: 16px;
+  margin-left: 23px;
+  font-family: 'Raleway';
+  font-size: 18px;
   color: $green;
 }
 

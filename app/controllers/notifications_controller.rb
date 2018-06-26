@@ -7,7 +7,6 @@ class NotificationsController < ApplicationController
     @notifications = current_user.notifications.reverse
     @notifications.each do |n|
       n.make_seen
-      n.save!
     end
   end
 end

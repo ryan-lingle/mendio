@@ -29,7 +29,7 @@
   background-color: $light-gray;
   width: 200px !important;
   font-size: 16px;
-  padding: 3px;
+  padding: 5px;
 }
 
 body {
@@ -37,15 +37,25 @@ body {
 }
 /* Logo */
 .navbar-wagon-brand img {
-  padding-left: 10px;
+  margin-left: -10px;
   height: 50px;
+}
+
+.dropdown {
+  i {
+    padding-right: 5px;
+  }
 }
 
 .navbar-wagon-brand-desktop {
   text-align: center;
   position: absolute;
   // top: 15px;
-  left: 45%;
+  left: 47.5%;
+  &:hover {
+    transform: scale(1.1);
+    transition: ease 0.4s ease;
+  }
 }
 
 /* User Avatar */
@@ -53,6 +63,10 @@ body {
   height: 35px;
   width: 35px;
   border-radius: 50%;
+  &:hover {
+    transform: scale(1.1);
+    transition: ease 0.4s ease;
+  }
 }
 
 .navbar-wagon-right {
@@ -92,19 +106,20 @@ body {
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
-  border-right: 2px solid $red;
+  border-right: 3px solid $red;
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
-  color: #999999 !important;
+  color: $gray !important;
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
 }
 .navbar-wagon-dropdown-menu li > a:hover {
-  background: transparent !important;
-  color: black !important;
+  background: rgba(255,255,255,0.5) !important;
+  color: $red !important;
+  transition: ease 0.3s ease;
 }
 .navbar-wagon-dropdown-menu:before {
   content: ' ';

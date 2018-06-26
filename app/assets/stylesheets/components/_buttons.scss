@@ -13,3 +13,24 @@
     transform: scale(1.01);
   }
 }
+
+.btn-sign-up {
+  color: #E93941;
+  background-color: white;
+  border-color: #E93941;
+  font-family: "Raleway";
+  font-size: 14px;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 2px;
+  &:hover {
+    color: white;
+    background-color: #E93941;
+    border-color: #D22B34;
+    transition: ease 0.3s;
+    transform: scale(1.01);
+  }
+}

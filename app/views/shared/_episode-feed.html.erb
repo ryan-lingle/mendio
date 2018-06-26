@@ -1,7 +1,7 @@
 <div class="feed">
-  <% feed.each do |episode| %>
+  <% feed.each_with_index do |episode, index| %>
     <div class="col-xs-12">
-      <div class="card" data="<%= episode.id %>">
+      <div class="card <% if index == 0 %>card-first<% end %> <% if index == feed.size - 1 %>card-last<% end %>" data="<%= episode.id %>">
         <div class="top-row">
           <%= link_to podcast_path(episode.podcast) do %>
             <%= cl_image_tag episode.podcast.artwork, height: 100, width: 100 %>

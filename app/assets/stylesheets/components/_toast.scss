@@ -1,0 +1,35 @@
+.toast{
+  position: fixed;
+  left: 20px;
+  bottom: -60px;
+  background-color: white;
+  padding: 15px 24px;
+  color: $red;
+  font-size: 12px;
+  letter-spacing: 2px;
+  border: 1px solid $red;
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  z-index: 90;
+  will-change: bottom;
+}
+
+.toast.show {
+  animation: show 4s forwards;
+  animation-delay: 500ms;
+}
+
+@keyframes show {
+  0% {
+    bottom: -60px;
+  }
+  1% {
+    bottom: 40px;
+  }
+  90% {
+    bottom: 40px;
+  }
+  100% {
+    bottom: -60px;
+  }
+}

@@ -90,15 +90,6 @@ ActiveRecord::Schema.define(version: 2018_06_26_105859) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
-  create_table "saves", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "donation_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["donation_id"], name: "index_saves_on_donation_id"
-    t.index ["user_id"], name: "index_saves_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -137,8 +128,6 @@ ActiveRecord::Schema.define(version: 2018_06_26_105859) do
   add_foreign_key "episodes", "podcasts"
   add_foreign_key "notifications", "bookmarks"
   add_foreign_key "notifications", "users"
-  add_foreign_key "saves", "donations"
-  add_foreign_key "saves", "users"
   add_foreign_key "views", "donations"
   add_foreign_key "views", "users"
 end

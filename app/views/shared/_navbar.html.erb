@@ -5,7 +5,7 @@
   <% end %>
 
   <%= link_to root_path, class: "navbar-wagon-brand-desktop hidden-xs hidden-sm" do %>
-    <%= image_tag "logo.png", height: 50 %>
+    <%= image_tag "m-logo.png", height: 50 %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -51,11 +51,6 @@
             <li>
               <%= link_to new_podcast_path do %>
                 <i class="fas fa-plus"></i>  <%= t(".profile", default: "List a Podcast") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
               <% end %>
             </li>
             <li>
