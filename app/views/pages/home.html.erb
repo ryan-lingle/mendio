@@ -1,67 +1,28 @@
 <% if user_signed_in? %>
-<div class="wrapper">
-  <%= render 'episodes/popup' %>
-  <%= form_tag find_episodes_path, remote: true, method: :post do %>
-    <%= hidden_field_tag 'eposode_id'%>
-    <%= hidden_field_tag 'user_id', current_user %>
-  <% end %>
-  <div class="feed-container">
-    <div class="profile-container">
-      <div class="profile">
-        <div class="wrapper-profile">
-          <%= render 'shared/profile', user: @user %>
-        </div>
-      </div>
-    </div>
-    <div class="card-container">
-      <%= render 'shared/feed', user: current_user, feed: @feed %>
-    </div>
-  </div>
-</div>
-<% else %>
-<div class="landing-page">
-  <div class="container">
-    <div class="row background">
-      <div class="col-md-8">
-        <div class="why-mendio">
-          <h2>Why Mendio?</h2>
-          <div class="why-mendio--item">
-            <%= image_tag("user.svg", height: 75, width: 75, :class => "image") %>
-            <p>Mendio allows you to create a platform where you can follow the podcasts you want to listen to. Follow friends, family or other people in order to create the best podcast experience!</p></div>
-            <div class="why-mendio--item">
-              <%= image_tag("recommended.svg", height: 75, width: 75, :class => "image") %>
-              <p>Recommend podcast through a new and groundbraking recommendation system. By donating to a podcast you will automatically recommend it, which creates a valuable recommendation.</p></div>
-              <div class="why-mendio--item">
-                <%= image_tag("donation.svg", height: 75, width: 75, :class => "image")  %>
-                <p>Our donation system allows the podcast creator to monetize the podcast which are being recommended but.. Not only is the creator earning money, as a listener you can earn money through an affiliate system.</p></div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-login">
-                <h2>Sign up</h2>
-                <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                <%= f.error_notification %>
-                <div class="form-inputs">
-                  <%= f.input :username, required: true, autofocus: true, class: "username-input"%>
-                  <%= f.input :email, required: true %>
-                  <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-                  <%= f.input :password_confirmation, required: true %>
-                  <%= f.input :profile_pic, required: true %>
-                </div>
-                <div class="form-actions">
-                  <%= f.button :submit, "Sign up", class: "mendio-button-confirm" %>
-                </div>
-                <% end %>
-                <div class="form-links">
-                  <%= render "devise/shared/links" %>
-                </div>
-              </div>
-            </div>
+  <div class="wrapper">
+    <%= render 'episodes/popup' %>
+    <%= form_tag find_episodes_path, remote: true, method: :post do %>
+      <%= hidden_field_tag 'eposode_id'%>
+      <%= hidden_field_tag 'user_id', current_user %>
+    <% end %>
+    <div class="feed-container">
+      <div class="profile-container">
+        <div class="profile">
+          <div class="wrapper-profile">
+            <%= render 'shared/profile', user: @user %>
           </div>
         </div>
       </div>
-      <div class="footer-sound-wave">
-        <%= image_tag("sound-wave.svg") %>
-      </div>
+      <% if @feed.empty? %>
+        <%= render 'shared/empty_feed' %>
+      <% else %>
+        <div class="card-container">
+          <%= render 'shared/feed', user: current_user, feed: @feed %>
+        </div>
       <% end %>
+    </div>
+  </div>
+<% else %>
+  <%= render 'shared/landing_page' %>
+<% end %>
 
