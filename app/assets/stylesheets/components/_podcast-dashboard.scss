@@ -40,8 +40,11 @@
   background: white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   border-left: 0.05px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 0.05px solid rgba(0, 0, 0, 0.5);
   padding: 30px;
   padding-left: 50px !important;
   padding-right: 50px !important;
-  border-top-right-radius: 5px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
 }

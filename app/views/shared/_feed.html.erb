@@ -1,6 +1,6 @@
 <div class="feed">
-  <% feed.each do |donation| %>
-    <div class="card donation-card" data="<%= donation.id %>">
+  <% feed.each_with_index do |donation, index| %>
+    <div class="card donation-card <% if index == 0 %>card-first<% end %> <% if index == feed.size - 1 %>card-last<% end %>" data="<%= donation.id %>">
       <div class="top-row">
         <%= link_to user_path(donation.user) do %>
           <%= cl_image_tag donation.user.profile_pic, height: 70, width: 70, class: "profile-pic" %>
@@ -32,7 +32,7 @@
               <i class="yellow fas fa-star star"></i>
             <% end %>
           <% else %>
-            <%= link_to bookmarks_path(episode_id: donation.episode, donation_id: donation), method: :post do %>
+            <%= link_to bookmarks_path(episode_id: donation.episode, donation_id: donation), method: :post, remote: true, class: "bookmark-toggle" do %>
               <i class="fas fa-star star"></i>
             <% end %>
           <% end %>
@@ -53,3 +53,25 @@
     </div>
   <% end %>
 </div>
+
+
+<div class="toast"></div>
+
+<script>
+
+  //this should be in a different file
+  document.querySelectorAll(".bookmark-toggle").forEach((item) => {
+  item.addEventListener("ajax:success", (event) => {
+    const toast = document.querySelector(".toast");
+    toast.innerHTML = "ADDED TO BOOKMARKS";
+    toast.classList.add("show");
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 4000);
+  });
+});
+
+</script>
+
+
+

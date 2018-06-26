@@ -32,7 +32,6 @@
   color: red;
 }
 
-
 .list-podcast--image {
   display: flex;
 }
@@ -41,10 +40,11 @@
   text-align: center;
   margin-top: 50px;
   margin-bottom: 85px;
+  h4 {
+    text-align: center;
+    padding-bottom: 25px;
+    margin-top: 0px;
+  }
 }
 
-h4 {
-  text-align: center;
-  padding-bottom: 25px;
-  margin-top: 0px;
-}
+

@@ -13,6 +13,7 @@
     }
   }
   .wrapper-profile {
+    border-radius: 3px;
     width: 320px;
     height: 400px;
   }
@@ -21,7 +22,6 @@
     position: fixed;
     margin-top: 30px;
     left: 10px;
-    background: white;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -107,6 +107,10 @@ $h4-gradient: linear-gradient(to bottom right, #D22B34, $orange);
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
+    &:hover {
+      transform: scale(1.03);
+      transition: ease 0.6s ease;
+    }
   }
 }
 
@@ -147,7 +151,7 @@ $h4-gradient: linear-gradient(to bottom right, #D22B34, $orange);
         &:hover {
           cursor: pointer;
           background: $blue1-gradient;
-          transition: all 0.4s;
+          transition: ease 0.4s ease;
         }
       }
     }
@@ -157,7 +161,7 @@ $h4-gradient: linear-gradient(to bottom right, #D22B34, $orange);
         &:hover {
           cursor: pointer;
           background: $h2-gradient;
-          transition: all 0.4s;
+          transition: ease 0.4s ease;
         }
       }
     }
@@ -171,7 +175,7 @@ $h4-gradient: linear-gradient(to bottom right, #D22B34, $orange);
         &:hover {
           cursor: pointer;
           background: $h3-gradient;
-          transition: all 0.4s;
+          transition: ease 0.4s ease;
         }
       }
     }
@@ -181,7 +185,7 @@ $h4-gradient: linear-gradient(to bottom right, #D22B34, $orange);
         &:hover {
           cursor: pointer;
           background: $h4-gradient;
-          transition: all 0.4s;
+          transition: ease 0.4s ease;
         }
       }
     }
