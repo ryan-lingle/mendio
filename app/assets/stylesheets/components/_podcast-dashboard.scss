@@ -1,0 +1,47 @@
+.podcast-tab {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  padding-right: 10px !important;
+  padding-left: 10px !important;
+  margin-right: -5px;
+  background: white;
+  border-left: 0.05px solid rgba(0, 0, 0, 0.1);
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transition: ease 0.3 ease;
+  }
+  a {
+    color: $gray;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.cash {
+  font-family: 'Press Start 2P';
+  color: $green;
+}
+
+.bottom-line {
+  padding-bottom: 20px;
+  border-bottom: 0.4px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.dashboard-tab {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.podcast-dashboard {
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-left: 0.05px solid rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+  border-top-right-radius: 5px;
+}

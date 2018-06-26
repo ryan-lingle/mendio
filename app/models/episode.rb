@@ -13,4 +13,11 @@ class Episode < ActiveRecord::Base
   validates :podcast, presence: true
   has_many :bookmarks, dependent: :destroy
   has_many :user_saves, through: :bookmarks, source: :user
+
+  def revenue
+    sum = 0
+    self.donations.each { |d| sum += d.amount }
+    sum
+  end
+
 end

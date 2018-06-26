@@ -7,12 +7,12 @@
   </div>
   <div>
     <% if user == current_user %>
-      <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "btn btn-success btn-sm search-btn" %>
+      <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "btn btn-red btn-sm search-btn" %>
     <% else %>
       <% if current_user.following?(user) %>
-        <%= link_to 'Unfollow', toggle_follow_path(user), class: "relationship unfollow btn btn-success btn-sm search-btn", method: :post, remote: true unless user.podcasts.empty? %>
+        <%= link_to 'UNFOLLOW', toggle_follow_path(user), class: "relationship unfollow btn btn-red btn-sm search-btn", method: :post, remote: true unless user.podcasts.empty? %>
       <% else %>
-        <%= link_to 'Follow', toggle_follow_path(user), class: "relationship btn btn-success btn-sm search-btn", method: :post, remote: true %>
+        <%= link_to 'FOLLOW', toggle_follow_path(user), class: "relationship btn btn-red btn-sm search-btn", method: :post, remote: true %>
       <% end %>
     <% end %>
   </div>

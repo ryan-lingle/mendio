@@ -14,7 +14,7 @@
         </div>
       </div>
       <% if @feed.empty? %>
-        <%= render 'shared/empty_feed' %>
+        <%= render 'shared/empty-feed' %>
       <% else %>
         <div class="card-container">
           <%= render 'shared/feed', user: current_user, feed: @feed %>
@@ -23,6 +23,5 @@
     </div>
   </div>
 <% else %>
-  <%= render 'shared/landing_page' %>
+  <%= render 'shared/landing-page' %>
 <% end %>
-
