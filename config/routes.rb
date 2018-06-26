@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index]
   resources :notifications, only: [:index]
   get 'dashboard', to: 'users#dashboard', as: :dashboard
+  get 'poo', to: 'users#list_podcast', as: :list_podcast
   get 'view/create/:id', to: 'views#create', as: :create_view
   post 'podcast/find', to: 'podcasts#find', as: :find_podcast
   post 'episodes/find', to: 'episodes#find', as: :find_episodes

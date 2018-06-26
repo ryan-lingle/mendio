@@ -1,0 +1,50 @@
+
+.list-podcast--item {
+  text-align: center;
+  margin-bottom: 60px;
+  box-sizing: inherit;
+  font-size: 18px;
+  line-height: 24px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    margin-right: 50px;
+  }
+  p {
+    text-align: left;
+  }
+}
+
+
+#rss {
+  width: 125%;
+  border-radius: 4px;
+  border: none;
+  padding: 25px;
+  input {
+    padding: 15px;
+  }
+}
+
+#name {
+  color: red;
+}
+
+
+.list-podcast--image {
+  display: flex;
+}
+
+.rss-header {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 85px;
+}
+
+h4 {
+  text-align: center;
+  padding-bottom: 25px;
+  margin-top: 0px;
+}

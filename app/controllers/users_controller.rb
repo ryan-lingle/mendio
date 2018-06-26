@@ -30,6 +30,9 @@ class UsersController < ApplicationController
     @podcasts = @user.podcasts
   end
 
+  def list_podcast
+  end
+
   private
 
     def set_user

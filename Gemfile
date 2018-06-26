@@ -15,6 +15,7 @@ gem "pg_search"
 gem "pundit"
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
+gem 'stripe'
 
 gem "rubocop"
 gem "rubocop-rails"
