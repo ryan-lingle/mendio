@@ -7,7 +7,7 @@
   </div>
   <div>
     <% if user == current_user %>
-      <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "btn btn-red btn-sm search-btn" %>
+      <%= link_to 'EDIT PROFILE', edit_user_registration_path(current_user), class: "btn btn-red btn-sm search-btn" %>
     <% else %>
       <% if current_user.following?(user) %>
         <%= link_to 'UNFOLLOW', toggle_follow_path(user), class: "relationship unfollow btn btn-red btn-sm search-btn", method: :post, remote: true unless user.podcasts.empty? %>
