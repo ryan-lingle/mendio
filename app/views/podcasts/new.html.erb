@@ -1,13 +1,50 @@
-<%= form_tag podcasts_path, method: :post, id: 'podcast-builder' do %>
-  <%= text_field_tag :rss,
-  params[:rss],
-  autocomplete: :off,
-  class: "",
-  placeholder: "Input a Valid RSS Feed Url" %>
-<% end %>
-
-<% if @error %>
-  <div class="error">
-    <%= @error %>
+<div class="container">
+  <div class="row">
+    <div class="rss-header">
+      <h2>List a podcast</h2>
+    </div>
+    <div class="col-md-6">
+      <h4>How does it works?</h4>
+      <div class="list-podcast-copy">
+        <div class="list-podcast--item">
+          <div class="list-podcast--image">
+            <%= image_tag("rss.svg", height: 75, width: 75, :class => "image") %>
+          </div>
+          <p>
+            Find the link to your RSS feed from the iTunes dashboard, copy it and paste it in the input box on the right.
+          </p>
+        </div>
+        <div class="list-podcast--item">
+          <%= image_tag("invoice.svg", height: 75, width: 75, :class => "image") %>
+          <p>
+            Enter your details so payments from donations can come through to your account.
+          </p>
+        </div>
+        <div class="list-podcast--item">
+          <%= image_tag("deck-chair.svg", height: 75, width: 75, :class => "image")  %>
+          <p>
+            Your podcast has been added! Now get people to donate to your amazing content and relax!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+      <h4 style="margin-top: 0px">iTunes RSS Feed</h4>
+      <div class="rss-feed-input">
+        <%= form_tag podcasts_path, method: :post do %>
+        <%= text_field_tag :rss,
+        params[:rss],
+        autocomplete: :off,
+        placeholder: "Example: https://rss.art19.com/the-ringer-nba-show" %>
+        <% end %>
+      </div>
+      <% if @error %>
+      <div class="error">
+        <%= @error %>
+      </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
+
+<!-- https://rss.art19.com/the-ringer-nba-show -->

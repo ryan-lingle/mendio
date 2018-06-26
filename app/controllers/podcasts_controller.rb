@@ -21,6 +21,7 @@ class PodcastsController < ApplicationController
       @error = nil
       if Podcast.rss_builder(current_user, params[:rss])
         redirect_to dashboard_path
+        flash[:notice] = "Podcast has been added!"
       else
         @error = "It seems that your account's email does not correspond to the email provided in the RSS Feed."
         render 'new'
