@@ -2,7 +2,7 @@
   <% feed.each_with_index do |donation, index| %>
     <div class="card donation-card <% if index == 0 %>card-first<% end %> <% if index == feed.size - 1 %>card-last<% end %>" data="<%= donation.id %>">
       <div class="top-row">
-        <%= link_to image_tag((cl_image_path(donation.user.profile_pic)).gsub("upload", "upload/w_300,h_300,c_fill")), user_path(user), class: "profile-pic" %>
+        <%= link_to image_tag((cl_image_path(donation.user.profile_pic)).gsub("upload", "upload/w_300,h_300,c_fill")), user_path(donation.user), class: "profile-pic" %>
         <p class= 'username'>
           <strong>
             <%= link_to user_path(donation.user) do %>
