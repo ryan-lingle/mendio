@@ -9,3 +9,13 @@ $green: #48D1CC;
 $gray: #080708;
 $light-gray: #F4F4F4;
 $shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+a {
+  color: $gray !important;
+  text-decoration: none;
+  &:hover {
+    color: $red !important;
+    transition: ease 0.3s ease !important;
+    text-decoration: none !important;
+  }
+}

@@ -1,36 +1,39 @@
 <% @user.podcasts.each_with_index do |podcast, index| %>
   <div class = "podcast-<%=index%> podcast-section">
     <div class="bottom-line">
-      <p><%= podcast.description %></p>
+      <p><%= strip_tags(podcast.description) %></p>
     </div>
     <div class="bottom-line">
-      <h4>
-        Total revenue for <strong><%= podcast.name %></strong>
-      </h4>
+      <h5>
+        Total revenue for <%= link_to podcast.name, podcast_path(podcast.id) %>
+      </h5>
       <p class="cash">
         $<%= podcast.revenue %>
       </p>
     </div>
     <div class="bottom-line">
-      <h4>
+      <h5>
         Average donation per episode
-      </h4>
+      </h5>
       <p class="cash">$<%= podcast.revenue/podcast.episodes.count %></p>
     </div>
     <% if podcast.revenue != 0 %>
       <div>
-        <h4>Top episodes
-        </h4>
-        <% podcast.top_episodes.each do |e| %>
-          <% if e.revenue != 0 %>
-            <h5>
-              <%= link_to e.name, episode_path(e.id) %>
-            </h5>
-            <p class="cash">
-              $<%= e.revenue %>
-            </p>
+        <h5>
+          Top episodes
+        </h5>
+        <ul class="list-inline">
+          <% podcast.top_episodes.each do |e| %>
+            <% if e.revenue != 0 %>
+              <li>
+                <%= link_to e.name, episode_path(e.id) %>
+              </li>
+              <li class="cash">
+                $<%= e.revenue %>
+              </li>
+            <% end %>
           <% end %>
-        <% end %>
+        </ul>
       </div>
     <% end %>
   </div>

@@ -6,10 +6,10 @@
   padding-right: 10px !important;
   padding-left: 10px !important;
   margin-right: -5px;
-  background: white;
+  background: rgba(255, 255, 255, 0.5);
   border-left: 0.05px solid rgba(0, 0, 0, 0.1);
   &:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background-color: white;
     transition: ease 0.3 ease;
   }
   a {
@@ -17,6 +17,9 @@
     &:hover {
       text-decoration: none;
     }
+  }
+  .active-tab {
+    background-color: white;
   }
 }
 
