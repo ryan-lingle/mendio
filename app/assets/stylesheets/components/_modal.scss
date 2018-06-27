@@ -35,3 +35,9 @@
 .search {
   width: 100% !important;
 }
+
+.no-decoration a:focus {
+  outline: none !important;
+  outline-offset: none !important;
+  text-decoration: none !important;
+}

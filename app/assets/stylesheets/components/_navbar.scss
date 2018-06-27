@@ -94,11 +94,12 @@ body {
   font-size: 14px;
   letter-spacing: 1px;
 }
-.navbar-wagon-link:hover {
-  color: $red;
+.navbar-wagon-link:hover, .navbar-wagon-link:focus {
+  color: $red !important;
   transition: ease 0.6s ease;
-  text-decoration: none;
+  text-decoration: none !important;
   transform: scale(1.05);
+  outline: 0;
 }
 
 /* Dropdown menu */
@@ -132,4 +133,10 @@ body {
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+// No blue square around search
+
+input#query:focus {
+    outline: 0;
 }
