@@ -12,7 +12,7 @@
           <%= link_to user_path(n.bookmark.user) do %>
             <div class="card-image item-avatar"><%= cl_image_tag n.bookmark.user.profile_pic %></div>
           <% end %>
-          <div class="card-info size"> <%= link_to n.bookmark.user.username, user_path(n.bookmark.user) %>  bookmarked your donation to <%= link_to n.bookmark.episode.name, episode_path(n.bookmark.episode) %> </strong></div>
+          <div class="card-info size"> <strong><%= link_to n.bookmark.user.username, user_path(n.bookmark.user) %></strong>  bookmarked your donation to <strong><%= link_to n.bookmark.episode.name, episode_path(n.bookmark.episode) %></strong></div>
           <div class="timestamp"><%= distance_of_time_in_words(Time.now, n.created_at) %> ago</div>
           <% end %>
         </div>

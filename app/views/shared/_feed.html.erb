@@ -7,11 +7,15 @@
         <% end %>
         <p class= 'username'>
           <strong>
+            <%= link_to user_path(donation.user) do %>
             <%= donation.user.username %>
           </strong>
+          <% end %>
         </p>
         <h2 class= 'episode-name hidden-xs'>
-          <%= donation.episode.name %>
+          <%= link_to episode_path(donation.episode) do %>
+            <%= donation.episode.name %>
+          <% end %>
         </h2>
         <h2 class= 'small-episode-name hidden-sm hidden-md hidden-lg'>
           <%= donation.episode.name %>
@@ -36,7 +40,7 @@
               <i class="fas fa-star star"></i>
             <% end %>
           <% end %>
-          <%= link_to '#', method: :post do %>
+          <%= link_to root_path do %>
             <i class="fas fa-play"></i>
           <% end %>
         </div>
