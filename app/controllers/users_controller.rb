@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_user, except: [ :index, :dashboard ]
+  before_action :set_user, except: [ :index, :dashboard, :new_podcast, :create_account, :account_info]
   def index
     PgSearch::Multisearch.rebuild(User)
     PgSearch::Multisearch.rebuild(Podcast)
@@ -30,7 +30,38 @@ class UsersController < ApplicationController
     @podcasts = @user.podcasts
   end
 
-  def list_podcast
+  def new_podcast
+  end
+
+  def create_account
+    raise
+    @user = current_user
+    account = Stripe::Account.create(
+      type: 'custom',
+      country: 'US',
+      email: @user.email
+    )
+    account.legal_entity.address.city = params[:city]
+    account.legal_entity.address.line1 = params[:line1]
+    account.legal_entity.address.line2 = params[:line2] if params[:line2].present?
+    account.legal_entity.address.postal_code = params[:postal_code]
+    account.legal_entity.address.state = params[:state]
+    account.legal_entity.dob.day = params[:day]
+    account.legal_entity.dob.month = params[:month]
+    account.legal_entity.dob.year = params[:year]
+    account.legal_entity.first_name = @user.first_name
+    account.legal_entity.last_name = @user.last_name
+    account.legal_entity.ssn_last_4 = params[:ssn]
+    account.legal_entity.type = 'individual'
+    account.tos_acceptance.date = Time.now.to_time.to_i
+    account.tos_acceptance.ip = request.remote_ip
+    account.save
+    account.external_accounts.create(external_account: token.id)
+    raise
+  end
+
+  def account_info
+
   end
 
   private

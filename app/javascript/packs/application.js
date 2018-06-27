@@ -5,9 +5,11 @@ import { star } from '../packs/star'
 import { tabPicker } from '../packs/tab_picker'
 import { cancelForm } from '../packs/cancel_form'
 import { createView } from '../packs/create_view'
+import { stripe } from '../packs/stripe'
 
 executePodcastSearch();
 star();
 tabPicker();
 createView();
 modal();
+stripe();
