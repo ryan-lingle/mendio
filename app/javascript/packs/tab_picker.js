@@ -2,7 +2,6 @@ function tabPicker() {
   if (document.querySelector('.user-feed')) {
     document.querySelectorAll('.tab').forEach((e) => {
       e.addEventListener('click', (event) => {
-        console.log(event.target.getAttribute('data'))
         if (event.target.getAttribute('data') == 'donations') {
           document.querySelector('.my-donations').classList.remove('hidden')
           document.querySelector('.following').classList.add('hidden')

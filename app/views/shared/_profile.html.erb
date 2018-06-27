@@ -10,7 +10,7 @@
     <% end %>
   <% else %>
     <% if current_user.following?(user) %>
-      <%= link_to 'UNFOLLOW', toggle_follow_path(user), class: "relationship unfollow btn btn-red btn-sm", method: :post, remote: true unless user.podcasts.empty? %>
+      <%= link_to 'UNFOLLOW', toggle_follow_path(user), class: "relationship unfollow btn btn-red btn-sm", method: :post, remote: true %>
     <% else %>
       <%= link_to 'FOLLOW', toggle_follow_path(user), class: "relationship btn btn-red btn-sm", method: :post, remote: true %>
     <% end %>
