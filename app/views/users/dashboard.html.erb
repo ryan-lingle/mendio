@@ -7,9 +7,9 @@
 </div>
 <div class="feed">
   <ul class="list-inline dashboard-tab">
-    <% @podcasts.each do |podcast| %>
-      <li class="podcast-tab">
-        <%= link_to podcast.name, podcast_path(podcast) %>
+    <% @podcasts.each_with_index do |podcast, index| %>
+      <li class="podcast-tab-<%= index %> podcast-tab" data="<%= index %>">
+        <%= podcast.name %>
       </li>
     <% end %>
   </ul>
