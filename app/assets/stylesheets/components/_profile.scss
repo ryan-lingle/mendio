@@ -108,7 +108,7 @@ $h4-gradient: linear-gradient(to bottom right, #D22B34, $orange);
     margin-right: auto;
     border-radius: 50%;
     &:hover {
-      transform: scale(1.03);
+      opacity: 0.95;
       transition: ease 0.6s ease;
     }
   }
