@@ -1,3 +1,6 @@
-<%= render 'shared/episode-feed', user: @user, feed: @library %>
-
+<% if @library.empty? %>
+  <p>No Bookmarks Yet. Bookmark an Episode by clicking the star icon!</p>
+<% else %>
+  <%= render 'shared/episode-feed', user: @user, feed: @library %>
+<% end %>
 <div class="hidden user-library"></div>

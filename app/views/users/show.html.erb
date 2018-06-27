@@ -5,7 +5,11 @@
     </div>
   </div>
   <div class="my-donations">
-    <%= render 'shared/feed', user: @user, feed: @user.donations %>
+    <% if @user.donations.empty? %>
+      <p>No Donations Yet</p>
+    <% else %>
+      <%= render 'shared/feed', user: @user, feed: @user.donations %>
+    <% end %>
   </div>
 
   <div class = "following hidden">
