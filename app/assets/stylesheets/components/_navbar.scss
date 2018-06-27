@@ -98,7 +98,6 @@ body {
   color: $red !important;
   transition: ease 0.6s ease;
   text-decoration: none !important;
-  transform: scale(1.05);
   outline: 0;
 }
 
@@ -139,4 +138,8 @@ body {
 
 input#query:focus {
     outline: 0;
+}
+
+.active {
+  border-bottom: 3px solid $red;
 }
