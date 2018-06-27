@@ -12,7 +12,7 @@
   <div class="navbar-wagon-left hidden-xs hidden-sm">
     <% if user_signed_in? %>
       <!-- Links when logged in -->
-      <%= link_to "NEW DONATION", episodes_path, data: { toggle: "modal", target: "#myModal", podcast: '', episode: '' }, class: "navbar-wagon-item navbar-wagon-link menu-item modal-trigger" %>
+      <%= link_to "NEW DONATION", episodes_path, data: { toggle: "modal", target: "#myModal", podcast: '', episode: '' }, class: "navbar-wagon-item navbar-wagon-link menu-item modal-trigger no-decoration" %>
       <%= link_to "BOOKMARKS", bookmarks_path, class: "navbar-wagon-item navbar-wagon-link menu-item" %>
       <%= link_to "NOTIFICATIONS #{current_user.notification_count}", notifications_path, class: "navbar-wagon-item navbar-wagon-link menu-item" %>
     <% end %>
