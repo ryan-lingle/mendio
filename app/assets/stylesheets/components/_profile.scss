@@ -8,8 +8,8 @@
     max-width: 1140px;
     width: 100%;
     .social-icons {
-      padding-left: 100px;
-      padding-right: 100px;
+      padding-left: 150px;
+      padding-right: 150px;
     }
   }
   .wrapper-profile {
@@ -43,7 +43,7 @@
   }
   .profile-wrapper {
     max-width: 720px;
-    width: 100%
+    width: 100%;
   }
   .profile {
     margin-left: 0;
@@ -114,8 +114,14 @@ $h4-gradient: linear-gradient(to bottom right, #D22B34, $orange);
   }
 }
 
+#username-profile {
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
 .profile-header {
   text-align: center;
+  margin-top: 10px;
 }
 
 .social-icons {

@@ -1,6 +1,6 @@
 <div class="profile-header">
   <%= link_to cl_image_tag(user.profile_pic), user_path(user), height: 70, width: 70, class: "profile-avatar" %>
-  <h3>
+  <h3 id="username-profile">
     <%= user.username %>
   </h3>
   <% if user == current_user %>

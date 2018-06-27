@@ -51,7 +51,7 @@ class Podcast < ActiveRecord::Base
   end
 
   def top_episodes
-    self.episodes.sort { |e| -e.revenue }.first(5)
+    self.episodes.sort_by { |e| -e.revenue }.first(5)
   end
 
 end

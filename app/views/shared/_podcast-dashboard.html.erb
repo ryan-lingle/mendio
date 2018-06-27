@@ -19,13 +19,12 @@
     </div>
     <% if podcast.revenue != 0 %>
       <div>
-        <h4>
-          People love this episodes:
+        <h4>Top episodes
         </h4>
         <% podcast.top_episodes.each do |e| %>
           <% if e.revenue != 0 %>
             <h5>
-              <%= e.name %>
+              <%= link_to e.name, episode_path(e.id) %>
             </h5>
             <p class="cash">
               $<%= e.revenue %>

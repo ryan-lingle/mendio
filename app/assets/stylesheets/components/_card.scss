@@ -13,6 +13,11 @@
   }
 }
 
+.star:hover {
+  color: rgba(230, 126, 34, 0.7);
+  transition: ease 0.3s;
+}
+
 .card-first{
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
