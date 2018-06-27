@@ -21,6 +21,8 @@ class User < ApplicationRecord
   has_many :views, dependent: :destroy
   has_many :viewed_donations, through: :views, source: :donation
   has_many :podcasts, class_name: 'Podcast', foreign_key: "creator_id"
+  validates :profile_pic, presence: true
+  validates :username, presence: true
   mount_uploader :profile_pic, ProfilePicUploader
   # after_create :send_welcome_email
   include PgSearch
