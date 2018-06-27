@@ -1,5 +1,5 @@
 <% @user.podcasts.each_with_index do |podcast, index| %>
-  <div class = "podcast-<%=index%> podcast-section">
+  <div class = "podcast-<%=index%> podcast-group">
     <div class="bottom-line">
       <p><%= strip_tags(podcast.description) %></p>
     </div>
