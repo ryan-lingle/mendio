@@ -27,6 +27,13 @@ class User < ApplicationRecord
   PgSearch.multisearch_options = { using: { tsearch: { prefix: true, dictionary: "english" } } }
   multisearchable against: [ :username ]
   attr_accessor :seed
+  validate :account_exists
+
+  def account_exists
+    if account == true
+      User.validates :account_id, presence: true, uniqueness: true
+    end
+  end
 
   def feed
     feed = []

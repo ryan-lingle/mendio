@@ -34,7 +34,6 @@ class UsersController < ApplicationController
   end
 
   def create_account
-    raise
     @user = current_user
     account = Stripe::Account.create(
       type: 'custom',
@@ -55,9 +54,12 @@ class UsersController < ApplicationController
     account.legal_entity.type = 'individual'
     account.tos_acceptance.date = Time.now.to_time.to_i
     account.tos_acceptance.ip = request.remote_ip
+    account.external_accounts.create(external_account: params[:stripeToken])
     account.save
-    account.external_accounts.create(external_account: token.id)
-    raise
+    @user.account_id = account.id
+    @user.account = true
+    @user.save!
+    redirect_to dashboard_path
   end
 
   def account_info
