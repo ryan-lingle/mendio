@@ -1,5 +1,5 @@
 <div class="profile-header">
-  <%= link_to cl_image_tag(user.profile_pic), user_path(user), height: 70, width: 70, class: "profile-avatar" %>
+  <%= link_to cl_image_tag(user.profile_pic), user_path(user), height: 70, width: 70, crop: :pad, class: "profile-avatar" %>
   <h3 id="username-profile">
     <%= user.username %>
   </h3>
