@@ -2,20 +2,20 @@
   <% feed.each_with_index do |episode, index| %>
     <div class="col-xs-12">
       <div class="card <% if index == 0 %>card-first<% end %> <% if index == feed.size - 1 %>card-last<% end %>" data="<%= episode.id %>">
-        <div class="top-row">
+        <div class="top-row-ep">
           <%= link_to podcast_path(episode.podcast) do %>
             <%= cl_image_tag episode.podcast.artwork, height: 100, width: 100 %>
           <% end %>
-          <h2 class= 'episode-name hidden-xs'>
+          <h3 class= 'episode-name-ep hidden-xs'>
             <%= link_to episode_path(episode) do %>
               <%= episode.name %>
             <% end %>
-          </h2>
-          <h2 class= 'small-episode-name hidden-sm hidden-md hidden-lg'>
+          </h3>
+          <h4 class= 'small-episode-name-ep hidden-sm hidden-md hidden-lg'>
             <%= link_to episode_path(episode) do %>
               <%= episode.name %>
             <% end %>
-          </h2>
+          </h4>
         </div>
         <div class="bottom-row">
         <p class="podcast-name text-right hidden-xs hidden-sm">

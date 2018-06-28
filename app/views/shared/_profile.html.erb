@@ -1,5 +1,4 @@
 <div class="profile-header">
-  <%=   %>
   <%= link_to image_tag((cl_image_path(user.profile_pic)).gsub("upload", "upload/w_300,h_300,c_fill")), user_path(user), height: 70, width: 70, class: "profile-avatar" %>
   <h3 id="username-profile">
     <%= user.username %>

@@ -3,38 +3,46 @@
     <div class="bottom-line">
       <p><%= strip_tags(podcast.description) %></p>
     </div>
-    <div class="bottom-line">
-      <h5>
-        Total revenue for <%= link_to podcast.name, podcast_path(podcast.id) %>
-      </h5>
-      <p class="cash">
-        $<%= podcast.revenue %>
-      </p>
-    </div>
-    <div class="bottom-line">
-      <h5>
-        Average donation per episode
-      </h5>
-      <p class="cash">$<%= podcast.revenue/podcast.episodes.count %></p>
-    </div>
-    <% if podcast.revenue != 0 %>
+    <div class="grid">
       <div>
-        <h5>
-          Top episodes
+        <h5 class="header-dashboard">
+          Total revenue for <%= link_to podcast.name, podcast_path(podcast.id) %>
         </h5>
-        <ul class="list-inline">
-          <% podcast.top_episodes.each do |e| %>
-            <% if e.revenue != 0 %>
-              <li>
-                <%= link_to e.name, episode_path(e.id) %>
-              </li>
-              <li class="cash">
-                $<%= e.revenue %>
-              </li>
-            <% end %>
-          <% end %>
-        </ul>
+        <p class="cash">
+          $<%= podcast.revenue %>
+        </p>
       </div>
-    <% end %>
+      <div class="top-podcasts">
+        <% if podcast.revenue != 0 %>
+          <div>
+            <h5 class="header-dashboard">
+              Top episodes
+            </h5>
+            <ul class="list-unstyled">
+              <% podcast.top_episodes.each do |e| %>
+                <% if e.revenue != 0 %>
+                  <li>
+                    <ul class="list-inline top-ep">
+                      <li>
+                        <%= link_to e.name, episode_path(e.id) %>
+                      </li>
+                      <li class="cash">
+                        $<%= e.revenue %>
+                      </li>
+                    </ul>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <h5 class="header-dashboard">
+          Average donation per episode
+        </h5>
+        <p class="cash">$<%= podcast.revenue/podcast.episodes.count %></p>
+      </div>
+    </div>
   </div>
 <% end %>
