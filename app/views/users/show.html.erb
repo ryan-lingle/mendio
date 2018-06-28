@@ -6,7 +6,7 @@
   </div>
   <div class="my-donations">
     <% if @user.donations.empty? %>
-      <p>No Donations Yet</p>
+      <h3 class='text-center'>No Donations Yet</h3>
     <% else %>
       <%= render 'shared/feed', user: @user, feed: @user.donations %>
     <% end %>

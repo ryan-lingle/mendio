@@ -40,7 +40,7 @@
     <% if user_signed_in? %>
       <div class="navbar-wagon-item hidden-xs hidden-sm">
         <div class="dropdown">
-          <%= cl_image_tag current_user.profile_pic, height: 35, class: "avatar", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag((cl_image_path(current_user.profile_pic)).gsub("upload", "upload/w_300,h_300,c_fill"), class: "avatar", id: "navbar-wagon-menu", "data-toggle" => "dropdown" )%>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to user_path(current_user) do %>
