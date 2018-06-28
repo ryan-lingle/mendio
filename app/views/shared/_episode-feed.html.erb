@@ -37,7 +37,7 @@
                 <i class="fas fa-star star"></i>
               <% end %>
             <% end %>
-            <%= link_to '#', method: :post do %>
+            <%= link_to '#' do %>
               <i class="fas fa-play"></i>
             <% end %>
             <%= link_to "DONATE", episodes_path, data: { toggle: "modal", target: "#myModal", podcast: episode.podcast.name, episode: episode.name }, class: "btn btn-red btn-sm modal-trigger" %>

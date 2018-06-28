@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_27_100656) do
+ActiveRecord::Schema.define(version: 2018_06_28_074517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,9 @@ ActiveRecord::Schema.define(version: 2018_06_27_100656) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "seen", default: false
+    t.bigint "donation_id"
     t.index ["bookmark_id"], name: "index_notifications_on_bookmark_id"
+    t.index ["donation_id"], name: "index_notifications_on_donation_id"
     t.index ["follower_id"], name: "index_notifications_on_follower_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
@@ -138,6 +140,7 @@ ActiveRecord::Schema.define(version: 2018_06_27_100656) do
   add_foreign_key "donations", "users"
   add_foreign_key "episodes", "podcasts"
   add_foreign_key "notifications", "bookmarks"
+  add_foreign_key "notifications", "donations"
   add_foreign_key "notifications", "users"
   add_foreign_key "saves", "donations"
   add_foreign_key "saves", "users"
