@@ -18,6 +18,7 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.where(user: current_user).find_by(episode: params[:episode_id])
+    @bookmark.notifications.destroy_all
     @bookmark.destroy
   end
 end
