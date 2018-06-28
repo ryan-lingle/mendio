@@ -1,7 +1,9 @@
 <div class="notifications-wrapper">
   <div class="container">
     <% if @notifications.empty? %>
-      <p>No Notifications Yet</p>
+      <div class='feed'>
+      <h4 class="text-center"> No Notifications Yet </h4>
+      </div>
     <% else %>
       <div class="row">
         <div class="col-xs-12 height">
