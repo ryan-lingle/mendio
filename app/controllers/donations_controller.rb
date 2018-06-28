@@ -26,7 +26,9 @@ class DonationsController < ApplicationController
     @donation.episode = @episode
     @donation.user = current_user
     if @donation.save!
-      Notification.create!(user: @influencer, donation: @donation)
+      if @influencer
+        Notification.create!(user: @influencer, donation: @donation)
+      end
       flash[:notice] = "Thank you for donating!"
       # DonationMailer.creation_confirmation(@donation, @user).deliver_now
       redirect_to root_path
