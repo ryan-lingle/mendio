@@ -9,8 +9,7 @@ class BookmarksController < ApplicationController
     bookmark = Bookmark.new
     bookmark.user = current_user
     bookmark.episode = Episode.find(params[:episode_id])
-    bookmark.save
-    if params[:donation_id].present?
+    if bookmark.save! && params[:donation_id].present?
       donation = Donation.find(params[:donation_id])
       Notification.create!(user: donation.user, bookmark: bookmark)
     end
