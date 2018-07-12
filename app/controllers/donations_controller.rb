@@ -17,23 +17,26 @@ class DonationsController < ApplicationController
 
   def create
     @user = current_user
-    @donation = Donation.new(donation_params)
+    @amount = donation_params[:amount]
     @episode = Episode.find(params[:donation][:episode])
-    @influencer = current_user.has_seen?(@episode)
-    if @influencer
-      @donation.influencer = @influencer
-    end
-    @donation.episode = @episode
-    @donation.user = current_user
-    if @donation.save!
+    @podcast = @episode.podcast
+    if BlockIo.withdraw_from_labels :amounts => "#{(@amount.to_f * 0.8).round(10)}", from_labels: @user.label, to_label: @podcast.label, nonce: SecureRandom.hex
+      @donation = Donation.new(donation_params)
+      @influencer = current_user.has_seen?(@episode)
       if @influencer
-        Notification.create!(user: @influencer, donation: @donation)
+        @donation.influencer = @influencer
+        BlockIo.withdraw_from_labels amounts: "#{(@amount.to_f * 0.2).round(10)}", from_labels: @user.label, to_label: @influencer.label, nonce: SecureRandom.hex
       end
-      flash[:notice] = "Thank you for donating!"
-      # DonationMailer.creation_confirmation(@donation, @user).deliver_now
-      redirect_to root_path
-    else
-      render "new"
+      @donation.episode = @episode
+      @donation.user = current_user
+      if @donation.save!
+        Notification.create!(user: @influencer, donation: @donation) if @influencer
+        flash[:notice] = "Thank you for donating!"
+        # DonationMailer.creation_confirmation(@donation, @user).deliver_now
+        redirect_to root_path
+      else
+        render "new"
+      end
     end
   end
 
