@@ -43,3 +43,7 @@
     </div>
   <% end %>
 </div>
+<% if @user == current_user %>
+  address: <%= @user.address%>
+  balance: <%= @user.balance %>
+<% end %>

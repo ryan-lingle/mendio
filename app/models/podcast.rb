@@ -54,4 +54,11 @@ class Podcast < ActiveRecord::Base
     self.episodes.sort_by { |e| -e.revenue }.first(5)
   end
 
+  def address
+    BlockIo.get_address_by_label(label: label)['data']['address']
+  end
+
+  def balance
+    BlockIo.get_address_by_label(label: label)['data']['available_balance']
+  end
 end

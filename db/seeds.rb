@@ -12,7 +12,7 @@ Episode.destroy_all
 
 
 puts 'creating users...'
-25.times do
+5.times do
   name = Faker::FunnyName.name.split(' ')
   user = User.new(
     first_name: name[0],
@@ -29,7 +29,7 @@ end
 
 tim_search = JSON.parse(open('https://itunes.apple.com/search?term=t&media=podcast&entity=podcast').read)
 puts 'creating podcasts and episodes...'
-tim_search['results'].each do |podcast|
+tim_search['results'].first(5).each do |podcast|
   begin
     s = podcast['collectionId']
     puts "Creating #{podcast['collectionName']}..."
@@ -72,33 +72,33 @@ tim_search['results'].each do |podcast|
   end
 end
 
-puts 'creating donations...'
-150.times do
-  Donation.create(user: User.all.sample, description: 'A great podcast!', episode: Episode.all.sample, influencer: User.all.sample, amount: rand(1..10))
-end
+# puts 'creating donations...'
+# 40.times do
+#   Donation.create(user: User.all.sample, description: 'A great podcast!', episode: Episode.all.sample, influencer: User.all.sample, amount: rand(1..10))
+# end
 
-puts 'creating relationships...'
-User.all.each do |user|
-  10.times do
-    other_user = User.all.sample
-    while user == other_user || user.following.include?(other_user)
-      other_user = User.all.sample
-    end
-    user.follow(other_user)
-    Notification.create!(user: other_user, follower: user)
-  end
-end
+# puts 'creating relationships...'
+# User.all.each do |user|
+#   4.times do
+#     other_user = User.all.sample
+#     while user == other_user || user.following.include?(other_user)
+#       other_user = User.all.sample
+#     end
+#     user.follow(other_user)
+#     Notification.create!(user: other_user, follower: user)
+#   end
+# end
 
-puts 'creating bookmarks...'
-User.all.each do |user|
-  3.times do
-    d = Donation.all.sample
-    while user.saved_episodes.include?(d.episode)
-      d = Donation.all.sample
-    end
-    b = Bookmark.create!(user: user, episode: d.episode)
-    Notification.create!(user: d.user, bookmark: b)
-  end
-end
+# puts 'creating bookmarks...'
+# User.all.each do |user|
+#   3.times do
+#     d = Donation.all.sample
+#     while user.saved_episodes.include?(d.episode)
+#       d = Donation.all.sample
+#     end
+#     b = Bookmark.create!(user: user, episode: d.episode)
+#     Notification.create!(user: d.user, bookmark: b)
+#   end
+# end
 
 puts 'creating notifications'

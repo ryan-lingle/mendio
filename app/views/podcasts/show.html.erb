@@ -1,6 +1,8 @@
 <div class="container">
   <div class="feed">
     <h3 class='podcast-title'> <%= @podcast.name %> </h3>
+    <%= @podcast.address %>
+    <%= @podcast.balance %>
     <p><%= strip_tags(@podcast.description) %></p>
     <%= form_tag find_episodes_path, remote: true, method: :post do %>
       <%= hidden_field_tag 'podcast_id', @podcast.id %>

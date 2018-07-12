@@ -23,6 +23,7 @@ class User < ApplicationRecord
   has_many :podcasts, class_name: 'Podcast', foreign_key: "creator_id"
   validates :profile_pic, presence: true
   validates :username, presence: true
+  # validates :label, presence: true
   mount_uploader :profile_pic, ProfilePicUploader
   # after_create :send_welcome_email
   include PgSearch
@@ -73,6 +74,14 @@ class User < ApplicationRecord
   def notification_count
     unseen = self.notifications.select { |n| n.unseen? }
     unseen.count > 0 ? "(#{unseen.count})" : ""
+  end
+
+  def address
+    BlockIo.get_address_by_label(label: label)['data']['address']
+  end
+
+  def balance
+    BlockIo.get_address_by_label(label: label)['data']['available_balance']
   end
 
   private
