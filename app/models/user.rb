@@ -21,7 +21,7 @@ class User < ApplicationRecord
   has_many :views, dependent: :destroy
   has_many :viewed_donations, through: :views, source: :donation
   has_many :podcasts, class_name: 'Podcast', foreign_key: "creator_id"
-  validates :profile_pic, presence: true
+  after_validation :add_default_profile_pic
   validates :username, presence: true
   mount_uploader :profile_pic, ProfilePicUploader
   # after_create :send_welcome_email
@@ -80,5 +80,11 @@ class User < ApplicationRecord
     def send_welcome_email
       return if seed
       UserMailer.welcome(self).deliver_now
+    end
+
+    def add_default_profile_pic
+      if self.remote_profile_pic_url.nil?
+        self.remote_profile_pic_url = 'https://pbs.twimg.com/media/C8QqGm4UQAAUiET.jpg'
+      end
     end
 end
