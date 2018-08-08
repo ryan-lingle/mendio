@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_user, except: [ :index, :dashboard ]
+  before_action :set_user, except: [ :index, :dashboard, :new_podcast, :create_account, :account_info]
   def index
     PgSearch::Multisearch.rebuild(User)
     PgSearch::Multisearch.rebuild(Podcast)
@@ -30,7 +30,18 @@ class UsersController < ApplicationController
     @podcasts = @user.podcasts
   end
 
-  def list_podcast
+  def new_podcast
+  end
+
+  def create_account
+    @user = current_user
+    ip = request.remote_ip
+    @user.create_account(params, ip)
+    redirect_to dashboard_path
+  end
+
+  def account_info
+
   end
 
   private

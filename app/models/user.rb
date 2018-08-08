@@ -29,6 +29,13 @@ class User < ApplicationRecord
   PgSearch.multisearch_options = { using: { tsearch: { prefix: true, dictionary: "english" } } }
   multisearchable against: [ :username ]
   attr_accessor :seed
+  validate :account_exists
+
+  def account_exists
+    if account == true
+      User.validates :account_id, presence: true, uniqueness: true
+    end
+  end
 
   def feed
     feed = []
@@ -73,6 +80,35 @@ class User < ApplicationRecord
   def notification_count
     unseen = self.notifications.select { |n| n.unseen? }
     unseen.count > 0 ? "(#{unseen.count})" : ""
+  end
+
+  def create_account(params, ip)
+    account = Stripe::Account.create(
+      type: 'custom',
+      country: 'US',
+      email: self.email
+    )
+    account.legal_entity.address.city = params[:city]
+    account.legal_entity.address.line1 = params[:line1]
+    account.legal_entity.address.line2 = params[:line2] if params[:line2].present?
+    account.legal_entity.address.postal_code = params[:postal_code]
+    account.legal_entity.address.state = params[:state]
+    account.legal_entity.dob.day = params[:day]
+    account.legal_entity.dob.month = params[:month]
+    account.legal_entity.dob.year = params[:year]
+    account.legal_entity.first_name = self.first_name
+    account.legal_entity.last_name = self.last_name
+    account.legal_entity.ssn_last_4 = params[:ssn]
+    account.legal_entity.type = 'individual'
+    account.tos_acceptance.date = Time.now.to_time.to_i
+    account.tos_acceptance.ip = ip
+    account.external_accounts.create(external_account: params[:stripeToken])
+    account.payout_schedule.interval = 'manual'
+    account.debit_negative_balances = true
+    account.save
+    self.account_id = account.id
+    self.account = true
+    self.save!
   end
 
   private

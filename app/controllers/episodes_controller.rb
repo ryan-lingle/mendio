@@ -14,9 +14,13 @@ class EpisodesController < ApplicationController
   end
 
   def index
-    respond_to do |format|
-      format.html { redirect_to podcast_path(params[:podcast_id]) }
-      format.js
+    if current_user.account
+      respond_to do |format|
+        format.html { redirect_to podcast_path(params[:podcast_id]) }
+        format.js
+      end
+    else
+      redirect_to purchase_path
     end
   end
 

@@ -1,0 +1,12 @@
+<form action="your-server-side-code" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_w5DNB78RwsSQ3ERFXcvAEpEg"
+    data-amount="999"
+    data-name="mendio.co"
+    data-email="<%= current_user.email %>"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto">
+  </script>
+</form>

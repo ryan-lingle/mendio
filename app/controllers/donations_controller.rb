@@ -17,23 +17,27 @@ class DonationsController < ApplicationController
 
   def create
     @user = current_user
-    @donation = Donation.new(donation_params)
-    @episode = Episode.find(params[:donation][:episode])
-    @influencer = current_user.has_seen?(@episode)
-    if @influencer
-      @donation.influencer = @influencer
-    end
-    @donation.episode = @episode
-    @donation.user = current_user
-    if @donation.save!
+    if @user.account
+      @donation = Donation.new(donation_params)
+      @episode = Episode.find(params[:donation][:episode])
+      @influencer = current_user.has_seen?(@episode)
       if @influencer
-        Notification.create!(user: @influencer, donation: @donation)
+        @donation.influencer = @influencer
       end
-      flash[:notice] = "Thank you for donating!"
-      # DonationMailer.creation_confirmation(@donation, @user).deliver_now
-      redirect_to root_path
+      @donation.episode = @episode
+      @donation.user = current_user
+      if @donation.save!
+        flash[:notice] = "Thank you for donating!"
+        if @influencer
+          Notification.create!(user: @influencer, donation: @donation)
+        end
+        # DonationMailer.creation_confirmation(@donation, @user).deliver_now
+        redirect_to root_path
+      else
+        render "new"
+      end
     else
-      render "new"
+      redirect_to list_podcast_path(episode: @episode)
     end
   end
 
