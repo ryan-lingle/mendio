@@ -1,20 +1,26 @@
 <div class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand hidden-lg hidden-md" do %>
-    <%= image_tag "https://png.icons8.com/metro/1600/m-lowercase.png", height: 50 %>
+    <%= image_tag "v-logo.png", height: 50 %>
   <% end %>
 
   <%= link_to root_path, class: "navbar-wagon-brand-desktop hidden-xs hidden-sm" do %>
-    <%= image_tag "https://png.icons8.com/metro/1600/m-lowercase.png", height: 50 %>
+    <%= image_tag "m-logo.png", height: 50 %>
   <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-left hidden-xs hidden-sm">
     <% if user_signed_in? %>
       <!-- Links when logged in -->
-      <%= link_to "NEW DONATION", episodes_path, data: { toggle: "modal", target: "#myModal", podcast: '', episode: '' }, class: "navbar-wagon-item navbar-wagon-link menu-item modal-trigger" %>
+      <div class="navbar-height">
+       <%= link_to "NEW DONATION", episodes_path, data: { toggle: "modal", target: "#myModal", podcast: '', episode: '' }, class: "navbar-wagon-item navbar-wagon-link menu-item modal-trigger" %>
+      </div>
+      <div class="navbar-height <% if current_page?('/bookmarks') %>active<% end %>">
       <%= link_to "BOOKMARKS", bookmarks_path, class: "navbar-wagon-item navbar-wagon-link menu-item" %>
+      </div>
+      <div class="navbar-height <% if current_page?('/notifications') %>active<% end %>">
       <%= link_to "NOTIFICATIONS #{current_user.notification_count}", notifications_path, class: "navbar-wagon-item navbar-wagon-link menu-item" %>
+      </div>
     <% end %>
   </div>
 
@@ -34,7 +40,7 @@
     <% if user_signed_in? %>
       <div class="navbar-wagon-item hidden-xs hidden-sm">
         <div class="dropdown">
-          <%= cl_image_tag current_user.profile_pic, height: 35, class: "avatar", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag((cl_image_path(current_user.profile_pic)).gsub("upload", "upload/w_300,h_300,c_fill"), class: "avatar", id: "navbar-wagon-menu", "data-toggle" => "dropdown" )%>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to user_path(current_user) do %>
@@ -51,11 +57,6 @@
             <li>
               <%= link_to new_podcast_path do %>
                 <i class="fas fa-plus"></i>  <%= t(".profile", default: "List a Podcast") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
               <% end %>
             </li>
             <li>

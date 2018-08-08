@@ -1,3 +1,9 @@
-<%= render 'shared/episode_feed', user: @user, feed: @library %>
-
+<% if @library.empty? %>
+  <div class="feed">
+    <h4 class="text-center">No Bookmarks Yet </h4>
+  <h5 class="text-center">Bookmark an episode by clicking the star icon on <%= link_to 'your feed', root_path %></h5>
+  </div>
+<% else %>
+  <%= render 'shared/episode-feed', user: @user, feed: @library %>
+<% end %>
 <div class="hidden user-library"></div>

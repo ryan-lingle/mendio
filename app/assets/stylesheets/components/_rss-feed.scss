@@ -19,7 +19,7 @@
 
 
 #rss {
-  width: 125%;
+  width: 100%;
   border-radius: 4px;
   border: none;
   padding: 25px;
@@ -32,7 +32,6 @@
   color: red;
 }
 
-
 .list-podcast--image {
   display: flex;
 }
@@ -43,8 +42,6 @@
   margin-bottom: 85px;
 }
 
-h4 {
-  text-align: center;
-  padding-bottom: 25px;
-  margin-top: 0px;
+.grid-container h4 {
+  margin-bottom: 40px;
 }

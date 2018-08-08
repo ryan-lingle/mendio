@@ -13,8 +13,38 @@
   }
 }
 
+.star:hover {
+  color: rgba(230, 126, 34, 0.7);
+  transition: ease 0.3s;
+}
+
+.card-first{
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.card-last{
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
 .yellow {
   color: $yellow;
+}
+
+.episode-name-ep {
+  font-size: 18px;
+  padding-left: 30px;
+  padding-right: 10px;
+  padding-top: 10px;
+  font-weight: normal;
+}
+
+.small-episode-name-ep {
+  font-size: 16px !important;
+  padding-left: 10px !important;
+  margin-top: -20px !important;
+  padding-top: 0px !important;
+  padding-bottom: 20px !important;
 }
 
 .small-episode-name {
@@ -35,11 +65,27 @@
   justify-content: space-between;
 }
 
-.top-row .profile-pic {
+.top-row-ep {
+  display: flex;
+  h3 {
+    margin-top: 20px !important;
+  }
+  h4 {
+    margin-top: 10px !important;
+  }
+}
+
+.profile-pic img {
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   position: absolute;
-  left: 20px;
-  top: 10px;
+  left: 23px;
+  top: 23px;
+  &:hover {
+    opacity: 0.95;
+    transition: ease 0.4s ease;
+  }
 }
 
 .top-row h2 {
@@ -69,6 +115,10 @@
 
 .artwork {
   flex: 1 0 auto;
+  img {
+    border-radius: 3px;
+    margin-top: 10px;
+  }
 }
 
 .favo-icons {
@@ -78,9 +128,9 @@
     font-size: 16px;
   }
   a {
-  text-decoration: none;
-  color: #D9D8E8;
-  margin-right: 15px;
+    text-decoration: none;
+    color: #D9D8E8 !important;
+    margin-right: 15px;
     &:hover {
       color: #ECECED;
       transition: ease 0.4s;
@@ -96,9 +146,9 @@
     font-size: 16px;
   }
   a {
-  text-decoration: none;
-  color: #D9D8E8;
-  margin-right: 15px;
+    text-decoration: none;
+    color: #D9D8E8;
+    margin-right: 15px;
     &:hover {
       color: #ECECED;
       transition: ease 0.4s;
@@ -116,9 +166,9 @@
   margin-top: 0;
   margin-bottom: 0;
   margin-right: 60px;
-  margin-left: 10px;
-  font-family: 'Press Start 2P';
-  font-size: 16px;
+  margin-left: 23px;
+  font-family: 'Raleway';
+  font-size: 18px;
   color: $green;
 }
 

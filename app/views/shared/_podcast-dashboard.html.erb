@@ -1,0 +1,48 @@
+<% @user.podcasts.each_with_index do |podcast, index| %>
+  <div class = "podcast-<%=index%> podcast-group">
+    <div class="bottom-line">
+      <p><%= strip_tags(podcast.description) %></p>
+    </div>
+    <div class="grid">
+      <div>
+        <h5 class="header-dashboard">
+          Total revenue for <%= link_to podcast.name, podcast_path(podcast.id) %>
+        </h5>
+        <p class="cash">
+          $<%= podcast.revenue %>
+        </p>
+      </div>
+      <div class="top-podcasts">
+        <% if podcast.revenue != 0 %>
+          <div>
+            <h5 class="header-dashboard">
+              Top episodes
+            </h5>
+            <ul class="list-unstyled">
+              <% podcast.top_episodes.each do |e| %>
+                <% if e.revenue != 0 %>
+                  <li>
+                    <ul class="list-inline top-ep">
+                      <li>
+                        <%= link_to e.name, episode_path(e.id) %>
+                      </li>
+                      <li class="cash">
+                        $<%= e.revenue %>
+                      </li>
+                    </ul>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <h5 class="header-dashboard">
+          Average donation per episode
+        </h5>
+        <p class="cash">$<%= podcast.revenue/podcast.episodes.count %></p>
+      </div>
+    </div>
+  </div>
+<% end %>

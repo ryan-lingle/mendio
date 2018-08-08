@@ -1,17 +1,19 @@
 <div class="feed">
-  <% feed.each do |donation| %>
-    <div class="card donation-card" data="<%= donation.id %>">
+  <% feed.each_with_index do |donation, index| %>
+    <div class="card donation-card <% if index == 0 %>card-first<% end %> <% if index == feed.size - 1 %>card-last<% end %>" data="<%= donation.id %>">
       <div class="top-row">
-        <%= link_to user_path(donation.user) do %>
-          <%= cl_image_tag donation.user.profile_pic, height: 70, width: 70, class: "profile-pic" %>
-        <% end %>
+        <%= link_to image_tag((cl_image_path(donation.user.profile_pic)).gsub("upload", "upload/w_300,h_300,c_fill")), user_path(donation.user), class: "profile-pic" %>
         <p class= 'username'>
           <strong>
+            <%= link_to user_path(donation.user) do %>
             <%= donation.user.username %>
           </strong>
+          <% end %>
         </p>
         <h2 class= 'episode-name hidden-xs'>
-          <%= donation.episode.name %>
+          <%= link_to episode_path(donation.episode) do %>
+            <%= donation.episode.name %>
+          <% end %>
         </h2>
         <h2 class= 'small-episode-name hidden-sm hidden-md hidden-lg'>
           <%= donation.episode.name %>
@@ -32,11 +34,11 @@
               <i class="yellow fas fa-star star"></i>
             <% end %>
           <% else %>
-            <%= link_to bookmarks_path(episode_id: donation.episode, donation_id: donation), method: :post do %>
+            <%= link_to bookmarks_path(episode_id: donation.episode, donation_id: donation), method: :post, remote: true, class: "bookmark-toggle" do %>
               <i class="fas fa-star star"></i>
             <% end %>
           <% end %>
-          <%= link_to '#', method: :post do %>
+          <%= link_to '#' do %>
             <i class="fas fa-play"></i>
           <% end %>
         </div>
@@ -53,3 +55,25 @@
     </div>
   <% end %>
 </div>
+
+
+<div class="toast"></div>
+
+<script>
+
+  //this should be in a different file
+  document.querySelectorAll(".bookmark-toggle").forEach((item) => {
+  item.addEventListener("ajax:success", (event) => {
+    const toast = document.querySelector(".toast");
+    toast.innerHTML = "ADDED TO BOOKMARKS";
+    toast.classList.add("show");
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 4000);
+  });
+});
+
+</script>
+
+
+

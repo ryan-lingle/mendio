@@ -8,11 +8,12 @@
     max-width: 1140px;
     width: 100%;
     .social-icons {
-      padding-left: 100px;
-      padding-right: 100px;
+      padding-left: 150px;
+      padding-right: 150px;
     }
   }
   .wrapper-profile {
+    border-radius: 3px;
     width: 320px;
     height: 400px;
   }
@@ -21,12 +22,14 @@
     position: fixed;
     margin-top: 30px;
     left: 10px;
-    background: white;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     margin-left: 10px;
     font-size: 100%;
+  }
+  .profile-container {
+    margin-right: 30px;
   }
 }
 
@@ -43,7 +46,7 @@
   }
   .profile-wrapper {
     max-width: 720px;
-    width: 100%
+    width: 100%;
   }
   .profile {
     margin-left: 0;
@@ -58,14 +61,13 @@
 
 // ------------------------------------------------
 
-$purple-gradient: linear-gradient(to bottom right, $blue, $green);
-$blue1-gradient: linear-gradient(to bottom right, $red, $yellow);
-$blue2-gradient: linear-gradient(to bottom right, $green, $yellow);
-$another-gradient: linear-gradient(to bottom right, $yellow, $orange);
-$h1-gradient: linear-gradient(to bottom right, $blue, $light-gray);
-$h2-gradient: linear-gradient(to bottom right, $red, $light-gray);
-$h3-gradient: linear-gradient(to bottom left, $yellow, $light-gray);
-$h4-gradient: linear-gradient(to bottom right, $green, $light-gray);
+$blue1-gradient: linear-gradient(to bottom right, $orange, #D22B34);
+$blue2-gradient: linear-gradient(to bottom right, #D22B34, $yellow);
+$another-gradient: linear-gradient(to bottom right, #E93941, $orange);
+$h1-gradient: linear-gradient(to bottom right, #E93941, #D22B34);
+$h2-gradient: linear-gradient(to bottom right, $red, $orange);
+$h3-gradient: linear-gradient(to bottom left, #E93941, $red);
+$h4-gradient: linear-gradient(to bottom right, #D22B34, $orange);
 
 // ------------------------------------------------
 .profile-wrapper {
@@ -83,6 +85,10 @@ $h4-gradient: linear-gradient(to bottom right, $green, $light-gray);
     background-color: rgba(255, 255, 255, 0.77);
     transition: all 0.4s;
   }
+}
+
+.prof-margin {
+  margin-bottom: 10px;
 }
 
 .wrapper-profile {
@@ -104,11 +110,21 @@ $h4-gradient: linear-gradient(to bottom right, $green, $light-gray);
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
+    &:hover {
+      opacity: 0.95;
+      transition: ease 0.6s ease;
+    }
   }
+}
+
+#username-profile {
+  margin-top: 5px;
+  margin-bottom: 25px;
 }
 
 .profile-header {
   text-align: center;
+  margin-top: 10px;
 }
 
 .social-icons {
@@ -126,34 +142,35 @@ $h4-gradient: linear-gradient(to bottom right, $green, $light-gray);
     }
     p {
       font-size: 12px;
+      letter-spacing: 0.5px;
     }
     .tab {
       color: #fff;
-      width: 60px;
-      height: 60px;
-      font-size: 28px;
-      line-height: 60px;
+      width: 30px;
+      height: 30px;
+      font-size: 12px;
+      line-height: 30px;
       text-align: center;
       border-radius: 30px;
     }
     &:nth-of-type(1) {
       padding-left: 20px;
       .tab {
-        background: $purple-gradient;
+        background: $h1-gradient;
         &:hover {
           cursor: pointer;
-          background: $h1-gradient;
-          transition: all 0.4s;
+          background: $blue1-gradient;
+          transition: ease 0.4s ease;
         }
       }
     }
     &:nth-of-type(2) {
       .tab {
-        background: $blue1-gradient;
+        background: $blue2-gradient;
         &:hover {
           cursor: pointer;
           background: $h2-gradient;
-          transition: all 0.4s;
+          transition: ease 0.4s ease;
         }
       }
     }
@@ -164,12 +181,10 @@ $h4-gradient: linear-gradient(to bottom right, $green, $light-gray);
         -o-transform: scaleX(-1);
         -webkit-transform: scaleX(-1);
         transform: scaleX(-1);
-        filter: FlipH;
-        -ms-filter: "FlipH";
         &:hover {
           cursor: pointer;
           background: $h3-gradient;
-          transition: all 0.4s;
+          transition: ease 0.4s ease;
         }
       }
     }
@@ -179,7 +194,7 @@ $h4-gradient: linear-gradient(to bottom right, $green, $light-gray);
         &:hover {
           cursor: pointer;
           background: $h4-gradient;
-          transition: all 0.4s;
+          transition: ease 0.4s ease;
         }
       }
     }

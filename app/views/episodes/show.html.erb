@@ -1,4 +1,7 @@
 <div class="container">
-  <h4><p>DONATIONS TO THIS EPISODE</p></h4>
-  <%= render 'shared/feed', user: current_user, feed: @donations %>
+  <div class="feed">
+    <h4><p>DONATIONS TO THIS EPISODE</p></h4>
+    <p><%= strip_tags(@episode.description) %></p>
+    <%= render 'shared/feed', user: current_user, feed: @donations %>
+  </div>
 </div>

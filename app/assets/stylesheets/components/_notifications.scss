@@ -23,6 +23,7 @@
 
 .notifications {
   display: flex;
+  align-items: center;
   &:first-child {
     margin-top: 30px;
   }
@@ -30,7 +31,6 @@
 
 .size {
   width: 100%;
-  margin-left: 50px;
   padding: 10px;
   a {
     text-decoration: none;
@@ -38,8 +38,16 @@
   }
 }
 
+@media (min-width: 700px) {
+  .size {
+    width: 100%;
+    margin-left: 20px;
+  }
+}
+
 .size a:hover {
   color: #0F1108;
+  transition: ease 0.3s;
 }
 
 .height {
@@ -48,6 +56,6 @@
 
 .timestamp {
   font-size: 12px;
-  width: 140px;
+  width: 70px;
   color: #645853;
 }

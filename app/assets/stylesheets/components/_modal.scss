@@ -10,12 +10,12 @@
 .modal-header {
   border-bottom: none;
   background-color: $light-gray;
-  border-left: 6px solid $green;
+  border-left: 6px solid $red;
 }
 
 .modal-body {
   background-color: $light-gray;
-  border-left: 6px solid $green;
+  border-left: 6px solid $red;
 }
 
 #donation_amount {
@@ -29,9 +29,15 @@
   border-radius: 3px;
   border: 0;
   padding-left: 10px;
-  width: 90%;
+  width: 100%;
 }
 
 .search {
   width: 100% !important;
+}
+
+.no-decoration a:focus {
+  outline: none !important;
+  outline-offset: none !important;
+  text-decoration: none !important;
 }

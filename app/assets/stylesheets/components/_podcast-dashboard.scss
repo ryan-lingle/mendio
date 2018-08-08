@@ -1,0 +1,77 @@
+.podcast-tab {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.1);
+  padding-top: 10px;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  padding-bottom: 5px !important;
+  margin-right: -5px;
+  background: rgba(255, 255, 255, 0.3);
+  border-left: 0.05px solid rgba(0, 0, 0, 0.1);
+  &:hover {
+    background-color: white;
+    transition: ease 0.3 ease;
+  }
+  a {
+    color: $gray;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .active-tab {
+    background-color: white;
+  }
+}
+
+.header-dashboard {
+  font-weight: 600;
+}
+
+.current {
+  background: white;
+}
+
+.cash {
+  color: $green;
+}
+
+.bottom-line {
+  padding-bottom: 20px;
+  border-bottom: 0.4px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.dashboard-tab {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.top-ep {
+  margin-bottom: 10px;
+}
+
+.top-podcasts {
+  grid-column: 2 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 50% 50%;
+  grid-column-gap: 20px;
+}
+
+.podcast-dashboard {
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-left: 0.05px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 0.05px solid rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
